@@ -9,6 +9,8 @@ import Home from "@/pages/Home";
 import FundDetail from "@/pages/FundDetail";
 import Compare from "@/pages/Compare";
 import { AsOfProvider } from "@/lib/asOfContext";
+import { BenchmarkProvider } from "@/lib/benchmarkContext";
+import Benchmarks from "@/pages/Benchmarks";
 
 function AppRouter() {
   return (
@@ -16,6 +18,7 @@ function AppRouter() {
       <Route path="/" component={Home} />
       <Route path="/fund/:id" component={FundDetail} />
       <Route path="/compare" component={Compare} />
+      <Route path="/benchmarks" component={Benchmarks} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -26,10 +29,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AsOfProvider>
+          <BenchmarkProvider>
           <Toaster />
           <Router hook={useHashLocation}>
             <AppRouter />
           </Router>
+          </BenchmarkProvider>
         </AsOfProvider>
       </TooltipProvider>
     </QueryClientProvider>

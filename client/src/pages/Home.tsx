@@ -204,7 +204,7 @@ export default function Home() {
   }
 
   // KPIs
-  const totalAUM = useMemo(() => funds.reduce((s, f) => s + f.fundSize, 0), []);
+  const totalAUM = useMemo(() => funds.reduce((s, f) => s + (f.fundSize ?? 0), 0), []);
   const avg1Y = useMemo(() => {
     const vals = funds.map((f) => k(f).return1Y).filter((v): v is number => v !== null);
     return vals.reduce((a, b) => a + b, 0) / (vals.length || 1);
@@ -258,7 +258,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* HEADER — dark navy band */}
       <header className="bg-sb1-navy text-white">
-        <div className="max-w-[1400px] mx-auto px-6 py-6 flex items-center justify-between gap-4">
+        <div className="max-w-[1400px] mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <SB1Logo size={40} />
             <div>
@@ -268,8 +268,11 @@ export default function Home() {
               <div className="text-sm text-white/70 -mt-0.5">Fund Dashboard</div>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <DateSelector variant="dark" />
+            <Link href="/benchmarks" data-testid="link-benchmarks" className="inline-flex items-center min-h-11 px-3 rounded-md border border-white/30 text-sm hover:bg-white/10">
+              Benchmark data
+            </Link>
             <div className="hidden md:flex flex-col items-end text-[11px] text-white/60 leading-tight">
               <span>
                 Holdings per{" "}
@@ -296,7 +299,7 @@ export default function Home() {
             icon={Wallet}
             label="Total AUM"
             value={formatCurrencyNOK(totalAUM)}
-            sub="across 12 funds"
+            sub={`across ${funds.length} funds`}
           />
           <KpiCard
             icon={TrendingUp}
@@ -311,25 +314,25 @@ export default function Home() {
           <KpiCard
             icon={Briefcase}
             label="Funds Managed"
-            value="12"
-            sub="6 Equity / 6 Fixed Income"
+            value={String(funds.length)}
+            sub={`${equityFunds.length} Equity / ${fixedIncomeFunds.length} Fixed Income`}
           />
         </section>
 
         {/* Tabs + Table */}
         <section>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-wrap gap-3 items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-foreground">Fund Performance</h2>
             <Tabs value={tab} onValueChange={(v) => setTab(v as any)}>
               <TabsList>
                 <TabsTrigger value="all" data-testid="tab-all">
-                  All (12)
+                  All ({funds.length})
                 </TabsTrigger>
                 <TabsTrigger value="equity" data-testid="tab-equity">
-                  Equity (6)
+                  Equity ({equityFunds.length})
                 </TabsTrigger>
                 <TabsTrigger value="fi" data-testid="tab-fi">
-                  Fixed Income (6)
+                  Fixed Income ({fixedIncomeFunds.length})
                 </TabsTrigger>
               </TabsList>
             </Tabs>

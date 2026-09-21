@@ -5,20 +5,18 @@ import { useMemo, useState } from "react";
 import { Link, useRoute } from "wouter";
 import {
   getFundById,
-  getAlignedCumulativeGrowth,
   DATA_DATES,
   type Fund,
 } from "@/lib/fundData";
 import { useAsOf, getKpisForAsOf, formatAsOfDate } from "@/lib/asOfContext";
 import { DateSelector } from "@/components/DateSelector";
+import { ReturnExplorer } from "@/components/ReturnExplorer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ArrowLeft } from "lucide-react";
 import {
   ResponsiveContainer,
-  LineChart,
-  Line,
   BarChart,
   Bar,
   XAxis,
@@ -37,7 +35,6 @@ import {
   SB1Logo,
   CHART_COLORS,
   formatCurrencyNOK,
-  formatCompact,
 } from "@/components/shared";
 
 function ProfileItem({ label, value }: { label: string; value: React.ReactNode }) {
@@ -77,16 +74,8 @@ function KpiRow({
 }
 
 export default function FundDetail() {
-  const { asOf } = useAsOf();
   const [, params] = useRoute("/fund/:id");
   const fund: Fund | undefined = params ? getFundById(params.id) : undefined;
-  const [kpiTab, setKpiTab] = useState("returns");
-  const [exposureTab, setExposureTab] = useState(
-    fund?.assetClass === "Fixed Income" ? "fi-sectors" : "sectors"
-  );
-  // KPI for valgt asOf-dato
-  const kpi = useMemo(() => fund ? getKpisForAsOf(fund, asOf) : null, [fund, asOf]);
-
   if (!fund) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -99,35 +88,24 @@ export default function FundDetail() {
       </div>
     );
   }
+  return <FundDetailContent key={fund.id} fund={fund} />;
+}
 
-  // NOK 10,000 growth curve aligned with benchmark.
-  // The helper already returns values seeded at NOK 10,000.
-  const growthData = useMemo(() => {
-    const aligned = getAlignedCumulativeGrowth(fund);
-    const fundArr = aligned.fund;
-    const benchArr = aligned.benchmark || [];
-    const points: { date: string; fund: number; benchmark?: number }[] = [];
-    for (let i = 0; i < fundArr.length; i++) {
-      const f = fundArr[i];
-      const b = benchArr[i];
-      points.push({
-        date: f.date,
-        fund: Math.round(f.value),
-        benchmark: b ? Math.round(b.value) : undefined,
-      });
-    }
-    return points;
-  }, [fund]);
-  const hasBenchmark = (fund.benchmarkReturns?.length ?? 0) > 0;
-
+function FundDetailContent({ fund }: { fund: Fund }) {
+  const { asOf } = useAsOf();
+  const [kpiTab, setKpiTab] = useState("returns");
+  const [exposureTab, setExposureTab] = useState(
+    fund.assetClass === "Fixed Income" ? "fi-sectors" : "sectors"
+  );
+  const kpi = useMemo(() => getKpisForAsOf(fund, asOf), [fund, asOf]);
   // Last 24 months bars
   const monthly24 = useMemo(
     () =>
-      fund.monthlyReturns.slice(-24).map((r) => ({
+      fund.monthlyReturns.filter(r => r.date <= asOf).slice(-24).map((r) => ({
         date: r.date.slice(0, 7),
         value: r.value,
       })),
-    [fund]
+    [fund, asOf]
   );
 
   // Exposure helpers
@@ -225,7 +203,7 @@ export default function FundDetail() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <DateSelector variant="dark" />
               {fund.medalistRating && (
                 <div className="text-right">
@@ -268,14 +246,14 @@ export default function FundDetail() {
                 value={<span className="text-xs">{fund.morningstarCategory}</span>}
               />
               <ProfileItem
-                label="Benchmark"
+                label="Legacy benchmark metadata"
                 value={<span className="text-xs">{fund.primaryBenchmark}</span>}
               />
               <ProfileItem
                 label="Fund Size"
                 value={
                   <span className="font-mono">
-                    {fund.fundSizeFormatted || formatCurrencyNOK(fund.fundSize)}
+                    {fund.fundSizeFormatted || (fund.fundSize === null ? "N/A" : formatCurrencyNOK(fund.fundSize))}
                   </span>
                 }
               />
@@ -283,7 +261,7 @@ export default function FundDetail() {
                 label={`NAV (${fund.displayCurrency})`}
                 value={
                   <>
-                    <div className="font-mono">{fund.nav.toFixed(4)}</div>
+                    <div className="font-mono">{fund.nav?.toFixed(4) ?? "N/A"}</div>
                     <div className="text-[10px] text-muted-foreground font-mono">
                       {fund.navDate}
                     </div>
@@ -294,69 +272,7 @@ export default function FundDetail() {
           </CardContent>
         </Card>
 
-        {/* Performance chart */}
-        <Card>
-          <CardContent className="p-5">
-            <div className="flex items-baseline justify-between mb-1 flex-wrap gap-2">
-              <h2 className="text-base font-semibold">Growth of NOK 10,000</h2>
-              <span className="text-xs text-muted-foreground">
-                Since {growthData[0]?.date} · vs. {fund.primaryBenchmark}
-              </span>
-            </div>
-            <div className="h-80 mt-3">
-              <ResponsiveContainer>
-                <LineChart data={growthData} margin={{ top: 10, right: 20, bottom: 0, left: 10 }}>
-                  <CartesianGrid stroke="hsl(var(--border))" strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="date"
-                    stroke="hsl(var(--muted-foreground))"
-                    tick={{ fontSize: 10, fontFamily: "JetBrains Mono, monospace" }}
-                    minTickGap={40}
-                  />
-                  <YAxis
-                    stroke="hsl(var(--muted-foreground))"
-                    tick={{ fontSize: 10, fontFamily: "JetBrains Mono, monospace" }}
-                    tickFormatter={(v) => formatCompact(v)}
-                    width={56}
-                  />
-                  <RechartsTooltip
-                    contentStyle={{
-                      background: "hsl(var(--popover))",
-                      border: "1px solid hsl(var(--border))",
-                      borderRadius: 8,
-                      fontSize: 12,
-                    }}
-                    formatter={(v: any) =>
-                      typeof v === "number"
-                        ? `NOK ${v.toLocaleString("nb-NO", { maximumFractionDigits: 0 })}`
-                        : "—"
-                    }
-                  />
-                  <Legend wrapperStyle={{ fontSize: 11 }} iconSize={10} />
-                  <Line
-                    type="monotone"
-                    dataKey="fund"
-                    name={fund.shortName}
-                    stroke="#1a3c7e"
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                  {hasBenchmark && (
-                    <Line
-                      type="monotone"
-                      dataKey="benchmark"
-                      name="Benchmark"
-                      stroke="#e60000"
-                      strokeWidth={2}
-                      strokeDasharray="4 3"
-                      dot={false}
-                    />
-                  )}
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
+        <ReturnExplorer key={`${fund.id}-${asOf}`} fund={fund} asOf={asOf} />
 
         {/* KPI Scorecard tabs */}
         <Card>

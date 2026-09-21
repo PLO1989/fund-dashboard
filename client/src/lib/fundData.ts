@@ -152,6 +152,7 @@ export interface ManagerData {
 }
 
 export interface FundEnrichment {
+  equitySectors?: { asOfDate?: string; portfolio: Record<string, number | null> };
   assetAllocation?: { asOfDate?: string; portfolio: AssetAllocBucket; benchmark: AssetAllocBucket };
   marketMaturity?: MarketMaturity;
   regional?: RegionalSplit;

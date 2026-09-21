@@ -61,7 +61,7 @@ export function getKpisForAsOf(fund: Fund, asOf: string): KpiSnapshot {
     return5Y: fund.return5Y,
     stdDev3Y: fund.stdDev3Y,
     sharpe3Y: fund.sharpe3Y,
-    maxDrawdown3Y: fund.maxDrawdown3Y,
+    maxDrawdown3Y: null,
   };
 }
 

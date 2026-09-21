@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SpareBank 1 Forvaltning — Fund Dashboard
+ * Dark navy primary, SB1 red accent
+ * Source Sans 3 body, JetBrains Mono numerals
+ */
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
+
+  --background: 0 0% 100%;
+  --foreground: 220 30% 15%;
+  --border: 220 10% 91%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 15%;
+  --card-border: 220 10% 91%;
+
+  --sidebar: 220 30% 18%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-border: 220 30% 25%;
+  --sidebar-primary: 220 70% 20%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 30% 25%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-ring: 220 70% 20%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 15%;
+  --popover-border: 220 10% 91%;
+
+  --primary: 220 70% 20%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 8% 96%;
+  --secondary-foreground: 220 30% 25%;
+  --muted: 220 8% 96%;
+  --muted-foreground: 220 8% 45%;
+  --accent: 220 8% 96%;
+  --accent-foreground: 220 30% 20%;
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 220 10% 88%;
+  --ring: 220 70% 20%;
+
+  /* Charts: navy-dominant palette with red accent */
+  --chart-1: 220 70% 20%;
+  --chart-2: 210 55% 35%;
+  --chart-3: 200 50% 50%;
+  --chart-4: 0 80% 50%;
+  --chart-5: 215 35% 65%;
+
+  /* SB1 brand custom variables */
+  --sb1-navy: 220 70% 20%;
+  --sb1-navy-light: 220 50% 35%;
+  --sb1-navy-dark: 220 75% 12%;
+  --sb1-red: 0 80% 50%;
+  --sb1-positive: 145 45% 35%;
+  --sb1-negative: 0 80% 50%;
+
+  --font-sans: "Source Sans 3", "Source Sans Pro", Inter, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", Menlo, monospace;
+  --radius: 0.5rem;
+
+  --shadow-2xs: 0px 1px 2px 0px hsl(220 30% 15% / 0.04);
+  --shadow-xs: 0px 1px 2px 0px hsl(220 30% 15% / 0.05);
+  --shadow-sm: 0px 1px 3px 0px hsl(220 30% 15% / 0.07);
+  --shadow: 0px 2px 6px -1px hsl(220 30% 15% / 0.08);
+  --shadow-md: 0px 4px 10px -2px hsl(220 30% 15% / 0.10);
+  --shadow-lg: 0px 8px 18px -4px hsl(220 30% 15% / 0.12);
+  --shadow-xl: 0px 14px 28px -6px hsl(220 30% 15% / 0.14);
+  --shadow-2xl: 0px 24px 48px -12px hsl(220 30% 15% / 0.18);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --primary-border: hsl(var(--primary));
+  --secondary-border: hsl(var(--secondary));
+  --muted-border: hsl(var(--muted));
+  --accent-border: hsl(var(--accent));
+  --destructive-border: hsl(var(--destructive));
+}
+
+.dark {
+  --button-outline: rgba(255, 255, 255, 0.1);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255, 255, 255, 0.04);
+  --elevate-2: rgba(255, 255, 255, 0.09);
+
+  --background: 220 30% 8%;
+  --foreground: 0 0% 98%;
+  --border: 220 20% 18%;
+  --card: 220 30% 11%;
+  --card-foreground: 0 0% 98%;
+  --card-border: 220 20% 18%;
+
+  --sidebar: 220 35% 6%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-border: 220 25% 14%;
+  --sidebar-primary: 220 70% 30%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 25% 15%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-ring: 220 70% 30%;
+
+  --popover: 220 30% 13%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 220 20% 18%;
+
+  --primary: 220 60% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 20% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 220 20% 16%;
+  --muted-foreground: 220 10% 65%;
+  --accent: 220 20% 18%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 220 20% 22%;
+  --ring: 220 60% 45%;
+
+  --chart-1: 220 60% 55%;
+  --chart-2: 210 55% 60%;
+  --chart-3: 200 50% 65%;
+  --chart-4: 0 75% 60%;
+  --chart-5: 215 35% 70%;
+
+  --sb1-navy: 220 60% 45%;
+  --sb1-navy-light: 220 50% 60%;
+  --sb1-navy-dark: 220 75% 25%;
+  --sb1-red: 0 75% 55%;
+  --sb1-positive: 145 50% 50%;
+  --sb1-negative: 0 75% 55%;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --primary-border: hsl(var(--primary));
+  --secondary-border: hsl(var(--secondary));
+  --muted-border: hsl(var(--muted));
+  --accent-border: hsl(var(--accent));
+  --destructive-border: hsl(var(--destructive));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-feature-settings: "ss01" 1;
+  }
+
+  /* Tabular figures for all numerals in data contexts */
+  .font-mono,
+  table td,
+  table th,
+  .tabular-nums {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+}
+
+@layer utilities {
+  /* Brand utilities */
+  .bg-sb1-navy {
+    background-color: hsl(var(--sb1-navy));
+  }
+  .bg-sb1-navy-dark {
+    background-color: hsl(var(--sb1-navy-dark));
+  }
+  .text-sb1-navy {
+    color: hsl(var(--sb1-navy));
+  }
+  .text-sb1-red {
+    color: hsl(var(--sb1-red));
+  }
+  .bg-sb1-red {
+    background-color: hsl(var(--sb1-red));
+  }
+  .border-sb1-navy {
+    border-color: hsl(var(--sb1-navy));
+  }
+  .value-positive {
+    color: hsl(var(--sb1-positive));
+  }
+  .value-negative {
+    color: hsl(var(--sb1-negative));
+  }
+
+  /* Chrome search cancel hide */
+  input[type='search']::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .no-default-hover-elevate {
+  }
+  .no-default-active-elevate {
+  }
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after {
+    inset: -1px;
+  }
+}

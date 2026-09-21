@@ -43,6 +43,7 @@ export default function Benchmarks() {
     </div></header>
     <main className="max-w-6xl mx-auto p-4 sm:p-6 space-y-6">
       <div className="p-4 rounded-md bg-muted text-sm space-y-2" data-testid="status-import-mode">
+        {!preview && data.series.length > 0 && <p data-testid="status-saved-benchmarks"><strong>{data.series.length} saved index series · {Object.keys(data.assignments).length} fund assignments.</strong> These data are included in this dashboard version and remain available after reload.</p>}
         <p><strong>{preview ? "Unsaved session preview." : "Monthly file workflow."}</strong> Upload a CSV to validate and preview it. Your file stays in this browser session and is lost on reload; it is not uploaded to a server or saved to the live dashboard.</p>
         <p>After reviewing the fund assignments, download the publication package and provide it in the conversation. It can then be incorporated into the dashboard release. Only publish licensed index data where your distribution rights permit it.</p>
       </div>
@@ -55,7 +56,7 @@ export default function Benchmarks() {
         <details className="text-sm"><summary className="cursor-pointer min-h-11 py-2" data-testid="toggle-file-help">File format and validation</summary>
           <div className="space-y-2 text-muted-foreground">
             <p className="break-words font-mono text-xs">{CSV_HEADER}</p>
-            <p>Use a stable provider code for benchmark_id and the full official name for benchmark_name. currency = NOK; return_type = NET_TR, GROSS_TR or TR; hedging = UNHEDGED, NOK_HEDGED or NA. Keep metadata identical across all rows for a series.</p>
+            <p>Keep the existing dashboard benchmark_id for monthly updates; these stable internal identifiers are shown in the table below. For new series, use a unique stable identifier and the full official name for benchmark_name. currency = NOK; return_type = NET_TR, GROSS_TR or TR; hedging = UNHEDGED, NOK_HEDGED or NA. Keep metadata identical across all rows for a series.</p>
             <p>date is the calendar month-end in YYYY-MM-DD format. level is the official closing total-return index level for that month. Optional source_date preserves the actual last trading date. Comma-separated decimal-point files and semicolon-separated decimal-comma files are supported.</p>
             <p>Duplicate months, gaps, invalid levels, non-NOK currencies and price-only indices are rejected. Monthly additions are merged by index ID and date; historical revisions require review. JSON packages replace the complete assignment map; CSV preserves assignments. Maximum file size: 2 MB.</p>
           </div>
@@ -104,7 +105,7 @@ export default function Benchmarks() {
         </div>)}</div>
         <div className="flex flex-wrap gap-3">
           <Button disabled={!data.series.length || !!candidate} data-testid="button-export-package" onClick={() => downloadText("benchmark_publication_package.json", JSON.stringify(data, null, 2), "application/json")}><Download className="w-4 h-4 mr-2" />Download publication package</Button>
-          <Button variant="outline" disabled={!preview} data-testid="button-reset-preview" onClick={() => { reset(); setCandidate(null); setMessage("Session changes discarded. Restored published benchmark data."); setError(""); }}>Discard session changes</Button>
+          <Button variant="outline" disabled={!preview} data-testid="button-reset-preview" onClick={() => { reset(); setCandidate(null); setMessage("Session changes discarded. Restored saved dashboard benchmark data."); setError(""); }}>Discard session changes</Button>
         </div>
       </CardContent></Card>
     </main>

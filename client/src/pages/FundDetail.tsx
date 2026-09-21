@@ -11,6 +11,7 @@ import {
 import { useAsOf, getKpisForAsOf, formatAsOfDate } from "@/lib/asOfContext";
 import { DateSelector } from "@/components/DateSelector";
 import { ReturnExplorer } from "@/components/ReturnExplorer";
+import { useBenchmarks } from "@/lib/benchmarkContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -93,6 +94,8 @@ export default function FundDetail() {
 
 function FundDetailContent({ fund }: { fund: Fund }) {
   const { asOf } = useAsOf();
+  const { data: benchmarks } = useBenchmarks();
+  const reportingBenchmark = benchmarks.series.find(s => s.id === benchmarks.assignments[fund.id]);
   const [kpiTab, setKpiTab] = useState("returns");
   const [exposureTab, setExposureTab] = useState(
     fund.assetClass === "Fixed Income" ? "fi-sectors" : "sectors"
@@ -246,8 +249,8 @@ function FundDetailContent({ fund }: { fund: Fund }) {
                 value={<span className="text-xs">{fund.morningstarCategory}</span>}
               />
               <ProfileItem
-                label="Legacy benchmark metadata"
-                value={<span className="text-xs">{fund.primaryBenchmark}</span>}
+                label="Reporting benchmark"
+                value={<span className="text-xs" data-testid="text-reporting-benchmark">{reportingBenchmark?.name ?? "Not assigned"}</span>}
               />
               <ProfileItem
                 label="Fund Size"
@@ -303,6 +306,7 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="risk">
+                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-benchmark">Benchmark-dependent risk metrics below are legacy provider measures. They have not been recalculated against the reporting benchmark used in the total-return charts.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="Std Dev 3Y" value={kpi!.stdDev3Y} />
                   <KpiRow label="Std Dev 5Y" value={fund.stdDev5Y} />
@@ -322,6 +326,7 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="risk-adj">
+                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-adjusted-benchmark">Benchmark-dependent ratios below are legacy provider measures, not recalculated against the reporting benchmark used in the total-return charts.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="Sharpe Ratio 3Y" value={kpi!.sharpe3Y} format="num" />
                   <KpiRow label="Sharpe Ratio 5Y" value={fund.sharpe5Y} format="num" />
@@ -434,8 +439,8 @@ function FundDetailContent({ fund }: { fund: Fund }) {
             <CardContent className="p-5">
               <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
                 <h2 className="text-base font-semibold">Exposure</h2>
-                <Tabs value={exposureTab} onValueChange={setExposureTab}>
-                  <TabsList>
+                <Tabs value={exposureTab} onValueChange={setExposureTab} className="min-w-0 max-w-full">
+                  <TabsList className="h-auto flex-wrap justify-start">
                     {!isFI && (
                       <TabsTrigger value="sectors" data-testid="tab-sectors">
                         Sectors

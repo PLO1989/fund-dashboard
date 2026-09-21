@@ -29,6 +29,31 @@ An import with changed historical observations fails unless `--allow-revisions` 
 
 The fund monthly refresh should update only `fundData.ts`, not `shared/benchmarkData.json`. The benchmark package persists in source between builds, independently of the 24-month KPI snapshot window. Missing benchmark months remain N/A until supplied.
 
+## Confirmed workbook import through 2026-08-31
+
+Eight user-supplied series are now saved in `shared/benchmarkData.json`, not merely loaded into browser memory. The import contains 1,020 index observations and 13 fund assignments. All supplied monthly history is retained.
+
+| Funds | Reporting series ID | Variant |
+|---|---|---|
+| Pareto Aksje Norge | `OSEFX_TR_NOK` | Total return, NOK |
+| GQG, Wellington, Artisan | `MSCI_ACWI_NET_TR_NOK` | Net total return, NOK, unhedged |
+| Cusana, Brandes | `MSCI_EM_NET_TR_NOK` | Net total return, NOK, unhedged |
+| KLP AksjeGlobal Indeks S | `MSCI_WORLD_NET_TR_NOK` | Net total return, NOK, unhedged |
+| PIMCO, PGIM, BlueBay | `BLOOMBERG_GLOBAL_AGG_TR_NOK_HEDGED` | Total return, NOK-hedged |
+| Arctic Nordic Corporate | `NBP_NOHYNH` | Gross total return, NOK, unhedged |
+| Danske Norsk Obligasjon | `NBP_NORM123D3` | Gross total return, NOK, unhedged |
+| Danske Kort Obligasjon | `NBP_NORMFRN` | Gross total return, NOK, unhedged |
+
+These are stable internal dashboard IDs, not claims about official provider identifiers. Keep them unchanged when appending monthly observations. The confirmed PIMCO reporting index is Global Aggregate, regardless of legacy US Aggregate metadata in the fund dataset.
+
+`script/extract-benchmark-workbooks.py` normalizes the supplied export layouts through the spreadsheet REPL. The `Price` sheet provides dates in row 9 and levels in rows 10–14. Export metadata explicitly says Norwegian Krone; the USD wording in MSCI source names does not trigger another currency conversion.
+
+The NBP sheets use column A for dates and **column F, Total Return (Gross, Unhedged), for index levels**. Column G, Cumulative Return %, is retained in the source audit only and is never used as a level. Two partial observations dated 2026-09-21 in NORM123D3 and NORMFRN were excluded, not relabelled as month-end.
+
+The five non-NBP series each cover 2016-09-30 to 2026-08-31 (120 observations). Each NBP series covers 2015-01-31 to 2026-08-31 (140 observations). Source filenames, SHA-256 hashes, exact cell addresses, exclusions and independently calculated preset return checks are archived under `benchmark-audit/source-import-2026-08-31/`.
+
+For future monthly Excel deliveries, run the extractor against the new files and the approved fund reporting month-end, inspect exclusions and variant metadata, then pass the resulting JSON package to the release importer. The normal merge/revision approval process still applies. An export with a changed layout must be reviewed rather than guessed.
+
 ## Metadata rules
 
 - `currency`: `NOK` only in this first implementation.

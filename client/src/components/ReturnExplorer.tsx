@@ -97,7 +97,7 @@ export function ReturnExplorer({ fund, asOf }: { fund: Fund; asOf: string }) {
             <LineChart data={points} margin={{ top: 12, right: 12, left: 0, bottom: 0 }} accessibilityLayer>
               <CartesianGrid vertical={false} stroke="hsl(var(--border))" strokeDasharray="3 3" />
               <XAxis dataKey="date" tickFormatter={d => d.slice(0, 7)} minTickGap={45} tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
-              <YAxis domain={["auto", "auto"]} tickFormatter={v => Number(v).toFixed(0)} tick={{ fontSize: 12 }} width={45} stroke="hsl(var(--muted-foreground))" />
+              <YAxis domain={["auto", "auto"]} tickFormatter={v => Number(v).toLocaleString("nb-NO", { maximumFractionDigits: 2 })} tick={{ fontSize: 12 }} width={50} stroke="hsl(var(--muted-foreground))" />
               <Tooltip contentStyle={tip} labelFormatter={d => dateLabel(String(d))} formatter={(v: number) => num(v)} />
               <ReferenceLine y={100} stroke="hsl(var(--muted-foreground))" strokeDasharray="2 4" />
               <Line type="linear" dataKey="fund" name={fund.shortName} stroke={fundColor} strokeWidth={2.5} dot={points.length < 8} isAnimationActive={false} />
@@ -112,7 +112,7 @@ export function ReturnExplorer({ fund, asOf }: { fund: Fund; asOf: string }) {
             <span className="w-5 border-t-2 border-dashed shrink-0" style={{ borderColor: benchmarkColor }} />{series.name}
           </label>}
         </div>
-        {series && <p className="text-xs text-muted-foreground mt-2" data-testid="text-benchmark-metadata">{series.provider} · {series.returnType} · NOK · {series.hedging} · {preview ? "Session preview, not saved" : "Published data"}</p>}
+        {series && <p className="text-xs text-muted-foreground mt-2" data-testid="text-benchmark-metadata">{series.provider} · {series.returnType} · NOK · {series.hedging} · {preview ? "Session preview, not saved" : "Saved dashboard data"}</p>}
         {warn && <div className="rounded-md bg-muted p-3 mt-4 text-sm" data-testid="status-benchmark">{warn}</div>}
         <Link href="/benchmarks" data-testid="link-manage-benchmarks" className="inline-flex items-center gap-2 min-h-11 text-sm underline underline-offset-4 mt-2"><Database className="w-4 h-4" />Benchmark data &amp; assignments</Link>
       </CardContent>

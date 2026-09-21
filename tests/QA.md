@@ -26,7 +26,7 @@
 
 Synthetic fixtures exist only in unit tests and ephemeral browser memory, never in the shipped index package.
 
-## Completed checks
+## Completed checks: initial implementation before official data
 
 The 11 automated tests pass, including calculations, all-fund stored-snapshot reconciliation and the release importer's dry-run/merge/revision/audit paths. TypeScript checking and the production build pass. Existing fund return values were not changed; the data-module diff adds only a missing enrichment type declaration.
 
@@ -35,3 +35,26 @@ Interactive checks covered all seven presets, custom dates, reverse-range errors
 Desktop (1440px), mobile (375px) and dark-style screenshots were inspected. The new chart and importer regions have no horizontal page overflow, clipped controls, overlapping text or runtime exceptions in these tested states. Exploratory checks included changing the global reporting date, shortening index coverage to one observation, and loading invalid fund routes. Synthetic preview fixtures were discarded and the release package remains empty pending official data.
 
 The existing overview's hardcoded counts were corrected to derive from the actual 13-fund list. Build output retains non-blocking bundle-size and PostCSS warnings. No live site was republished.
+
+## Official workbook integration: QA inventory
+
+- Check all 8 series against workbook cells, full precision, expected counts, continuous month-end dates and a final date of 2026-08-31.
+- Check all 13 user-confirmed fund mappings, including Global Aggregate for PIMCO, PGIM and BlueBay.
+- Ensure NBP column F supplies levels; column G is audit-only, and both partial observations dated 2026-09-21 are excluded.
+- Check every preset benchmark return against independently extracted source levels and confirm base 100 at each starting date.
+- Navigate all 13 fund pages, verify correct benchmark names and values, visible line and bar overlays, persistence after reload, and the 8-row coverage table.
+- Exercise presets, custom dates, benchmark hide/show, CSV exports and historical reporting dates with the saved real data.
+- Retain Cusana's short-history N/A behavior and reject reversed custom ranges.
+- Inspect desktop/mobile screenshots, long names, table scrolling, dark styles and console exceptions.
+
+## Completed checks: official workbook integration
+
+All 18 automated tests pass, including the seven added official-data regression tests. Every one of the 1,020 levels matches its audited source cell; all 56 index/preset calculations match independently computed workbook ratios. The 13 mappings are correct, with no change to `fundData.ts`.
+
+Interactive tests visited all 13 fund pages and checked the named reporting index, 6M return, corresponding table cell, two line series and two bar series. Reload retained the saved data. The index table contains eight series, all 13 assignment controls match the package, and discard restores the saved assignment after an intentional edit.
+
+Pareto checks exercised all seven presets, benchmark hide/show in both charts, a custom calendar-year interval, invalid reversed dates, historical as-of selection/reset and both CSV exports. The exported custom series starts with exactly 100 for both fund and index. Cusana's 3Y/5Y controls remain disabled and comparison cells remain N/A.
+
+Desktop screenshots covered the line chart, bars, legends, tooltips and coverage table. At 375px, PIMCO's header/profile and long benchmark name, its line chart, Arctic's bars/table and the benchmark page were inspected. An existing fixed-income exposure tab overflow was found and fixed with wrapping; document width now equals viewport width (375px). Axis labels now preserve fractional index values rather than repeating integer-rounded labels. Dark-style rendering was inspected. No runtime page exceptions were observed.
+
+Benchmark-dependent legacy risk metrics now have an explicit non-recalculation disclosure. Only the private preview is updated; no public website publication is included in this change.

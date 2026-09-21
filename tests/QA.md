@@ -86,3 +86,11 @@ Browser checks visited all 13 fund pages and matched all 52 displayed TE/IR fiel
 The method disclosure opens and closes. Pareto's calculation CSV contains exactly 36 three-year and 60 five-year observations, with matching endpoints and unrounded metrics. Desktop, 375px mobile and dark-style risk-card screenshots were inspected; mobile comparison uses its existing internal horizontal scroll and page width remains 375px. The dark screenshot was retaken after CSS transitions settled to confirm active-tab contrast. No runtime page exceptions, overlapping values or new page overflow were found.
 
 Existing fund histories, currency conversion and official benchmark observations are unchanged. The new risk calculations are a preview update pending separate permission to republish; the earlier approved benchmark live release is unaffected. The separate monthly scheduled task now includes full-holdings completeness checks, dated exposure refreshes and fund-specific requests for user-supplied full holdings when extraction is incomplete.
+
+## Approved TE / IR live release
+
+The user explicitly approved publication on 2026-09-21. Commit `419bcde` passed all 26 tests, typecheck and production build again. The required independent security review reported PASS with no BLOCK or WARN findings; production-dependency audit reported zero vulnerabilities.
+
+The release was published to `https://sb1-fond-dashboard.pplx.app`, retaining site ID `851ee6d2-6e43-45ef-881e-25464487997e` and app asset `a82171d2-7246-4567-922c-7ee7e623ad5e`. Publication reported Visibility `Public`. Visibility controls are available at `https://www.perplexity.ai/computer/a/a82171d2-7246-4567-922c-7ee7e623ad5e?open-publish=true`.
+
+A fresh live-page reload verified all 52 TE/IR fields across the 13 funds against the full-precision audit, including Cusana's N/A values. Pareto, PIMCO and Cusana comparison-table fields matched. Pareto's live CSV exported 96 monthly observations across the 36/60-month windows. Historical reporting-date selection and reset worked. No runtime page exceptions were observed. This publication supersedes the preview-only status recorded above.

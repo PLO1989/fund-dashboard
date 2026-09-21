@@ -297,8 +297,8 @@ function FundDetailContent({ fund }: { fund: Fund }) {
                 )}
               </TabsList>
 
-              {["risk", "risk-adj"].includes(kpiTab) && <div className="mb-4 rounded-md bg-muted p-3 space-y-2 text-sm" data-testid="card-relative-risk-method">
-                <p data-testid="text-risk-benchmark"><strong>TE / IR reporting benchmark:</strong> {reportingBenchmark?.name ?? "Not assigned"} · NOK · As of {asOf}</p>
+              {["risk", "risk-adj", "relative"].includes(kpiTab) && <div className="mb-4 rounded-md bg-muted p-3 space-y-2 text-sm" data-testid="card-relative-risk-method">
+                <p data-testid="text-risk-benchmark"><strong>TE / IR / alpha / beta benchmark:</strong> {reportingBenchmark?.name ?? "Not assigned"} · NOK · As of {asOf}</p>
                 {(["3Y", "5Y"] as const).map(period => {
                   const metric = period === "3Y" ? relativeRisk.threeYear : relativeRisk.fiveYear;
                   const required = period === "3Y" ? 36 : 60;
@@ -308,12 +308,13 @@ function FundDetailContent({ fund }: { fund: Fund }) {
                 })}
                 <details>
                   <summary className="cursor-pointer min-h-11 py-2" data-testid="toggle-risk-methodology">Calculation method</summary>
-                  <p className="text-xs text-muted-foreground">Monthly active return = fund NOK return minus benchmark NOK return. Annualised TE = sample standard deviation of active returns × √12, using n − 1. Annualised IR = (12 × mean monthly active return) / annualised TE. IR is not based on the difference between CAGRs. No risk-free rate, interpolation or shortened windows. IR is N/A when TE is zero.</p>
+                  <p className="text-xs text-muted-foreground">Monthly active return = fund NOK return minus benchmark NOK return. Annualised TE = sample standard deviation of active returns × √12, using n − 1. Annualised IR = (12 × mean monthly active return) / annualised TE. This convention is arithmetic, not a CAGR difference; no risk-free rate, interpolation or shortened windows. IR is N/A when TE is zero.</p>
+                  <p className="text-xs text-muted-foreground mt-2">Beta is the OLS slope of fund returns on benchmark returns over the same window. Alpha is the regression intercept × 12 (annualised percentage points, no risk-free rate). R² is the squared correlation of the two monthly series. Beta, alpha and R² are N/A when either series is constant.</p>
                 </details>
                 <Button variant="outline" size="sm" data-testid="button-export-risk" disabled={!relativeRisk.threeYear && !relativeRisk.fiveYear} onClick={() => {
-                  const header = "fund_id,benchmark_id,period,start,end,month,fund_return_pct,benchmark_return_pct,active_return_pct,tracking_error_annual_pct,information_ratio,annualized_mean_active_return_pct";
+                  const header = "fund_id,benchmark_id,period,start,end,month,fund_return_pct,benchmark_return_pct,active_return_pct,tracking_error_annual_pct,information_ratio,annualized_mean_active_return_pct,beta,alpha_annualized_pct,r_squared";
                   const rows = ([["3Y", relativeRisk.threeYear], ["5Y", relativeRisk.fiveYear]] as const).flatMap(([period, metric]) =>
-                    metric ? metric.observations.map(p => [fund.id, reportingBenchmark!.id, period, metric.start, metric.end, p.date, p.fundReturnPct, p.benchmarkReturnPct, p.activeReturnPct, metric.trackingErrorPct, metric.informationRatio ?? "", metric.annualizedMeanActiveReturnPct].join(",")) : []);
+                    metric ? metric.observations.map(p => [fund.id, reportingBenchmark!.id, period, metric.start, metric.end, p.date, p.fundReturnPct, p.benchmarkReturnPct, p.activeReturnPct, metric.trackingErrorPct, metric.informationRatio ?? "", metric.annualizedMeanActiveReturnPct, metric.beta ?? "", metric.alphaAnnualizedPct ?? "", metric.rSquared ?? ""].join(",")) : []);
                   downloadText(`${fund.id}_${asOf}_relative_risk.csv`, [header, ...rows].join("\n"));
                 }}>Export TE / IR calculation CSV</Button>
               </div>}
@@ -378,13 +379,14 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="relative">
-                <p className="text-xs text-muted-foreground mb-3">Alpha, beta, R² and capture metrics in this tab remain legacy provider measures; they have not been recalculated against the reporting benchmark.</p>
+                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-relative-benchmark">Alpha, beta and R² are recalculated against the reporting benchmark above. Capture metrics remain legacy provider measures and are not recalculated.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                  <KpiRow label="Alpha 3Y" value={fund.alpha3Y} />
-                  <KpiRow label="Alpha 5Y" value={fund.alpha5Y} />
-                  <KpiRow label="Beta 3Y" value={fund.beta3Y} format="num" />
-                  <KpiRow label="Beta 5Y" value={fund.beta5Y} format="num" />
-                  <KpiRow label="R-Squared 3Y" value={fund.rSquared3Y} format="num" />
+                  <KpiRow label="Alpha 3Y (annualised)" value={relativeRisk.alpha3Y} testId="metric-alpha-3Y" />
+                  <KpiRow label="Alpha 5Y (annualised)" value={relativeRisk.alpha5Y} testId="metric-alpha-5Y" />
+                  <KpiRow label="Beta 3Y" value={relativeRisk.beta3Y} format="num" testId="metric-beta-3Y" />
+                  <KpiRow label="Beta 5Y" value={relativeRisk.beta5Y} format="num" testId="metric-beta-5Y" />
+                  <KpiRow label="R-Squared 3Y" value={relativeRisk.rSquared3Y} format="num" testId="metric-r-squared-3Y" />
+                  <KpiRow label="R-Squared 5Y" value={relativeRisk.rSquared5Y} format="num" testId="metric-r-squared-5Y" />
                   <KpiRow
                     label="Downside Capture 5Y"
                     value={fund.downsideCapture5Y}

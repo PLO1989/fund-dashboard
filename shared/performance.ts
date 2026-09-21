@@ -85,9 +85,28 @@ export function relativeRisk(
   if (!Number.isFinite(rawTE) || !Number.isFinite(annualizedMeanActiveReturnPct)) return null;
   // Numerical noise at machine precision must not create a spurious huge IR.
   const trackingErrorPct = rawTE < 1e-10 ? 0 : rawTE;
+
+  // OLS regression of fund returns on benchmark returns over the same window.
+  // Sample denominators cancel, so sums of squares are used directly.
+  const meanFund = observations.reduce((sum, p) => sum + p.fundReturnPct, 0) / months;
+  const meanBench = observations.reduce((sum, p) => sum + p.benchmarkReturnPct, 0) / months;
+  let sumXY = 0, sumXX = 0, sumYY = 0;
+  for (const p of observations) {
+    const df = p.fundReturnPct - meanFund;
+    const db = p.benchmarkReturnPct - meanBench;
+    sumXY += df * db;
+    sumXX += db * db;
+    sumYY += df * df;
+  }
+  // A (near-)constant benchmark or fund series makes the regression undefined.
+  const beta = sumXX < 1e-12 ? null : sumXY / sumXX;
+  const alphaAnnualizedPct = beta === null ? null : (meanFund - beta * meanBench) * 12;
+  const rSquared = sumXX < 1e-12 || sumYY < 1e-12 ? null : (sumXY * sumXY) / (sumXX * sumYY);
+
   return {
     start, end, months, trackingErrorPct, annualizedMeanActiveReturnPct,
     informationRatio: trackingErrorPct === 0 ? null : annualizedMeanActiveReturnPct / trackingErrorPct,
+    beta, alphaAnnualizedPct, rSquared,
     observations,
   };
 }
@@ -101,6 +120,12 @@ export function benchmarkRiskKpis(returns: ReturnPoint[], series: BenchmarkSerie
     trackingError5Y: fiveYear?.trackingErrorPct ?? null,
     infoRatio3Y: threeYear?.informationRatio ?? null,
     infoRatio5Y: fiveYear?.informationRatio ?? null,
+    alpha3Y: threeYear?.alphaAnnualizedPct ?? null,
+    alpha5Y: fiveYear?.alphaAnnualizedPct ?? null,
+    beta3Y: threeYear?.beta ?? null,
+    beta5Y: fiveYear?.beta ?? null,
+    rSquared3Y: threeYear?.rSquared ?? null,
+    rSquared5Y: fiveYear?.rSquared ?? null,
   };
 }
 export function validatePackage(raw: unknown): BenchmarkPackage {

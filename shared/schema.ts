@@ -40,6 +40,9 @@ export type BenchmarkSeries = z.infer<typeof benchmarkSeriesSchema>;
 export type BenchmarkPackage = z.infer<typeof benchmarkPackageSchema>;
 
 // Derived from matched NOK total-return observations; never provider KPI fallbacks.
+// beta/alpha/R² come from the OLS regression of fund returns on benchmark returns
+// over the same exact window. Alpha is the annualised intercept (×12, percentage
+// points), without a risk-free rate, consistent with the TE/IR convention.
 export type RelativeRiskMetrics = {
   start: string;
   end: string;
@@ -47,6 +50,9 @@ export type RelativeRiskMetrics = {
   trackingErrorPct: number;
   informationRatio: number | null;
   annualizedMeanActiveReturnPct: number;
+  beta: number | null;
+  alphaAnnualizedPct: number | null;
+  rSquared: number | null;
   observations: {
     date: string;
     fundReturnPct: number;

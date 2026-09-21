@@ -39,7 +39,7 @@ import {
 const MAX_SELECT = 6;
 const DEFAULTS = ["F0GBR04NJK", "F00000VKZH"]; // Pareto + (PIMCO id may differ — pick first match)
 
-type MetricKey = keyof Fund | "trackingError5Y";
+type MetricKey = keyof Fund | "trackingError5Y" | "rSquared5Y";
 type MetricFmt = "pct" | "num" | "raw" | "rating" | "riskPct";
 type Direction = "higher" | "lower" | "none";
 
@@ -105,6 +105,7 @@ const SECTIONS: Section[] = [
       { label: "Beta 3Y", key: "beta3Y", fmt: "num", better: "none" },
       { label: "Beta 5Y", key: "beta5Y", fmt: "num", better: "none" },
       { label: "R² 3Y", key: "rSquared3Y", fmt: "num", better: "none" },
+      { label: "R² 5Y", key: "rSquared5Y", fmt: "num", better: "none" },
     ],
   },
   {
@@ -131,7 +132,8 @@ const KPI_KEYS = new Set<string>([
 ]);
 
 function getNum(f: Fund, k: MetricKey, kpi: KpiSnapshot | null, risk: ReturnType<typeof benchmarkRiskKpis>): number | null {
-  if (k === "trackingError3Y" || k === "trackingError5Y" || k === "infoRatio3Y" || k === "infoRatio5Y") return risk[k];
+  const RISK_KEYS = ["trackingError3Y", "trackingError5Y", "infoRatio3Y", "infoRatio5Y", "alpha3Y", "alpha5Y", "beta3Y", "beta5Y", "rSquared3Y", "rSquared5Y"];
+  if (RISK_KEYS.includes(k)) return (risk as any)[k] ?? null;
   if (kpi && KPI_KEYS.has(k as string)) {
     const v = (kpi as any)[k];
     if (typeof v === "number") return v;
@@ -380,7 +382,7 @@ export default function Compare() {
         <Card>
           <CardContent className="p-5">
             <h2 className="text-base font-semibold mb-3">KPI Comparison</h2>
-            <p className="text-xs text-muted-foreground mb-3" data-testid="text-comparison-risk-method">TE / IR use each fund's reporting benchmark and exactly 36 / 60 monthly NOK returns ending {asOf}. TE = sample standard deviation of monthly active return × √12; IR = 12 × mean monthly active return / TE. Missing history or undefined IR is shown as N/A, never a legacy fallback. Different mandates and benchmarks limit cross-fund comparisons. Other benchmark-dependent metrics remain legacy provider measures.</p>
+            <p className="text-xs text-muted-foreground mb-3" data-testid="text-comparison-risk-method">TE / IR / alpha / beta / R² use each fund's reporting benchmark and exactly 36 / 60 monthly NOK returns ending {asOf}. TE = sample standard deviation of monthly active return × √12; IR = 12 × mean monthly active return / TE. Beta is the OLS slope of fund on benchmark returns; alpha is the regression intercept × 12 (no risk-free rate); R² is the squared correlation. Missing history or undefined metrics are shown as N/A, never a legacy fallback. Different mandates and benchmarks limit cross-fund comparisons. Other benchmark-dependent metrics remain legacy provider measures.</p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -439,7 +441,7 @@ export default function Compare() {
                                   }`}
                                   data-testid={`cell-${f.id}-${m.label.toLowerCase().replace(/\s+/g, "-")}`}
                                 >
-                                  {v === null && ["trackingError3Y", "trackingError5Y", "infoRatio3Y", "infoRatio5Y"].includes(m.key) ? "N/A" : formatVal(v, m.fmt, m.decimals)}
+                                  {v === null && ["trackingError3Y", "trackingError5Y", "infoRatio3Y", "infoRatio5Y", "alpha3Y", "alpha5Y", "beta3Y", "beta5Y", "rSquared3Y", "rSquared5Y"].includes(m.key) ? "N/A" : formatVal(v, m.fmt, m.decimals)}
                                 </td>
                               );
                             })}

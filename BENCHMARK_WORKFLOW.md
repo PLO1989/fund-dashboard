@@ -13,13 +13,13 @@ The fund-detail return explorer compounds the existing NOK monthly total returns
 
 ## Relative risk calculations
 
-The fund-detail Risk and Risk-Adjusted tabs and comparison table calculate 3Y and 5Y tracking error and information ratio from the assigned benchmark at the selected as-of date. `benchmarkRiskKpis` is the shared calculation entry point; stored provider TE/IR values are never used as fallback.
+The fund-detail Risk, Risk-Adjusted and Relative tabs and comparison table calculate 3Y and 5Y tracking error, information ratio, alpha, beta and R² from the assigned benchmark at the selected as-of date. `benchmarkRiskKpis` is the shared calculation entry point; stored provider TE/IR/alpha/beta values are never used as fallback.
 
 For each exact 36/60-month window, subtract consecutive index-level monthly returns from the fund's already converted NOK monthly returns. TE is the sample standard deviation (n−1 denominator) of monthly active returns times sqrt(12). IR is mean monthly active return times 12 divided by annualised TE. This convention is arithmetic, not a CAGR difference; no risk-free rate enters either metric.
 
 Require the opening index level and every month of both series. Missing, duplicate, nonfinite or malformed observations fail closed as N/A. Zero TE produces undefined IR (N/A); numerical TE below 1e−10 percentage points is treated as zero. Cusana lacks complete 3Y/5Y fund history as of August 2026.
 
-Each fund's risk card exposes exact dates, matched observation counts, methodology and a full-precision monthly CSV audit. Session-only benchmark edits recompute the metrics without persisting or publishing them. Alpha, beta, capture and appraisal remain legacy provider measures and are explicitly labelled. Run `npx tsx script/export-relative-risk.ts <output-directory>` to reproduce the all-fund report, summary CSV and JSON observation audit.
+Each fund's risk card exposes exact dates, matched observation counts, methodology and a full-precision monthly CSV audit. Session-only benchmark edits recompute the metrics without persisting or publishing them. Beta is the OLS slope of fund on benchmark monthly returns over the same window; alpha is the regression intercept × 12, annualised percentage points without a risk-free rate; R² is the squared correlation. Beta, alpha and R² are null when either series is constant. Capture metrics remain legacy provider measures and are explicitly labelled. Run `npx tsx script/export-relative-risk.ts <output-directory>` to reproduce the all-fund report, summary CSV and JSON observation audit.
 
 ## Initial setup
 

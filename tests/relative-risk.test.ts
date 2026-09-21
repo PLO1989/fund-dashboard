@@ -96,6 +96,7 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
     if (fund.id === "F00001GU8B") {
       assert.equal(risk.threeYear, null); assert.equal(risk.fiveYear, null);
       assert.equal(risk.trackingError3Y, null); assert.equal(risk.infoRatio3Y, null);
+      assert.equal(risk.alpha3Y, null); assert.equal(risk.beta3Y, null); assert.equal(risk.rSquared3Y, null);
       continue;
     }
     available++;
@@ -114,6 +115,17 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
         a.reduce((sum, v, i) => sum + (v - ma) * (b[i] - mb), 0) / (a.length - 1);
       close(metric.trackingErrorPct, Math.sqrt(12 * (cov(xs, xs, mx, mx) + cov(ys, ys, my, my) - 2 * cov(xs, ys, mx, my))));
       close(metric.informationRatio, 12 * (mx - my) / metric.trackingErrorPct);
+      // Independent regression identity for beta, alpha and R².
+      const sxy = cov(xs, ys, mx, my), sxx = cov(ys, ys, my, my), syy = cov(xs, xs, mx, mx);
+      assert.ok(metric.beta != null && Number.isFinite(metric.beta), fund.id);
+      assert.ok(metric.alphaAnnualizedPct != null && Number.isFinite(metric.alphaAnnualizedPct), fund.id);
+      assert.ok(metric.rSquared != null && metric.rSquared >= 0 && metric.rSquared <= 1, fund.id);
+      close(metric.beta!, sxy / sxx, 1e-9);
+      close(metric.alphaAnnualizedPct!, 12 * (mx - (sxy / sxx) * my), 1e-9);
+      close(metric.rSquared!, (sxy * sxy) / (sxx * syy), 1e-12);
+      assert.equal(risk.beta3Y, risk.threeYear?.beta ?? null);
+      assert.equal(risk.alpha5Y, risk.fiveYear?.alphaAnnualizedPct ?? null);
+      assert.equal(risk.rSquared3Y, risk.threeYear?.rSquared ?? null);
     }
     const missing = benchmarkRiskKpis(fund.monthlyReturns, undefined, DATA_DATES.performanceAsOf);
     assert.equal(missing.trackingError3Y, null);
@@ -132,6 +144,44 @@ test("selected reporting dates and assignment changes recompute rather than use 
   assert.equal(past.threeYear!.months, 36);
   assert.notEqual(latest.trackingError3Y, past.trackingError3Y);
   assert.notEqual(latest.trackingError3Y, fund.trackingError3Y);
+  assert.ok(Number.isFinite(latest.beta3Y!) && latest.beta3Y! > 0);
+  assert.ok(Number.isFinite(latest.alpha3Y!) && Number.isFinite(latest.rSquared3Y!));
   const other = benchmarkRiskKpis(fund.monthlyReturns, pkg.series.find(s => s.id === "MSCI_WORLD_NET_TR_NOK"), DATA_DATES.performanceAsOf);
   assert.notEqual(latest.trackingError3Y, other.trackingError3Y);
+});
+
+test("alpha, beta and R² come from the OLS regression of fund on benchmark returns", () => {
+  // fund=[3,1,-2], bench=[2,-1,1]: beta=5/14, alpha=36/7 annualised, R²=25/532 (exact fractions)
+  const f = fixture([3, 1, -2], [2, -1, 1]);
+  const r = relativeRisk(f.returns, f.series, start, end)!;
+  close(r.beta, 5 / 14);
+  close(r.alphaAnnualizedPct, 36 / 7);
+  close(r.rSquared, 25 / 532);
+  // Perfect linear relation fund = bench + 1: beta 1, alpha 12, R² 1
+  const p = relativeRisk(fixture([3, 0, 2], [2, -1, 1]).returns, fixture([3, 0, 2], [2, -1, 1]).series, start, end)!;
+  close(p.beta, 1); close(p.alphaAnnualizedPct, 12); close(p.rSquared, 1);
+  // Leverage fund = 2×bench + 0.5: beta 2, alpha 6, R² 1
+  const q = relativeRisk(fixture([4.5, -1.5, 2.5], [2, -1, 1]).returns, fixture([4.5, -1.5, 2.5], [2, -1, 1]).series, start, end)!;
+  close(q.beta, 2); close(q.alphaAnnualizedPct, 6); close(q.rSquared, 1);
+  // Inverse relation fund = −bench: beta −1, alpha 0, R² 1
+  const n = relativeRisk(fixture([-2, 1, -1], [2, -1, 1]).returns, fixture([-2, 1, -1], [2, -1, 1]).series, start, end)!;
+  close(n.beta, -1); close(n.alphaAnnualizedPct, 0); close(n.rSquared, 1);
+});
+
+test("zero covariance gives beta 0, alpha 12 × mean fund return and R² 0", () => {
+  const f = fixture([1, 2, 3], [2, -1, 2]);
+  const r = relativeRisk(f.returns, f.series, start, end)!;
+  close(r.beta, 0);
+  close(r.alphaAnnualizedPct, 24);
+  close(r.rSquared, 0);
+});
+
+test("constant benchmark or constant fund fails closed for beta/alpha/R² while TE/IR stay defined", () => {
+  const cb = relativeRisk(fixture([1, 2, 3], [0, 0, 0]).returns, fixture([1, 2, 3], [0, 0, 0]).series, start, end)!;
+  close(cb.trackingErrorPct, Math.sqrt(12));
+  assert.equal(cb.beta, null); assert.equal(cb.alphaAnnualizedPct, null); assert.equal(cb.rSquared, null);
+  const cf = relativeRisk(fixture([2, 2, 2], [1, 2, 3]).returns, fixture([2, 2, 2], [1, 2, 3]).series, start, end)!;
+  close(cf.trackingErrorPct, Math.sqrt(12));
+  close(cf.informationRatio, 0);
+  assert.equal(cf.beta, 0); close(cf.alphaAnnualizedPct, 24); assert.equal(cf.rSquared, null);
 });

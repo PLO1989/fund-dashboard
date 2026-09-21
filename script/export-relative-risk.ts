@@ -22,21 +22,22 @@ const summaryRows = results.flatMap(f => (["3Y", "5Y"] as const).map(period => {
   const metric = period === "3Y" ? f.threeYear : f.fiveYear;
   return [f.fundId, f.fund, f.benchmarkId, period, metric?.start, asOf, metric?.months,
     metric?.trackingErrorPct, metric?.informationRatio, metric?.annualizedMeanActiveReturnPct,
+    metric?.beta, metric?.alphaAnnualizedPct, metric?.rSquared,
     metric ? "complete" : "insufficient_history"];
 }));
 writeFileSync(resolve(output, "relative-risk-summary.csv"),
-  "fund_id,fund_name,benchmark_id,period,start,end,months,tracking_error_annual_pct,information_ratio,annualized_mean_active_return_pct,status\n" +
+  "fund_id,fund_name,benchmark_id,period,start,end,months,tracking_error_annual_pct,information_ratio,annualized_mean_active_return_pct,beta,alpha_annualized_pct,r_squared,status\n" +
   summaryRows.map(row => row.map(csv).join(",")).join("\n") + "\n");
 const format = (x: number | null, percent = false) => x === null ? "N/A" : x.toFixed(2).replace(".", ",") + (percent ? " %" : "");
-const report = `# SB1 Fond Dashboard: tracking error og information ratio
+const report = `# SB1 Fond Dashboard: tracking error, information ratio, alfa og beta
 
 Beregnet per **31. august 2026** fra dashboardets eksisterende månedlige NOK-avkastning og de offisielle indeksnivåene du har levert. Ingen proxyer, nye valutakonverteringer eller endringer i fondenes avkastningshistorikk er benyttet.
 
 ## Resultater
 
-| Fond | Referanseindeks | TE 3 år | IR 3 år | TE 5 år | IR 5 år |
-|---|---|---:|---:|---:|---:|
-${results.map(f => `| ${f.fund} | ${f.benchmark} | ${format(f.trackingError3Y, true)} | ${format(f.infoRatio3Y)} | ${format(f.trackingError5Y, true)} | ${format(f.infoRatio5Y)} |`).join("\n")}
+| Fond | Referanseindeks | TE 3 år | IR 3 år | Alfa 3 år | Beta 3 år | R² 3 år | TE 5 år | IR 5 år | Alfa 5 år | Beta 5 år | R² 5 år |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+${results.map(f => `| ${f.fund} | ${f.benchmark} | ${format(f.trackingError3Y, true)} | ${format(f.infoRatio3Y)} | ${format(f.alpha3Y, true)} | ${format(f.beta3Y)} | ${format(f.rSquared3Y)} | ${format(f.trackingError5Y, true)} | ${format(f.infoRatio5Y)} | ${format(f.alpha5Y, true)} | ${format(f.beta5Y)} | ${format(f.rSquared5Y)} |`).join("\n")}
 
 ## Perioder og metode
 
@@ -45,7 +46,10 @@ ${results.map(f => `| ${f.fund} | ${f.benchmark} | ${format(f.trackingError3Y, t
 - **Månedlig meravkastning:** fondets NOK-avkastning minus indeksens NOK-avkastning. Indeksavkastning beregnes som nivå ved månedsslutt delt på forrige månedsnivå, minus én.
 - **TE:** utvalgsstandardavvik av månedlig meravkastning (nevner n−1), multiplisert med kvadratroten av 12. TE rapporteres annualisert i prosent.
 - **IR:** aritmetisk gjennomsnittlig månedlig meravkastning multiplisert med 12, delt på annualisert TE. IR er uten enhet; metoden bruker ikke differansen mellom geometriske årsavkastninger.
-- **Risikofri rente:** inngår ikke i TE eller IR. Sharpe-forutsetningen på 4 % er uendret.
+- **Beta:** OLS-helning i regresjon av fondets månedlige avkastninger mot indeksens, over samme vindu som TE/IR.
+- **Alfa:** regresjonens skjæringspunkt multiplisert med 12, annualisert i prosentpoeng. Ingen risikofri rente, i tråd med TE/IR-konvensjonen.
+- **R²:** kvadratet av korrelasjonen mellom de to månedlige seriene. N/A når en av seriene er konstant.
+- **Risikofri rente:** inngår ikke i TE, IR eller alfa. Sharpe-forutsetningen på 4 % er uendret.
 - **Manglende data:** krever nøyaktig 36 eller 60 sammenfallende måneder og samtlige indeksnivåer, inkludert åpningsnivå. Ingen interpolering, forkorting eller tilbakefall til eldre leverandørtall.
 - **Null TE:** gir N/A for IR fordi forholdstallet da er udefinert.
 
@@ -55,13 +59,13 @@ Cusana har 35 månedsobservasjoner fra oktober 2023 til august 2026 i den lagred
 
 Det er beholdt samme forløperhistorikk og NOK-konverterte fondsserier som dashboardet allerede bruker. Dette er en ny beregning mot de brukerbekreftede referanseindeksene, ikke en ny innhenting eller sertifisering av underliggende fondsdata.
 
-TE/IR reagerer på valgt rapporteringsdato og gjeldende indekskobling. En indekskobling gjelder hele historikken; eventuelle historiske bytter av referanseindeks må dokumenteres som en godkjent kjedet serie. Alpha, beta, capture og appraisal er ikke rekalkulert i denne oppdateringen og er merket separat i dashboardet.
+TE/IR/alfa/beta reagerer på valgt rapporteringsdato og gjeldende indekskobling. En indekskobling gjelder hele historikken; eventuelle historiske bytter av referanseindeks må dokumenteres som en godkjent kjedet serie. Capture-mål er ikke rekalkulert i denne oppdateringen og er merket separat i dashboardet.
 
 ## Datagrunnlag og etterprøvbarhet
 
 Fondene kommer fra dashboardets eksisterende fondsmodul, og indeksene fra «Benchmark-fonddashboard_ex-NBP.xlsx» og «Benchmark-pris_NBP.xlsx», importert til den lagrede benchmarkpakken. For NBP brukes indeksnivået «Total Return (Gross, Unhedged)», ikke kolonnen for akkumulert avkastning.
 
-CSV-filen med sammendrag inneholder uavrundede resultater. Fra hvert fonds Risk- eller Risk-Adjusted-fane kan du eksportere samtlige månedlige fonds-, indeks- og meravkastninger bak beregningen. Ingen nye data hentes eller publiseres ved en slik eksport.
+CSV-filen med sammendrag inneholder uavrundede resultater. Fra hvert fonds Risk-, Risk-Adjusted- eller Relative-fane kan du eksportere samtlige månedlige fonds-, indeks- og meravkastninger bak beregningen. Ingen nye data hentes eller publiseres ved en slik eksport.
 `;
 writeFileSync(resolve(output, "relative-risk-report.md"), report);
 console.log(JSON.stringify({ asOf, output, results: results.map(({ threeYear, fiveYear, ...r }) => r) }, null, 2));

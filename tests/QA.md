@@ -57,4 +57,12 @@ Pareto checks exercised all seven presets, benchmark hide/show in both charts, a
 
 Desktop screenshots covered the line chart, bars, legends, tooltips and coverage table. At 375px, PIMCO's header/profile and long benchmark name, its line chart, Arctic's bars/table and the benchmark page were inspected. An existing fixed-income exposure tab overflow was found and fixed with wrapping; document width now equals viewport width (375px). Axis labels now preserve fractional index values rather than repeating integer-rounded labels. Dark-style rendering was inspected. No runtime page exceptions were observed.
 
-Benchmark-dependent legacy risk metrics now have an explicit non-recalculation disclosure. Only the private preview is updated; no public website publication is included in this change.
+Benchmark-dependent legacy risk metrics now have an explicit non-recalculation disclosure. The first deployment updated only the private preview; the user subsequently explicitly approved updating the live site.
+
+## Approved live release
+
+The security review found no blockers. All four high-severity build-tool advisories were patched through the lockfile; audit now reports zero critical/high/moderate findings and one low Windows-development-server-only advisory outside the deployed runtime. All 18 tests, typecheck and build passed again.
+
+On 2026-09-21 the approved release was published to the existing `https://sb1-fond-dashboard.pplx.app` site, ID `851ee6d2-6e43-45ef-881e-25464487997e`. Publication reported Visibility `Public`.
+
+Live browser verification after a full reload checked eight series, every one of the 13 mappings, Pareto/OSEFX 5Y at 78.33%, Arctic/NOHYNH 6M at 3.45%, both line and bar overlays, and saved data surviving another reload. No runtime page exceptions were observed. The browser was closed after testing.

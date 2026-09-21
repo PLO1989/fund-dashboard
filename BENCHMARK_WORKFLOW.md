@@ -1,6 +1,6 @@
 # Benchmark data workflow
 
-The fund-detail return explorer compounds the existing NOK monthly total returns. It does not change the underlying fund histories, currency conversions, predecessor stitching or existing annualised KPI cards. Reporting benchmark levels are separate from legacy Morningstar benchmark labels and X-Ray comparison slices.
+The fund-detail return explorer compounds the existing NOK monthly total returns. It does not change the underlying fund histories, currency conversions or predecessor stitching. TE and IR are now calculated against the assigned reporting benchmark, independently of legacy provider KPIs. Reporting benchmark levels are separate from legacy Morningstar benchmark labels and X-Ray comparison slices.
 
 ## Calculations
 
@@ -10,6 +10,16 @@ The fund-detail return explorer compounds the existing NOK monthly total returns
 - Presets end at the selected reporting month-end. Custom ranges use exact month-end endpoints, with no daily interpolation.
 - Missing history produces N/A, not zero, backfill or a shortened interval. Both series use identical dates.
 - Price-only indices, foreign-currency levels, missing/duplicate months and metadata changes under an existing index ID are rejected.
+
+## Relative risk calculations
+
+The fund-detail Risk and Risk-Adjusted tabs and comparison table calculate 3Y and 5Y tracking error and information ratio from the assigned benchmark at the selected as-of date. `benchmarkRiskKpis` is the shared calculation entry point; stored provider TE/IR values are never used as fallback.
+
+For each exact 36/60-month window, subtract consecutive index-level monthly returns from the fund's already converted NOK monthly returns. TE is the sample standard deviation (n−1 denominator) of monthly active returns times sqrt(12). IR is mean monthly active return times 12 divided by annualised TE. This convention is arithmetic, not a CAGR difference; no risk-free rate enters either metric.
+
+Require the opening index level and every month of both series. Missing, duplicate, nonfinite or malformed observations fail closed as N/A. Zero TE produces undefined IR (N/A); numerical TE below 1e−10 percentage points is treated as zero. Cusana lacks complete 3Y/5Y fund history as of August 2026.
+
+Each fund's risk card exposes exact dates, matched observation counts, methodology and a full-precision monthly CSV audit. Session-only benchmark edits recompute the metrics without persisting or publishing them. Alpha, beta, capture and appraisal remain legacy provider measures and are explicitly labelled. Run `npx tsx script/export-relative-risk.ts <output-directory>` to reproduce the all-fund report, summary CSV and JSON observation audit.
 
 ## Initial setup
 
@@ -28,6 +38,10 @@ Append each newly approved month-end level to the existing series. Keep stable I
 An import with changed historical observations fails unless `--allow-revisions` is explicitly passed. The import script archives before/input/after files under `benchmark-audit/` and prints a SHA-256 digest. These audit files are not part of the static public output; the static index levels themselves are visible to viewers of the published dashboard. Keep a licensed source archive outside the app as well.
 
 The fund monthly refresh should update only `fundData.ts`, not `shared/benchmarkData.json`. The benchmark package persists in source between builds, independently of the 24-month KPI snapshot window. Missing benchmark months remain N/A until supplied.
+
+The monthly task was extended on 2026-09-21 to retrieve all underlying holdings for every fund using supported pagination/export, not just the top ten. Record actual portfolio dates, retrieved and expected row counts, completeness and meaningful weight coverage. An unconfirmed 100-row result is not proof of a complete portfolio. Notify the user by fund if truncated, incomplete or of unknown completeness, requesting full dated Excel/CSV holdings; do not normalise partial weights or derive whole-fund exposures from a partial list.
+
+Refresh provider-reported aggregate exposures independently each month: asset allocation, market maturity, countries, regions, sectors, style/size, equity statistics and applicable fixed-income duration, maturity, credit quality and yield. Keep actual source dates separate from performance as-of dates. Raw holdings and control reports remain outside the public static bundle. Failed mandatory updates preserve the last published dashboard, while already designated optional unavailable FI fields remain null with a warning.
 
 ## Confirmed workbook import through 2026-08-31
 

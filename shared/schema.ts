@@ -38,3 +38,19 @@ export const benchmarkPackageSchema = z.object({
 });
 export type BenchmarkSeries = z.infer<typeof benchmarkSeriesSchema>;
 export type BenchmarkPackage = z.infer<typeof benchmarkPackageSchema>;
+
+// Derived from matched NOK total-return observations; never provider KPI fallbacks.
+export type RelativeRiskMetrics = {
+  start: string;
+  end: string;
+  months: number;
+  trackingErrorPct: number;
+  informationRatio: number | null;
+  annualizedMeanActiveReturnPct: number;
+  observations: {
+    date: string;
+    fundReturnPct: number;
+    benchmarkReturnPct: number;
+    activeReturnPct: number;
+  }[];
+};

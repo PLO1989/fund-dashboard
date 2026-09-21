@@ -11,7 +11,8 @@ import {
 import { useAsOf, getKpisForAsOf, formatAsOfDate } from "@/lib/asOfContext";
 import { DateSelector } from "@/components/DateSelector";
 import { ReturnExplorer } from "@/components/ReturnExplorer";
-import { useBenchmarks } from "@/lib/benchmarkContext";
+import { useBenchmarks, downloadText } from "@/lib/benchmarkContext";
+import { benchmarkRiskKpis, rangeStart } from "@shared/performance";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -54,21 +55,23 @@ function KpiRow({
   value,
   format = "pct",
   decimals = 2,
+  testId,
 }: {
   label: string;
   value: number | null;
-  format?: "pct" | "num";
+  format?: "pct" | "num" | "riskPct";
   decimals?: number;
+  testId?: string;
 }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
+    <div className="flex items-center justify-between gap-3 py-2 border-b border-border last:border-0" data-testid={testId}>
       <span className="text-sm text-muted-foreground">{label}</span>
       {format === "pct" ? (
         <ValueCell value={value} decimals={decimals} />
       ) : value === null ? (
         <span className="text-muted-foreground font-mono text-sm">N/A</span>
       ) : (
-        <span className="font-mono text-sm">{value.toFixed(decimals)}</span>
+        <span className="font-mono text-sm">{value.toFixed(decimals)}{format === "riskPct" ? "%" : ""}</span>
       )}
     </div>
   );
@@ -96,6 +99,7 @@ function FundDetailContent({ fund }: { fund: Fund }) {
   const { asOf } = useAsOf();
   const { data: benchmarks } = useBenchmarks();
   const reportingBenchmark = benchmarks.series.find(s => s.id === benchmarks.assignments[fund.id]);
+  const relativeRisk = useMemo(() => benchmarkRiskKpis(fund.monthlyReturns, reportingBenchmark, asOf), [fund, reportingBenchmark, asOf]);
   const [kpiTab, setKpiTab] = useState("returns");
   const [exposureTab, setExposureTab] = useState(
     fund.assetClass === "Fixed Income" ? "fi-sectors" : "sectors"
@@ -293,6 +297,27 @@ function FundDetailContent({ fund }: { fund: Fund }) {
                 )}
               </TabsList>
 
+              {["risk", "risk-adj"].includes(kpiTab) && <div className="mb-4 rounded-md bg-muted p-3 space-y-2 text-sm" data-testid="card-relative-risk-method">
+                <p data-testid="text-risk-benchmark"><strong>TE / IR reporting benchmark:</strong> {reportingBenchmark?.name ?? "Not assigned"} · NOK · As of {asOf}</p>
+                {(["3Y", "5Y"] as const).map(period => {
+                  const metric = period === "3Y" ? relativeRisk.threeYear : relativeRisk.fiveYear;
+                  const required = period === "3Y" ? 36 : 60;
+                  return <p key={period} className="text-xs text-muted-foreground" data-testid={`text-risk-window-${period}`}>
+                    {period}: {rangeStart(asOf, period)} to {asOf} · {metric ? `${metric.months} matched monthly returns` : `N/A: ${required} complete matched monthly returns and the opening index level are required.`}
+                  </p>;
+                })}
+                <details>
+                  <summary className="cursor-pointer min-h-11 py-2" data-testid="toggle-risk-methodology">Calculation method</summary>
+                  <p className="text-xs text-muted-foreground">Monthly active return = fund NOK return minus benchmark NOK return. Annualised TE = sample standard deviation of active returns × √12, using n − 1. Annualised IR = (12 × mean monthly active return) / annualised TE. IR is not based on the difference between CAGRs. No risk-free rate, interpolation or shortened windows. IR is N/A when TE is zero.</p>
+                </details>
+                <Button variant="outline" size="sm" data-testid="button-export-risk" disabled={!relativeRisk.threeYear && !relativeRisk.fiveYear} onClick={() => {
+                  const header = "fund_id,benchmark_id,period,start,end,month,fund_return_pct,benchmark_return_pct,active_return_pct,tracking_error_annual_pct,information_ratio,annualized_mean_active_return_pct";
+                  const rows = ([["3Y", relativeRisk.threeYear], ["5Y", relativeRisk.fiveYear]] as const).flatMap(([period, metric]) =>
+                    metric ? metric.observations.map(p => [fund.id, reportingBenchmark!.id, period, metric.start, metric.end, p.date, p.fundReturnPct, p.benchmarkReturnPct, p.activeReturnPct, metric.trackingErrorPct, metric.informationRatio ?? "", metric.annualizedMeanActiveReturnPct].join(",")) : []);
+                  downloadText(`${fund.id}_${asOf}_relative_risk.csv`, [header, ...rows].join("\n"));
+                }}>Export TE / IR calculation CSV</Button>
+              </div>}
+
               <TabsContent value="returns">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="1 Month" value={kpi!.return1M} />
@@ -306,12 +331,13 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="risk">
-                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-benchmark">Benchmark-dependent risk metrics below are legacy provider measures. They have not been recalculated against the reporting benchmark used in the total-return charts.</p>
+                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-benchmark">Tracking error is recalculated against the reporting benchmark above. Capture ratios remain legacy provider measures and are not recalculated.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="Std Dev 3Y" value={kpi!.stdDev3Y} />
                   <KpiRow label="Std Dev 5Y" value={fund.stdDev5Y} />
                   <KpiRow label="Max Drawdown" value={fund.maxDrawdown} />
-                  <KpiRow label="Tracking Error 3Y" value={fund.trackingError3Y} />
+                  <KpiRow label="Tracking Error 3Y (annualised)" value={relativeRisk.trackingError3Y} format="riskPct" testId="metric-tracking-error-3Y" />
+                  <KpiRow label="Tracking Error 5Y (annualised)" value={relativeRisk.trackingError5Y} format="riskPct" testId="metric-tracking-error-5Y" />
                   <KpiRow
                     label="Downside Capture 3Y"
                     value={fund.downsideCapture3Y}
@@ -326,20 +352,22 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="risk-adj">
-                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-adjusted-benchmark">Benchmark-dependent ratios below are legacy provider measures, not recalculated against the reporting benchmark used in the total-return charts.</p>
+                <p className="text-xs text-muted-foreground mb-3" data-testid="text-legacy-risk-adjusted-benchmark">Information ratios are recalculated against the reporting benchmark above. The appraisal ratio remains a legacy provider measure.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="Sharpe Ratio 3Y" value={kpi!.sharpe3Y} format="num" />
                   <KpiRow label="Sharpe Ratio 5Y" value={fund.sharpe5Y} format="num" />
                   <KpiRow label="Sortino 3Y" value={fund.sortino3Y} format="num" />
                   <KpiRow
                     label="Information Ratio 3Y"
-                    value={fund.infoRatio3Y}
+                    value={relativeRisk.infoRatio3Y}
                     format="num"
+                    testId="metric-information-ratio-3Y"
                   />
                   <KpiRow
                     label="Information Ratio 5Y"
-                    value={fund.infoRatio5Y}
+                    value={relativeRisk.infoRatio5Y}
                     format="num"
+                    testId="metric-information-ratio-5Y"
                   />
                   <KpiRow
                     label="Appraisal Ratio"
@@ -350,6 +378,7 @@ function FundDetailContent({ fund }: { fund: Fund }) {
               </TabsContent>
 
               <TabsContent value="relative">
+                <p className="text-xs text-muted-foreground mb-3">Alpha, beta, R² and capture metrics in this tab remain legacy provider measures; they have not been recalculated against the reporting benchmark.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   <KpiRow label="Alpha 3Y" value={fund.alpha3Y} />
                   <KpiRow label="Alpha 5Y" value={fund.alpha5Y} />

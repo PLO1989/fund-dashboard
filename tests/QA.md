@@ -1,5 +1,15 @@
 # Return explorer QA inventory
 
+## Relative risk update: QA inventory
+
+- Validate sample SD and annualisation against analytically known fixtures and the independent variance/covariance identity for all available real fund windows.
+- Require exact 36/60 aligned monthly observations; cover gaps, duplicates, opening levels, zero TE, negative IR, invalid values and Cusana's insufficient history.
+- Check all 13 fund-detail pages show expected TE/IR and benchmark names on Risk/Risk-Adjusted tabs; never fall back to legacy provider fields.
+- Change reporting date and benchmark assignment, unassign and restore, and verify recalculation in fund detail and comparison.
+- Export the monthly calculation CSV, inspect 36+60 observations, endpoints and full precision.
+- Inspect desktop, 375px and dark-style risk cards and comparison rows for long names, readable labels and overflow. Open/close the methodology disclosure.
+- Regression: fund and benchmark data unchanged; existing return-explorer tests continue to pass.
+
 ## Claims and checks
 
 | Feature | Functional evidence | Visual evidence |
@@ -66,3 +76,13 @@ The security review found no blockers. All four high-severity build-tool advisor
 On 2026-09-21 the approved release was published to the existing `https://sb1-fond-dashboard.pplx.app` site, ID `851ee6d2-6e43-45ef-881e-25464487997e`. Publication reported Visibility `Public`.
 
 Live browser verification after a full reload checked eight series, every one of the 13 mappings, Pareto/OSEFX 5Y at 78.33%, Arctic/NOHYNH 6M at 3.45%, both line and bar overlays, and saved data surviving another reload. No runtime page exceptions were observed. The browser was closed after testing.
+
+## Completed checks: reporting-benchmark TE / IR
+
+All 26 tests pass, plus TypeScript checking and production build. The eight additional tests cover sample vs population SD, percentage units, arithmetic vs geometric IR, negative active return, zero TE, boundary alignment, opening index levels, missing/duplicate/invalid observations, historical as-of dates and benchmark reassignment. For the 24 available fund/window combinations, both an independent variance/covariance identity and Python's statistics.stdev/mean reconcile to the calculated results (Python maximum permitted discrepancy 1e−12). Cusana's two incomplete windows remain null.
+
+Browser checks visited all 13 fund pages and matched all 52 displayed TE/IR fields to the calculation audit, including N/A. Comparison checks matched Pareto, PIMCO and Cusana. Historical date selection changed Pareto 3Y TE from 5.70% to 4.70% at December 2025, and reset restored August 2026. Changing the session-only index assignment recomputed both detail and comparison; removing the assignment produced N/A and disabled export, never a legacy fallback. Discard restored the saved OSEFX mapping and metrics.
+
+The method disclosure opens and closes. Pareto's calculation CSV contains exactly 36 three-year and 60 five-year observations, with matching endpoints and unrounded metrics. Desktop, 375px mobile and dark-style risk-card screenshots were inspected; mobile comparison uses its existing internal horizontal scroll and page width remains 375px. The dark screenshot was retaken after CSS transitions settled to confirm active-tab contrast. No runtime page exceptions, overlapping values or new page overflow were found.
+
+Existing fund histories, currency conversion and official benchmark observations are unchanged. The new risk calculations are a preview update pending separate permission to republish; the earlier approved benchmark live release is unaffected. The separate monthly scheduled task now includes full-holdings completeness checks, dated exposure refreshes and fund-specific requests for user-supplied full holdings when extraction is incomplete.

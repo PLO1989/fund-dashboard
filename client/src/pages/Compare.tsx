@@ -12,6 +12,8 @@ import {
 } from "@/lib/fundData";
 import { useAsOf, getKpisForAsOf } from "@/lib/asOfContext";
 import { DateSelector } from "@/components/DateSelector";
+import { useBenchmarks } from "@/lib/benchmarkContext";
+import { benchmarkRiskKpis } from "@shared/performance";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -37,8 +39,8 @@ import {
 const MAX_SELECT = 6;
 const DEFAULTS = ["F0GBR04NJK", "F00000VKZH"]; // Pareto + (PIMCO id may differ — pick first match)
 
-type MetricKey = keyof Fund;
-type MetricFmt = "pct" | "num" | "raw" | "rating";
+type MetricKey = keyof Fund | "trackingError5Y";
+type MetricFmt = "pct" | "num" | "raw" | "rating" | "riskPct";
 type Direction = "higher" | "lower" | "none";
 
 interface Metric {
@@ -73,7 +75,6 @@ const SECTIONS: Section[] = [
       { label: "Std Dev 3Y", key: "stdDev3Y", fmt: "pct", better: "lower" },
       { label: "Std Dev 5Y", key: "stdDev5Y", fmt: "pct", better: "lower" },
       { label: "Max Drawdown", key: "maxDrawdown", fmt: "pct", better: "higher" },
-      { label: "Tracking Error 3Y", key: "trackingError3Y", fmt: "pct", better: "lower" },
       { label: "Downside Capture 3Y", key: "downsideCapture3Y", fmt: "num", better: "lower" },
       { label: "Upside Capture 3Y", key: "upsideCapture3Y", fmt: "num", better: "higher" },
     ],
@@ -84,9 +85,16 @@ const SECTIONS: Section[] = [
       { label: "Sharpe 3Y", key: "sharpe3Y", fmt: "num", better: "higher" },
       { label: "Sharpe 5Y", key: "sharpe5Y", fmt: "num", better: "higher" },
       { label: "Sortino 3Y", key: "sortino3Y", fmt: "num", better: "higher" },
+      { label: "Appraisal Ratio", key: "appraisalRatio", fmt: "num", better: "higher" },
+    ],
+  },
+  {
+    title: "Reporting Benchmark Risk (Annualised)",
+    metrics: [
+      { label: "Tracking Error 3Y", key: "trackingError3Y", fmt: "riskPct", better: "none" },
+      { label: "Tracking Error 5Y", key: "trackingError5Y", fmt: "riskPct", better: "none" },
       { label: "Info Ratio 3Y", key: "infoRatio3Y", fmt: "num", better: "higher" },
       { label: "Info Ratio 5Y", key: "infoRatio5Y", fmt: "num", better: "higher" },
-      { label: "Appraisal Ratio", key: "appraisalRatio", fmt: "num", better: "higher" },
     ],
   },
   {
@@ -122,7 +130,8 @@ const KPI_KEYS = new Set<string>([
   "maxDrawdown3Y",
 ]);
 
-function getNum(f: Fund, k: MetricKey, kpi: KpiSnapshot | null): number | null {
+function getNum(f: Fund, k: MetricKey, kpi: KpiSnapshot | null, risk: ReturnType<typeof benchmarkRiskKpis>): number | null {
+  if (k === "trackingError3Y" || k === "trackingError5Y" || k === "infoRatio3Y" || k === "infoRatio5Y") return risk[k];
   if (kpi && KPI_KEYS.has(k as string)) {
     const v = (kpi as any)[k];
     if (typeof v === "number") return v;
@@ -135,6 +144,7 @@ function getNum(f: Fund, k: MetricKey, kpi: KpiSnapshot | null): number | null {
 
 function formatVal(value: number | null, fmt: MetricFmt, decimals = 2): string {
   if (value === null || value === undefined) return "—";
+  if (fmt === "riskPct") return `${value.toFixed(decimals)}%`;
   if (fmt === "pct") {
     return `${value >= 0 ? "+" : ""}${value.toFixed(decimals)}%`;
   }
@@ -174,6 +184,9 @@ function getBestIndex(values: (number | null)[], direction: Direction): number |
 
 export default function Compare() {
   const { asOf } = useAsOf();
+  const { data: benchmarks } = useBenchmarks();
+  const reportingByFund = useMemo(() => Object.fromEntries(funds.map(f => [f.id, benchmarks.series.find(s => s.id === benchmarks.assignments[f.id])])), [benchmarks]);
+  const riskByFund = useMemo(() => Object.fromEntries(funds.map(f => [f.id, benchmarkRiskKpis(f.monthlyReturns, reportingByFund[f.id], asOf)])), [reportingByFund, asOf]);
   const kpisByFund = useMemo<Record<string, KpiSnapshot>>(() => {
     const m: Record<string, KpiSnapshot> = {};
     for (const f of funds) m[f.id] = getKpisForAsOf(f, asOf);
@@ -367,6 +380,7 @@ export default function Compare() {
         <Card>
           <CardContent className="p-5">
             <h2 className="text-base font-semibold mb-3">KPI Comparison</h2>
+            <p className="text-xs text-muted-foreground mb-3" data-testid="text-comparison-risk-method">TE / IR use each fund's reporting benchmark and exactly 36 / 60 monthly NOK returns ending {asOf}. TE = sample standard deviation of monthly active return × √12; IR = 12 × mean monthly active return / TE. Missing history or undefined IR is shown as N/A, never a legacy fallback. Different mandates and benchmarks limit cross-fund comparisons. Other benchmark-dependent metrics remain legacy provider measures.</p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -385,6 +399,10 @@ export default function Compare() {
                   </tr>
                 </thead>
                 <tbody>
+                  <tr className="border-b border-border" data-testid="row-comparison-benchmarks">
+                    <th className="px-3 py-2 text-left font-medium sticky left-0 bg-card">TE / IR benchmark</th>
+                    {selectedFunds.map(f => <td key={f.id} className="px-3 py-2 text-right text-xs min-w-[160px] max-w-[240px]" data-testid={`comparison-benchmark-${f.id}`}>{reportingByFund[f.id]?.name ?? "Not assigned"}</td>)}
+                  </tr>
                   {SECTIONS.map((sec) => (
                     <React.Fragment key={sec.title}>
                       <tr className="bg-secondary/40">
@@ -397,7 +415,7 @@ export default function Compare() {
                       </tr>
                       {sec.metrics.map((m) => {
                         const vals = selectedFunds.map((f) =>
-                          getNum(f, m.key, kpisByFund[f.id] ?? null)
+                          getNum(f, m.key, kpisByFund[f.id] ?? null, riskByFund[f.id])
                         );
                         const bestIdx = getBestIndex(vals, m.better ?? "none");
                         return (
@@ -421,7 +439,7 @@ export default function Compare() {
                                   }`}
                                   data-testid={`cell-${f.id}-${m.label.toLowerCase().replace(/\s+/g, "-")}`}
                                 >
-                                  {formatVal(v, m.fmt, m.decimals)}
+                                  {v === null && ["trackingError3Y", "trackingError5Y", "infoRatio3Y", "infoRatio5Y"].includes(m.key) ? "N/A" : formatVal(v, m.fmt, m.decimals)}
                                 </td>
                               );
                             })}

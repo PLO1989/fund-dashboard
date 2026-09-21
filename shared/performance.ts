@@ -1,4 +1,4 @@
-import { benchmarkPackageSchema, type BenchmarkPackage, type BenchmarkSeries } from "./schema";
+import { benchmarkPackageSchema, type BenchmarkPackage, type BenchmarkSeries, type RelativeRiskMetrics } from "./schema";
 
 export type ReturnPoint = { date: string; value: number };
 export const PERIODS = ["1M", "3M", "6M", "YTD", "1Y", "3Y", "5Y"] as const;
@@ -52,6 +52,56 @@ export function indexGrowth(series: BenchmarkSeries | undefined, start: string, 
 }
 export function totalReturn(growth: ReturnPoint[] | null) {
   return growth ? growth[growth.length - 1].value - 100 : null;
+}
+
+/** Ex-post sample tracking error and arithmetic information ratio, annualised.
+ * Returns and TE use percentage points; IR is dimensionless. No risk-free rate.
+ * Require every month of the exact interval and its opening benchmark level.
+ */
+export function relativeRisk(
+  returns: ReturnPoint[], series: BenchmarkSeries | undefined, start: string, end: string,
+): RelativeRiskMetrics | null {
+  const dates = monthDates(start, end);
+  if (!series || series.currency !== "NOK" || dates.length < 2 || !fundGrowth(returns, start, end)) return null;
+  const levels = new Map<string, number>();
+  for (const p of series.levels) {
+    if (p.date < start || p.date > end) continue;
+    if (!isMonthEnd(p.date) || !Number.isFinite(p.level) || p.level <= 0 || levels.has(p.date)) return null;
+    levels.set(p.date, p.level);
+  }
+  if ([start, ...dates].some(date => !levels.has(date))) return null;
+  const fundReturns = new Map(returns.map(p => [p.date, p.value]));
+  const observations = dates.map((date, i) => {
+    const previous = i ? dates[i - 1] : start;
+    const benchmarkReturnPct = (levels.get(date)! / levels.get(previous)! - 1) * 100;
+    const fundReturnPct = fundReturns.get(date)!;
+    return { date, fundReturnPct, benchmarkReturnPct, activeReturnPct: fundReturnPct - benchmarkReturnPct };
+  });
+  const months = observations.length;
+  const mean = observations.reduce((sum, p) => sum + p.activeReturnPct, 0) / months;
+  const variance = observations.reduce((sum, p) => sum + (p.activeReturnPct - mean) ** 2, 0) / (months - 1);
+  const rawTE = Math.sqrt(variance * 12);
+  const annualizedMeanActiveReturnPct = mean * 12;
+  if (!Number.isFinite(rawTE) || !Number.isFinite(annualizedMeanActiveReturnPct)) return null;
+  // Numerical noise at machine precision must not create a spurious huge IR.
+  const trackingErrorPct = rawTE < 1e-10 ? 0 : rawTE;
+  return {
+    start, end, months, trackingErrorPct, annualizedMeanActiveReturnPct,
+    informationRatio: trackingErrorPct === 0 ? null : annualizedMeanActiveReturnPct / trackingErrorPct,
+    observations,
+  };
+}
+
+export function benchmarkRiskKpis(returns: ReturnPoint[], series: BenchmarkSeries | undefined, asOf: string) {
+  const threeYear = relativeRisk(returns, series, rangeStart(asOf, "3Y"), asOf);
+  const fiveYear = relativeRisk(returns, series, rangeStart(asOf, "5Y"), asOf);
+  return {
+    threeYear, fiveYear,
+    trackingError3Y: threeYear?.trackingErrorPct ?? null,
+    trackingError5Y: fiveYear?.trackingErrorPct ?? null,
+    infoRatio3Y: threeYear?.informationRatio ?? null,
+    infoRatio5Y: fiveYear?.informationRatio ?? null,
+  };
 }
 export function validatePackage(raw: unknown): BenchmarkPackage {
   const parsed = benchmarkPackageSchema.safeParse(raw);

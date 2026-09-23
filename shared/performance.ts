@@ -53,6 +53,15 @@ export function indexGrowth(series: BenchmarkSeries | undefined, start: string, 
 export function totalReturn(growth: ReturnPoint[] | null) {
   return growth ? growth[growth.length - 1].value - 100 : null;
 }
+/** Geometric annualised return (CAGR) in percent from a base-100 growth path.
+ * Years = number of monthly returns / 12. Only meaningful for periods > 1 year. */
+export function annualizedReturn(growth: ReturnPoint[] | null) {
+  if (!growth || growth.length < 2) return null;
+  const years = (growth.length - 1) / 12;
+  return ((growth[growth.length - 1].value / 100) ** (1 / years) - 1) * 100;
+}
+/** Periods longer than one year are shown annualised in the period chart. */
+export const ANNUALISED_PERIODS: readonly Period[] = ["3Y", "5Y"];
 
 /** Ex-post sample tracking error and arithmetic information ratio, annualised.
  * Returns and TE use percentage points; IR is dimensionless. No risk-free rate.
@@ -225,3 +234,4 @@ export function mergePackages(existing: BenchmarkPackage, incoming: BenchmarkPac
     assignments: { ...existing.assignments, ...incoming.assignments },
   }), revisions, additions };
 }
+

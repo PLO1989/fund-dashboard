@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Fund } from "@/lib/fundData";
 import { useBenchmarks, downloadText } from "@/lib/benchmarkContext";
-import { PERIODS, rangeStart, monthEnd, fundGrowth, indexGrowth, totalReturn, type Period } from "@shared/performance";
+import { PERIODS, ANNUALISED_PERIODS, rangeStart, monthEnd, fundGrowth, indexGrowth, totalReturn, annualizedReturn, type Period } from "@shared/performance";
 
 const num = (v: number) => v.toLocaleString("nb-NO", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const pct = (v: number | null) => v === null ? "N/A" : `${v > 0 ? "+" : ""}${num(v)}%`;
@@ -39,7 +39,9 @@ export function ReturnExplorer({ fund, asOf }: { fund: Fund; asOf: string }) {
   const bars = PERIODS.map(p => {
     const s = rangeStart(end, p);
     const f = fundGrowth(returns, s, end);
-    return { period: p, start: s, fund: totalReturn(f), benchmark: f ? totalReturn(indexGrowth(series, s, end)) : null };
+    const annualised = ANNUALISED_PERIODS.includes(p);
+    const calc = annualised ? annualizedReturn : totalReturn;
+    return { period: p, label: annualised ? `${p} p.a.` : p, annualised, start: s, fund: calc(f), benchmark: f ? calc(indexGrowth(series, s, end)) : null };
   });
   const dates = [...new Set([monthEnd(returns[0].date, -1), ...returns.filter(r => r.date <= end).map(r => r.date)])];
   const warn = !series ? "No official benchmark assigned. Import index levels and confirm the mapping to enable comparisons."
@@ -121,17 +123,17 @@ export function ReturnExplorer({ fund, asOf }: { fund: Fund; asOf: string }) {
       <CardContent className="p-4 sm:p-6">
         <div className="flex flex-wrap justify-between items-start gap-3">
           <div><h2 className="text-lg font-semibold">Returns by period</h2>
-            <p className="text-sm text-muted-foreground mt-1">Cumulative total return in NOK, not annualised · All periods end {dateLabel(end)}</p></div>
+            <p className="text-sm text-muted-foreground mt-1">Total return in NOK · 3Y and 5Y annualised (p.a.), shorter periods cumulative · All periods end {dateLabel(end)}</p></div>
           <Button variant="outline" data-testid="button-export-periods" onClick={() => downloadText(
             `${fund.id}_${end}_period_returns.csv`,
-            `period,start,end,fund_return_pct,benchmark_return_pct\n${bars.map(r => `${r.period},${r.start},${end},${r.fund?.toFixed(8) ?? ""},${r.benchmark?.toFixed(8) ?? ""}`).join("\n")}`
+            `period,start,end,return_basis,fund_return_pct,benchmark_return_pct\n${bars.map(r => `${r.period},${r.start},${end},${r.annualised ? "annualised" : "cumulative"},${r.fund?.toFixed(8) ?? ""},${r.benchmark?.toFixed(8) ?? ""}`).join("\n")}`
           )}><Download className="w-4 h-4 mr-2" />Export CSV</Button>
         </div>
         <div className="h-72 mt-5" data-testid="chart-period-bars">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={bars} margin={{ top: 12, right: 10, left: 0, bottom: 0 }} accessibilityLayer>
               <CartesianGrid vertical={false} stroke="hsl(var(--border))" strokeDasharray="3 3" />
-              <XAxis dataKey="period" tick={{ fontSize: 12 }} interval={0} stroke="hsl(var(--muted-foreground))" />
+              <XAxis dataKey="label" tick={{ fontSize: 12 }} interval={0} stroke="hsl(var(--muted-foreground))" />
               <YAxis width={45} tick={{ fontSize: 12 }} tickFormatter={v => `${Number(v).toFixed(0)}%`} stroke="hsl(var(--muted-foreground))" />
               <Tooltip contentStyle={tip} formatter={(v: number) => pct(v)} />
               <ReferenceLine y={0} stroke="hsl(var(--muted-foreground))" />
@@ -146,15 +148,15 @@ export function ReturnExplorer({ fund, asOf }: { fund: Fund; asOf: string }) {
         </div>
         <div className="overflow-x-auto mt-4">
           <table className="w-full text-sm text-right" data-testid="table-period-returns">
-            <caption className="sr-only">Cumulative total returns for fixed periods ending {end}</caption>
+            <caption className="sr-only">Total returns for fixed periods ending {end}; 3Y and 5Y annualised</caption>
             <thead><tr><th className="text-left p-2">Period</th><th className="p-2">Fund</th><th className="p-2">Benchmark</th><th className="p-2">Excess (pp)</th></tr></thead>
             <tbody>{bars.map(r => <tr key={r.period} className="border-t border-border" data-testid={`row-period-${r.period}`}>
-              <th className="text-left p-2 font-medium">{r.period}</th><td className="p-2 font-mono">{pct(r.fund)}</td>
+              <th className="text-left p-2 font-medium">{r.label}</th><td className="p-2 font-mono">{pct(r.fund)}</td>
               <td className="p-2 font-mono">{pct(r.benchmark)}</td><td className="p-2 font-mono">{r.fund !== null && r.benchmark !== null ? num(r.fund - r.benchmark) : "N/A"}</td>
             </tr>)}</tbody>
           </table>
         </div>
-        <p className="text-xs text-muted-foreground mt-3">N/A means insufficient data, never zero return. Fixed-period bars use the reporting date, independently of the custom chart range. Existing 3Y/5Y KPI cards elsewhere remain annualised.</p>
+        <p className="text-xs text-muted-foreground mt-3">N/A means insufficient data, never zero return. Fixed-period bars use the reporting date, independently of the custom chart range. 3Y and 5Y are geometric annualised returns (CAGR); their excess return is the difference between the two annualised figures.</p>
       </CardContent>
     </Card>
   </section>;

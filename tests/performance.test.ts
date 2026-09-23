@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { CSV_HEADER, fundGrowth, indexGrowth, rangeStart, monthEnd, monthDates, totalReturn, parseBenchmarkCsv, validatePackage, mergePackages } from "../shared/performance";
+import { CSV_HEADER, annualizedReturn, fundGrowth, indexGrowth, rangeStart, monthEnd, monthDates, totalReturn, parseBenchmarkCsv, validatePackage, mergePackages } from "../shared/performance";
 import type { BenchmarkPackage, BenchmarkSeries } from "../shared/schema";
 import { funds, DATA_DATES } from "../client/src/lib/fundData";
 
@@ -91,3 +91,14 @@ test("Cusana cannot produce a 3Y or 5Y comparison from its shorter stored histor
   assert.equal(fundGrowth(f.monthlyReturns, rangeStart(DATA_DATES.performanceAsOf, "3Y"), DATA_DATES.performanceAsOf), null);
   assert.equal(fundGrowth(f.monthlyReturns, rangeStart(DATA_DATES.performanceAsOf, "5Y"), DATA_DATES.performanceAsOf), null);
 });
+
+test("annualised return is the geometric CAGR over the exact number of months", () => {
+  const points = monthDates("2021-08-31", "2026-08-31").map(date => ({ date, value: 1 }));
+  close(annualizedReturn(fundGrowth(points, "2021-08-31", "2026-08-31")), (1.01 ** 12 - 1) * 100);
+  close(annualizedReturn(fundGrowth(points, "2023-08-31", "2026-08-31")), (1.01 ** 12 - 1) * 100);
+  // 36 monthly points ending at 200 (doubling over 3 years) -> 2^(1/3) - 1 per year
+  const path = Array.from({ length: 37 }, (_, i) => ({ date: `m${i}`, value: 100 * 2 ** (i / 36) }));
+  close(annualizedReturn(path), (2 ** (1 / 3) - 1) * 100);
+  assert.equal(annualizedReturn(null), null);
+});
+

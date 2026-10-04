@@ -1,7 +1,7 @@
 /*
  * Fund Dashboard - Fund Data Module
  * All data sourced from Morningstar MCP
- * Last updated: 2026-09-07 (data as of 2026-08-31)
+ * Last updated: 2026-10-04 (data as of 2026-09-30)
  * Currency: NOK for all display values
  * Total funds: 12 (6 Equity + 6 Fixed Income)
  *
@@ -284,8 +284,8 @@ export function getFundById(id: string): Fund | undefined {
 }
 
 export const DATA_DATES = {
-  performanceAsOf: "2026-08-31",
-  holdingsAsOf: "2026-07-31",
+  performanceAsOf: "2026-09-30",
+  holdingsAsOf: "2026-08-31",
 };
 
 export const funds: Fund[] = [
@@ -355,12 +355,12 @@ export const funds: Fund[] = [
     fiStyleBox: null,
     exposure: {
       sectors: [
-          { name: "Basic Materials", weight: 15.22 },
-          { name: "Consumer Cyclical", weight: 6.43 },
-          { name: "Consumer Defensive", weight: 18.18 },
-          { name: "Energy", weight: 15.25 },
-          { name: "Financial Services", weight: 29.09 },
-          { name: "Industrials", weight: 15.83 },
+          { name: "Basic Materials", weight: 15.6 },
+          { name: "Consumer Cyclical", weight: 6.09 },
+          { name: "Consumer Defensive", weight: 18.26 },
+          { name: "Energy", weight: 15.37 },
+          { name: "Financial Services", weight: 28.81 },
+          { name: "Industrials", weight: 15.87 },
     ],
       regions: [
           { name: "Greater Europe", weight: 100.0 },
@@ -474,36 +474,25 @@ export const funds: Fund[] = [
         { date: "2026-06-30", value: -3.00853 },
         { date: "2026-07-31", value: 5.41354 },
         { date: "2026-08-31", value: 4.59189 },
+        { date: "2026-09-30", value: -0.08082 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "Storebrand ASA", weight: 7.73121, morningstarId: "0P0000CMIE" },
-      { name: "SalMar ASA", weight: 6.84054, morningstarId: "0P0000C80Q" },
-      { name: "Equinor ASA", weight: 6.38552, morningstarId: "0P0000BWW7" },
-      { name: "Yara International ASA", weight: 5.47579, morningstarId: "0P0000BA9P" },
-      { name: "Wilh. Wilhelmsen Holding ASA Class A", weight: 4.93034, morningstarId: "0P0000CAKL" },
-      { name: "SpareBank 1 Sor Norge ASA", weight: 4.85132, morningstarId: "0P0000B7Z2" },
-      { name: "Elkem ASA Ordinary Shares", weight: 4.8187, morningstarId: "0P0001CXA3" },
-      { name: "SpareBank 1 SMN Depository Receipts", weight: 4.73167, morningstarId: "0P0000BZ6G" },
-      { name: "SpareBank 1 Nord-Norge Depository Receipts", weight: 4.72647, morningstarId: "0P0000C11G" },
-      { name: "Leroy Seafood Group ASA", weight: 4.70734, morningstarId: "0P0000BN6V" },
+      { name: "Storebrand ASA", weight: 7.56306, morningstarId: "0P0000CMIE" },
+      { name: "SalMar ASA", weight: 7.26379, morningstarId: "0P0000C80Q" },
+      { name: "Equinor ASA", weight: 6.35323, morningstarId: "0P0000BWW7" },
+      { name: "Yara International ASA", weight: 5.81576, morningstarId: "0P0000BA9P" },
+      { name: "Leroy Seafood Group ASA", weight: 4.952, morningstarId: "0P0000BN6V" },
+      { name: "Veidekke ASA", weight: 4.91651, morningstarId: "0P0000B6AK" },
+      { name: "Elkem ASA Ordinary Shares", weight: 4.91414, morningstarId: "0P0001CXA3" },
+      { name: "Wilh. Wilhelmsen Holding ASA Class A", weight: 4.85822, morningstarId: "0P0000CAKL" },
+      { name: "SpareBank 1 Sor Norge ASA", weight: 4.85405, morningstarId: "0P0000B7Z2" },
+      { name: "SpareBank 1 Nord-Norge Depository Receipts", weight: 4.85039, morningstarId: "0P0000C11G" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: -0.70946,
-        returnYTD: 12.94676,
-        return6M: 7.37149,
-        return1Y: 16.06724,
-        return3Y: 10.79679,
-        return5Y: 12.52049,
-        stdDev3Y: 14.77199,
-        sharpe3Y: 0.46011,
-        maxDrawdown3Y: -18.76352,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 0.8299,
         returnYTD: 13.88411,
@@ -515,7 +504,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.41133,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 0.35041,
         returnYTD: 14.28317,
@@ -527,7 +516,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.50562,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: 0.40914,
         returnYTD: 14.75075,
@@ -539,7 +528,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.38233,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 6.62576,
         returnYTD: 6.62576,
@@ -551,7 +540,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.50817,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -3.46896,
         returnYTD: 2.92696,
@@ -563,7 +552,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.35095,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -0.59485,
         returnYTD: 2.31469,
@@ -575,7 +564,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.25045,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -1.28963,
         returnYTD: 0.99521,
@@ -587,7 +576,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.16776,
         maxDrawdown3Y: -18.76352,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 5.32959,
         returnYTD: 6.37784,
@@ -599,7 +588,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.28885,
         maxDrawdown3Y: -18.7596,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 4.30334,
         returnYTD: 10.95564,
@@ -611,7 +600,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.7247,
         maxDrawdown3Y: -15.46233,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 1.57462,
         returnYTD: 12.70277,
@@ -623,7 +612,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.5996,
         maxDrawdown3Y: -15.46233,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 1.62784,
         returnYTD: 14.53739,
@@ -635,7 +624,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.71699,
         maxDrawdown3Y: -13.53592,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: -0.3993,
         returnYTD: 14.08005,
@@ -647,7 +636,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.512,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.25183,
         returnYTD: 14.36733,
@@ -659,7 +648,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.32001,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 2.00364,
         returnYTD: 16.65884,
@@ -671,7 +660,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.24584,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 6.68224,
         returnYTD: 24.45427,
@@ -683,7 +672,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.34333,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.24509,
         returnYTD: 0.24509,
@@ -695,7 +684,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.23104,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 6.64921,
         returnYTD: 6.9106,
@@ -707,7 +696,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.25339,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: 2.78974,
         returnYTD: 9.89312,
@@ -719,7 +708,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.60711,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: -0.52773,
         returnYTD: 9.31319,
@@ -731,7 +720,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.437,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: -1.89059,
         returnYTD: 7.24652,
@@ -743,7 +732,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.62903,
         maxDrawdown3Y: -5.28066,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: -3.00853,
         returnYTD: 4.01998,
@@ -755,7 +744,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.36999,
         maxDrawdown3Y: -5.34442,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: 5.414,
         returnYTD: 9.651,
@@ -778,38 +767,49 @@ export const funds: Fund[] = [
         stdDev3Y: 9.51753,
         sharpe3Y: 1.66378,
         maxDrawdown3Y: -5.34442,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -0.08082,
+        returnYTD: 14.59351,
+        return6M: 4.27723,
+        return1Y: 25.01443,
+        return3Y: 18.91968,
+        return5Y: 14.53194,
+        stdDev3Y: 9.55441,
+        sharpe3Y: 1.56155,
+        maxDrawdown3Y: -5.34442,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 4.11166, usEquity: 0.0, nonUsEquity: 95.88833, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 3.17046, usEquity: 0.0, nonUsEquity: 96.82953, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
         developedMarkets: 100.0, emergingMarkets: 0.0, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
         americas: 0.0, greaterEurope: 100.0, greaterAsia: 0.0,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 3977.68483787666, benchmarkAvgMarketCap: 514090.104676021,
-        breakdown: { largeValue: 7.0, largeBlend: 0.0, largeGrowth: 0.0, midValue: 16.0, midBlend: 28.0, midGrowth: 0.0, smallValue: 25.0, smallBlend: 22.0, smallGrowth: 2.0, unclassified: 0.0 },
+        avgMarketCap: 4084.0583636989, benchmarkAvgMarketCap: 542591.134418728,
+        breakdown: { largeValue: 7.0, largeBlend: 0.0, largeGrowth: 0.0, midValue: 26.0, midBlend: 23.0, midGrowth: 0.0, smallValue: 16.0, smallBlend: 26.0, smallGrowth: 2.0, unclassified: 0.0 },
       },
       equityStatistics: {
-        portfolio: { pe: 13.72684, pb: 1.47163, pcf: 6.37918, ps: 1.15038, roe: 14.51789, roa: 4.42979, netMargin: 16.61817, debtCapital: 42.31008 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        portfolio: { pe: 14.72537, pb: 1.55868, pcf: 6.46538, ps: 1.21315, roe: 15.31846, roa: 4.14702, netMargin: 16.01258, debtCapital: 42.90333 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { basicMaterials: 15.22, communicationServices: 0.0, consumerCyclical: 6.43, consumerDefensive: 18.18, energy: 15.25, financialServices: 29.09, healthcare: 0.0, industrials: 15.83, realEstate: 0.0, technology: 0.0, utilities: 0.0 },
+        portfolio: { basicMaterials: 15.6, communicationServices: 0.0, consumerCyclical: 6.09, consumerDefensive: 18.26, energy: 15.37, financialServices: 28.81, healthcare: 0.0, industrials: 15.87, realEstate: 0.0, technology: 0.0, utilities: 0.0 },
       },
 countriesFull: [
           { name: "Norway", weight: 100.0 },
         ],
-
       },
   },
 
@@ -1003,6 +1003,7 @@ countriesFull: [
         { date: "2026-06-30", value: 4.32177 },
         { date: "2026-07-31", value: -1.49695 },
         { date: "2026-08-31", value: -1.6434 },
+        { date: "2026-09-30", value: 3.05426 },
       ],
     benchmarkReturns: [
     ],
@@ -1020,19 +1021,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: -1.48889,
-        returnYTD: 27.86788,
-        return6M: 0.82239,
-        return1Y: 35.6971,
-        return3Y: 20.70735,
-        return5Y: 18.88196,
-        stdDev3Y: 12.53265,
-        sharpe3Y: 1.33311,
-        maxDrawdown3Y: -5.28648,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 2.85486,
         returnYTD: 31.51833,
@@ -1044,7 +1033,7 @@ countriesFull: [
         sharpe3Y: 1.35513,
         maxDrawdown3Y: -5.28648,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 4.58716,
         returnYTD: 37.55129,
@@ -1056,7 +1045,7 @@ countriesFull: [
         sharpe3Y: 1.37243,
         maxDrawdown3Y: -5.28648,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.81772,
         returnYTD: 36.42651,
@@ -1068,7 +1057,7 @@ countriesFull: [
         sharpe3Y: 1.35027,
         maxDrawdown3Y: -5.28648,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 4.36216,
         returnYTD: 4.36216,
@@ -1080,7 +1069,7 @@ countriesFull: [
         sharpe3Y: 1.44901,
         maxDrawdown3Y: -5.28648,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -1.77392,
         returnYTD: 2.51086,
@@ -1092,7 +1081,7 @@ countriesFull: [
         sharpe3Y: 1.45334,
         maxDrawdown3Y: -5.28648,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -10.75528,
         returnYTD: -8.51447,
@@ -1104,7 +1093,7 @@ countriesFull: [
         sharpe3Y: 0.88717,
         maxDrawdown3Y: -12.33841,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -3.94888,
         returnYTD: -12.12712,
@@ -1116,7 +1105,7 @@ countriesFull: [
         sharpe3Y: 0.70058,
         maxDrawdown3Y: -15.80006,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: -1.1259,
         returnYTD: -13.11649,
@@ -1128,7 +1117,7 @@ countriesFull: [
         sharpe3Y: 0.55782,
         maxDrawdown3Y: -16.74807,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 0.05176,
         returnYTD: -13.07151,
@@ -1140,7 +1129,7 @@ countriesFull: [
         sharpe3Y: 0.66154,
         maxDrawdown3Y: -16.74807,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: -1.24159,
         returnYTD: -14.15081,
@@ -1152,7 +1141,7 @@ countriesFull: [
         sharpe3Y: 0.62002,
         maxDrawdown3Y: -17.73916,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: -0.99529,
         returnYTD: -15.00526,
@@ -1164,7 +1153,7 @@ countriesFull: [
         sharpe3Y: 0.64524,
         maxDrawdown3Y: -18.55789,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: -0.77601,
         returnYTD: -15.66483,
@@ -1176,7 +1165,7 @@ countriesFull: [
         sharpe3Y: 0.62905,
         maxDrawdown3Y: -19.18989,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: -1.5375,
         returnYTD: -16.96148,
@@ -1188,7 +1177,7 @@ countriesFull: [
         sharpe3Y: 0.46349,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 3.84511,
         returnYTD: -13.76856,
@@ -1200,7 +1189,7 @@ countriesFull: [
         sharpe3Y: 0.58133,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: -1.37332,
         returnYTD: -14.95279,
@@ -1212,7 +1201,7 @@ countriesFull: [
         sharpe3Y: 0.63235,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: -1.99172,
         returnYTD: -1.99172,
@@ -1224,7 +1213,7 @@ countriesFull: [
         sharpe3Y: 0.4812,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 6.66307,
         returnYTD: 4.53864,
@@ -1236,7 +1225,7 @@ countriesFull: [
         sharpe3Y: 0.66337,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -0.93576,
         returnYTD: 3.56041,
@@ -1248,7 +1237,7 @@ countriesFull: [
         sharpe3Y: 0.58101,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: -4.53578,
         returnYTD: -1.13686,
@@ -1260,7 +1249,7 @@ countriesFull: [
         sharpe3Y: 0.31089,
         maxDrawdown3Y: -20.43235,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: -1.81851,
         returnYTD: -2.9347,
@@ -1272,7 +1261,7 @@ countriesFull: [
         sharpe3Y: 0.12378,
         maxDrawdown3Y: -20.89917,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 4.32177,
         returnYTD: 1.26024,
@@ -1284,7 +1273,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -1.497,
         returnYTD: -0.256,
@@ -1307,29 +1296,41 @@ countriesFull: [
         stdDev3Y: null,
         sharpe3Y: null,
         maxDrawdown3Y: null,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 3.05426,
+        returnYTD: 1.10161,
+        return6M: -2.37426,
+        return1Y: 1.95521,
+        return3Y: 7.57433,
+        return5Y: 10.04019,
+        stdDev3Y: 14.22774,
+        sharpe3Y: 0.25122,
+        maxDrawdown3Y: -20.89917,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 0.34451, usEquity: 58.97, nonUsEquity: 40.68551, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 3.60848, usEquity: 60.47824, nonUsEquity: 35.91329, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
         developedMarkets: 92.398, emergingMarkets: 7.602, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
         americas: 71.17, greaterEurope: 18.96, greaterAsia: 9.87,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 467211.357538244, benchmarkAvgMarketCap: 514090.104676021,
+        avgMarketCap: 467211.357538244, benchmarkAvgMarketCap: 542591.134418728,
         breakdown: { largeValue: 21.0, largeBlend: 43.0, largeGrowth: 26.0, midValue: 0.0, midBlend: 6.0, midGrowth: 4.0, smallValue: 0.0, smallBlend: 0.0, smallGrowth: 0.0, unclassified: 0.0 },
       },
       equityStatistics: {
         portfolio: { pe: 19.1168, pb: 3.79463, pcf: 15.62988, ps: 3.3627, roe: 33.1931, roa: 18.59702, netMargin: 28.01628, debtCapital: 32.18413 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
@@ -1352,7 +1353,6 @@ countriesFull: [
           { name: "China", weight: 0.8242 },
           { name: "Japan", weight: 0.1283 },
         ],
-
       },
   },
 
@@ -1421,34 +1421,34 @@ countriesFull: [
     fiStyleBox: null,
     exposure: {
       sectors: [
-          { name: "Basic Materials", weight: 4.14 },
-          { name: "Communication Services", weight: 2.18 },
-          { name: "Consumer Cyclical", weight: 10.25 },
-          { name: "Consumer Defensive", weight: 4.55 },
-          { name: "Financial Services", weight: 19.32 },
-          { name: "Healthcare", weight: 10.33 },
-          { name: "Industrials", weight: 8.67 },
-          { name: "Real Estate", weight: 4.91 },
-          { name: "Technology", weight: 33.87 },
-          { name: "Utilities", weight: 1.78 },
+          { name: "Basic Materials", weight: 4.21 },
+          { name: "Communication Services", weight: 2.61 },
+          { name: "Consumer Cyclical", weight: 10.17 },
+          { name: "Consumer Defensive", weight: 5.24 },
+          { name: "Financial Services", weight: 18.84 },
+          { name: "Healthcare", weight: 10.6 },
+          { name: "Industrials", weight: 8.54 },
+          { name: "Real Estate", weight: 4.82 },
+          { name: "Technology", weight: 33.06 },
+          { name: "Utilities", weight: 1.91 },
     ],
       regions: [
-          { name: "Americas", weight: 59.08 },
-          { name: "Greater Europe", weight: 26.22 },
-          { name: "Greater Asia", weight: 14.7 },
+          { name: "Americas", weight: 59.12 },
+          { name: "Greater Europe", weight: 26.31 },
+          { name: "Greater Asia", weight: 14.57 },
     ],
       countries: [
-          { name: "United States", weight: 59.096 },
-          { name: "France", weight: 9.2406 },
-          { name: "Taiwan", weight: 5.8108 },
-          { name: "Netherlands", weight: 5.3271 },
-          { name: "United Kingdom", weight: 4.9756 },
-          { name: "Japan", weight: 3.826 },
-          { name: "Spain", weight: 3.2163 },
-          { name: "Hong Kong", weight: 3.116 },
-          { name: "Switzerland", weight: 2.4362 },
-          { name: "Singapore", weight: 1.9401 },
-          { name: "Finland", weight: 1.0153 },
+          { name: "United States", weight: 59.1201 },
+          { name: "France", weight: 9.5827 },
+          { name: "Taiwan", weight: 5.504 },
+          { name: "Netherlands", weight: 5.0215 },
+          { name: "United Kingdom", weight: 5.0079 },
+          { name: "Japan", weight: 4.1524 },
+          { name: "Spain", weight: 3.2429 },
+          { name: "Hong Kong", weight: 3.2304 },
+          { name: "Switzerland", weight: 2.241 },
+          { name: "Singapore", weight: 1.684 },
+          { name: "Finland", weight: 1.213 },
     ],
     },
     monthlyReturns: [
@@ -1543,36 +1543,25 @@ countriesFull: [
         { date: "2026-06-30", value: 10.87035 },
         { date: "2026-07-31", value: -1.70696957579054 },
         { date: "2026-08-31", value: 0.64678 },
+        { date: "2026-09-30", value: 2.31092 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "Microsoft Corp", weight: 7.15089, morningstarId: "0P000003MH" },
-      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 5.74841, morningstarId: "0P0000ASAJ" },
-      { name: "Visa Inc Class A", weight: 4.03997, morningstarId: "0P0000CPCP" },
-      { name: "Advanced Micro Devices Inc", weight: 3.29607, morningstarId: "0P0000006A" },
-      { name: "Amphenol Corp Class A", weight: 3.29034, morningstarId: "0P000000F7" },
-      { name: "Industria De Diseno Textil SA Share From Split", weight: 3.18171, morningstarId: "0P0000A5UW" },
-      { name: "Compass Group PLC", weight: 3.15924, morningstarId: "0P00007O5C" },
-      { name: "Texas Instruments Inc", weight: 3.09982, morningstarId: "0P000005EI" },
-      { name: "AIA Group Ltd", weight: 3.08251, morningstarId: "0P0000Q79U" },
-      { name: "Automatic Data Processing Inc", weight: 3.08211, morningstarId: "0P000000LO" },
+      { name: "Microsoft Corp", weight: 7.37879, morningstarId: "0P000003MH" },
+      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 5.44213, morningstarId: "0P0000ASAJ" },
+      { name: "Visa Inc Class A", weight: 4.27225, morningstarId: "0P0000CPCP" },
+      { name: "Advanced Micro Devices Inc", weight: 3.36447, morningstarId: "0P0000006A" },
+      { name: "Automatic Data Processing Inc", weight: 3.32004, morningstarId: "0P000000LO" },
+      { name: "Industria De Diseno Textil SA Share From Split", weight: 3.20649, morningstarId: "0P0000A5UW" },
+      { name: "AIA Group Ltd", weight: 3.19411, morningstarId: "0P0000Q79U" },
+      { name: "Compass Group PLC", weight: 3.05941, morningstarId: "0P00007O5C" },
+      { name: "Amphenol Corp Class A", weight: 3.00901, morningstarId: "0P000000F7" },
+      { name: "Danaher Corp", weight: 2.84767, morningstarId: "0P000001MV" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 3.00903,
-        returnYTD: 22.53468,
-        return6M: 6.90527,
-        return1Y: 32.51225,
-        return3Y: 17.6022,
-        return5Y: 17.63102,
-        stdDev3Y: 11.34336,
-        sharpe3Y: 1.19913,
-        maxDrawdown3Y: -7.22412,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -0.18495,
         returnYTD: 22.30805,
@@ -1584,7 +1573,7 @@ countriesFull: [
         sharpe3Y: 1.18568,
         maxDrawdown3Y: -7.22412,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 4.35048,
         returnYTD: 27.62904,
@@ -1596,7 +1585,7 @@ countriesFull: [
         sharpe3Y: 1.18559,
         maxDrawdown3Y: -7.22412,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.96629,
         returnYTD: 26.39577,
@@ -1608,7 +1597,7 @@ countriesFull: [
         sharpe3Y: 1.02029,
         maxDrawdown3Y: -7.22412,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 3.08721,
         returnYTD: 3.08721,
@@ -1620,7 +1609,7 @@ countriesFull: [
         sharpe3Y: 1.1715,
         maxDrawdown3Y: -7.22412,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -1.37469,
         returnYTD: 1.67008,
@@ -1632,7 +1621,7 @@ countriesFull: [
         sharpe3Y: 1.35388,
         maxDrawdown3Y: -7.22412,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -10.36706,
         returnYTD: -8.87012,
@@ -1644,7 +1633,7 @@ countriesFull: [
         sharpe3Y: 0.81779,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 0.48902,
         returnYTD: -8.42447,
@@ -1656,7 +1645,7 @@ countriesFull: [
         sharpe3Y: 0.83708,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 3.95855,
         returnYTD: -4.79941,
@@ -1668,7 +1657,7 @@ countriesFull: [
         sharpe3Y: 0.85131,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.25762,
         returnYTD: -3.60215,
@@ -1680,7 +1669,7 @@ countriesFull: [
         sharpe3Y: 0.9955,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.49094,
         returnYTD: -3.12889,
@@ -1692,7 +1681,7 @@ countriesFull: [
         sharpe3Y: 0.89624,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: -0.55493,
         returnYTD: -3.66646,
@@ -1704,7 +1693,7 @@ countriesFull: [
         sharpe3Y: 0.99154,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.44483,
         returnYTD: -3.23794,
@@ -1716,7 +1705,7 @@ countriesFull: [
         sharpe3Y: 1.00664,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.45036,
         returnYTD: -2.80216,
@@ -1728,7 +1717,7 @@ countriesFull: [
         sharpe3Y: 0.96851,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 1.30013,
         returnYTD: -1.53846,
@@ -1740,7 +1729,7 @@ countriesFull: [
         sharpe3Y: 0.87575,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.95954,
         returnYTD: -0.59369,
@@ -1752,7 +1741,7 @@ countriesFull: [
         sharpe3Y: 0.97252,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: -1.94846,
         returnYTD: -1.94846,
@@ -1764,7 +1753,7 @@ countriesFull: [
         sharpe3Y: 0.68468,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 0.01552,
         returnYTD: -1.93324,
@@ -1776,7 +1765,7 @@ countriesFull: [
         sharpe3Y: 0.69096,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -5.78871,
         returnYTD: -7.61004,
@@ -1788,7 +1777,7 @@ countriesFull: [
         sharpe3Y: 0.33967,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 4.43437,
         returnYTD: -3.51313,
@@ -1800,7 +1789,7 @@ countriesFull: [
         sharpe3Y: 0.34331,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 4.07848,
         returnYTD: 0.42207,
@@ -1812,7 +1801,7 @@ countriesFull: [
         sharpe3Y: 0.39682,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 10.87035,
         returnYTD: 11.3383,
@@ -1824,7 +1813,7 @@ countriesFull: [
         sharpe3Y: 0.60443,
         maxDrawdown3Y: -11.59924,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -1.707,
         returnYTD: 9.438,
@@ -1847,48 +1836,59 @@ countriesFull: [
         stdDev3Y: 12.85445,
         sharpe3Y: 0.64331,
         maxDrawdown3Y: -11.59923,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 2.31092,
+        returnYTD: 12.69099,
+        return6M: 21.9732,
+        return1Y: 15.77054,
+        return3Y: 15.25972,
+        return5Y: 13.45002,
+        stdDev3Y: 12.28038,
+        sharpe3Y: 0.91689,
+        maxDrawdown3Y: -11.59924,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 1.07431, usEquity: 58.46115, nonUsEquity: 40.46455, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 1.12431, usEquity: 58.45537, nonUsEquity: 40.4203, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
         developedMarkets: 100.0, emergingMarkets: 0.0, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
-        americas: 59.08, greaterEurope: 26.22, greaterAsia: 14.7,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        americas: 59.12, greaterEurope: 26.31, greaterAsia: 14.57,
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 179843.82061775, benchmarkAvgMarketCap: 514090.104676021,
-        breakdown: { largeValue: 12.0, largeBlend: 46.0, largeGrowth: 25.0, midValue: 3.0, midBlend: 8.0, midGrowth: 6.0, smallValue: 0.0, smallBlend: 0.0, smallGrowth: 0.0, unclassified: 0.0 },
+        avgMarketCap: 186880.940266286, benchmarkAvgMarketCap: 542591.134418728,
+        breakdown: { largeValue: 16.0, largeBlend: 46.0, largeGrowth: 19.0, midValue: 2.0, midBlend: 8.0, midGrowth: 9.0, smallValue: 0.0, smallBlend: 0.0, smallGrowth: 0.0, unclassified: 0.0 },
       },
       equityStatistics: {
-        portfolio: { pe: 27.42732, pb: 4.27551, pcf: 20.95557, ps: 4.1806, roe: 25.74847, roa: 11.03093, netMargin: 22.5593, debtCapital: 32.79675 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        portfolio: { pe: 27.29258, pb: 4.36357, pcf: 20.97755, ps: 4.17153, roe: 26.07393, roa: 11.14348, netMargin: 22.53847, debtCapital: 32.95413 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { basicMaterials: 4.14, communicationServices: 2.18, consumerCyclical: 10.25, consumerDefensive: 4.55, energy: 0.0, financialServices: 19.32, healthcare: 10.33, industrials: 8.67, realEstate: 4.91, technology: 33.87, utilities: 1.78 },
+        portfolio: { basicMaterials: 4.21, communicationServices: 2.61, consumerCyclical: 10.17, consumerDefensive: 5.24, energy: 0.0, financialServices: 18.84, healthcare: 10.6, industrials: 8.54, realEstate: 4.82, technology: 33.06, utilities: 1.91 },
       },
 countriesFull: [
-          { name: "United States", weight: 59.096 },
-          { name: "France", weight: 9.2406 },
-          { name: "Taiwan", weight: 5.8108 },
-          { name: "Netherlands", weight: 5.3271 },
-          { name: "United Kingdom", weight: 4.9756 },
-          { name: "Japan", weight: 3.826 },
-          { name: "Spain", weight: 3.2163 },
-          { name: "Hong Kong", weight: 3.116 },
-          { name: "Switzerland", weight: 2.4362 },
-          { name: "Singapore", weight: 1.9401 },
-          { name: "Finland", weight: 1.0153 },
+          { name: "United States", weight: 59.1201 },
+          { name: "France", weight: 9.5827 },
+          { name: "Taiwan", weight: 5.504 },
+          { name: "Netherlands", weight: 5.0215 },
+          { name: "United Kingdom", weight: 5.0079 },
+          { name: "Japan", weight: 4.1524 },
+          { name: "Spain", weight: 3.2429 },
+          { name: "Hong Kong", weight: 3.2304 },
+          { name: "Switzerland", weight: 2.241 },
+          { name: "Singapore", weight: 1.684 },
+          { name: "Finland", weight: 1.213 },
         ],
-
       },
   },
 
@@ -2091,6 +2091,7 @@ countriesFull: [
         { date: "2026-06-30", value: 14.51064 },
         { date: "2026-07-31", value: -10.53630291960067 },
         { date: "2026-08-31", value: 0.27116 },
+        { date: "2026-09-30", value: 0.16709 },
       ],
     benchmarkReturns: [
     ],
@@ -2108,19 +2109,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-06-30",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 2.44846,
-        returnYTD: 17.11104,
-        return6M: 1.68233,
-        return1Y: 23.52885,
-        return3Y: 5.07052,
-        return5Y: 14.73819,
-        stdDev3Y: 15.40966,
-        sharpe3Y: 0.06947,
-        maxDrawdown3Y: -23.91288,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 3.3125,
         returnYTD: 20.99034,
@@ -2132,7 +2121,7 @@ countriesFull: [
         sharpe3Y: 0.14012,
         maxDrawdown3Y: -23.91288,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 8.99189,
         returnYTD: 31.86966,
@@ -2144,7 +2133,7 @@ countriesFull: [
         sharpe3Y: 0.23301,
         maxDrawdown3Y: -23.91288,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -1.488,
         returnYTD: 29.90744,
@@ -2156,7 +2145,7 @@ countriesFull: [
         sharpe3Y: 0.23215,
         maxDrawdown3Y: -22.79249,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 7.09156,
         returnYTD: 7.09156,
@@ -2168,7 +2157,7 @@ countriesFull: [
         sharpe3Y: 0.67091,
         maxDrawdown3Y: -14.16519,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -4.06622,
         returnYTD: 2.73698,
@@ -2180,7 +2169,7 @@ countriesFull: [
         sharpe3Y: 0.64925,
         maxDrawdown3Y: -11.17959,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -12.87642,
         returnYTD: -10.49186,
@@ -2192,7 +2181,7 @@ countriesFull: [
         sharpe3Y: 0.31444,
         maxDrawdown3Y: -16.41906,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -0.21486,
         returnYTD: -10.68418,
@@ -2204,7 +2193,7 @@ countriesFull: [
         sharpe3Y: 0.46321,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 2.8909,
         returnYTD: -8.10215,
@@ -2216,7 +2205,7 @@ countriesFull: [
         sharpe3Y: 0.54732,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 3.45294,
         returnYTD: -4.92897,
@@ -2228,7 +2217,7 @@ countriesFull: [
         sharpe3Y: 0.68432,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.41079,
         returnYTD: -4.53843,
@@ -2240,7 +2229,7 @@ countriesFull: [
         sharpe3Y: 0.55197,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 1.51214,
         returnYTD: -3.09492,
@@ -2252,7 +2241,7 @@ countriesFull: [
         sharpe3Y: 0.61308,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.01314,
         returnYTD: -3.08218,
@@ -2264,7 +2253,7 @@ countriesFull: [
         sharpe3Y: 0.67845,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 2.85261,
         returnYTD: -0.3175,
@@ -2276,7 +2265,7 @@ countriesFull: [
         sharpe3Y: 0.73201,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 2.07631,
         returnYTD: 1.75222,
@@ -2288,7 +2277,7 @@ countriesFull: [
         sharpe3Y: 0.74015,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: -2.06031,
         returnYTD: -0.34419,
@@ -2300,7 +2289,7 @@ countriesFull: [
         sharpe3Y: 0.84476,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: -3.58374,
         returnYTD: -3.58374,
@@ -2312,7 +2301,7 @@ countriesFull: [
         sharpe3Y: 0.52827,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 0.48106,
         returnYTD: -3.11992,
@@ -2324,7 +2313,7 @@ countriesFull: [
         sharpe3Y: 0.48883,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -5.65968,
         returnYTD: -8.60302,
@@ -2336,7 +2325,7 @@ countriesFull: [
         sharpe3Y: 0.23479,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 2.6871,
         returnYTD: -6.14709,
@@ -2348,7 +2337,7 @@ countriesFull: [
         sharpe3Y: 0.33877,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 1.88889,
         returnYTD: -4.37432,
@@ -2360,7 +2349,7 @@ countriesFull: [
         sharpe3Y: 0.26187,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 14.51064,
         returnYTD: 9.50158,
@@ -2372,7 +2361,7 @@ countriesFull: [
         sharpe3Y: 0.50036,
         maxDrawdown3Y: -16.59864,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -10.536,
         returnYTD: -2.036,
@@ -2395,29 +2384,41 @@ countriesFull: [
         stdDev3Y: 17.99451,
         sharpe3Y: 0.22317,
         maxDrawdown3Y: -16.59863,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 0.16709,
+        returnYTD: -1.60606,
+        return6M: 7.65557,
+        return1Y: 1.17363,
+        return3Y: 10.34649,
+        return5Y: 4.75867,
+        stdDev3Y: 17.53857,
+        sharpe3Y: 0.36186,
+        maxDrawdown3Y: -16.59864,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
         portfolio: { cash: 5.72784, usEquity: 77.58709, nonUsEquity: 16.68507, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
         developedMarkets: 98.853, emergingMarkets: 1.147, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
         americas: 82.3, greaterEurope: 11.7, greaterAsia: 6.0,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 20324.627559657, benchmarkAvgMarketCap: 514090.104676021,
+        avgMarketCap: 20324.627559657, benchmarkAvgMarketCap: 542591.134418728,
         breakdown: { largeValue: 0.0, largeBlend: 5.0, largeGrowth: 6.0, midValue: 0.0, midBlend: 21.0, midGrowth: 46.0, smallValue: 0.0, smallBlend: 6.0, smallGrowth: 16.0, unclassified: 0.0 },
       },
       equityStatistics: {
         portfolio: { pe: 40.03203, pb: 5.59848, pcf: 26.6099, ps: 3.21285, roe: 16.24698, roa: 5.74857, netMargin: 12.30427, debtCapital: 29.91194 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
@@ -2436,7 +2437,6 @@ countriesFull: [
           { name: "Finland", weight: 0.3835 },
           { name: "Germany", weight: 0.1988 },
         ],
-
       },
   },
 
@@ -2505,30 +2505,30 @@ countriesFull: [
     fiStyleBox: null,
     exposure: {
       sectors: [
-          { name: "Communication Services", weight: 8.63 },
-          { name: "Consumer Cyclical", weight: 23.21 },
-          { name: "Consumer Defensive", weight: 5.62 },
-          { name: "Financial Services", weight: 12.65 },
-          { name: "Healthcare", weight: 3.98 },
-          { name: "Industrials", weight: 14.07 },
-          { name: "Technology", weight: 31.84 },
+          { name: "Communication Services", weight: 9.17 },
+          { name: "Consumer Cyclical", weight: 24.99 },
+          { name: "Consumer Defensive", weight: 5.08 },
+          { name: "Financial Services", weight: 12.61 },
+          { name: "Healthcare", weight: 4.5 },
+          { name: "Industrials", weight: 12.51 },
+          { name: "Technology", weight: 31.14 },
     ],
       regions: [
-          { name: "Americas", weight: 15.09 },
-          { name: "Greater Europe", weight: 7.59 },
-          { name: "Greater Asia", weight: 77.32 },
+          { name: "Americas", weight: 14.86 },
+          { name: "Greater Europe", weight: 7.49 },
+          { name: "Greater Asia", weight: 77.65 },
     ],
       countries: [
-          { name: "India", weight: 34.0671 },
-          { name: "China", weight: 24.5336 },
-          { name: "Taiwan", weight: 13.5078 },
-          { name: "Brazil", weight: 8.5062 },
-          { name: "Netherlands", weight: 7.5918 },
-          { name: "Mexico", weight: 4.2276 },
-          { name: "Singapore", weight: 2.4254 },
-          { name: "United States", weight: 2.3646 },
-          { name: "South Korea", weight: 2.1456 },
-          { name: "Vietnam", weight: 0.6303 },
+          { name: "India", weight: 33.7947 },
+          { name: "China", weight: 23.7386 },
+          { name: "Taiwan", weight: 13.5557 },
+          { name: "Brazil", weight: 8.4613 },
+          { name: "Netherlands", weight: 7.4891 },
+          { name: "Mexico", weight: 3.9026 },
+          { name: "Singapore", weight: 3.7066 },
+          { name: "United States", weight: 2.5001 },
+          { name: "South Korea", weight: 1.9928 },
+          { name: "Vietnam", weight: 0.8585 },
     ],
     },
     monthlyReturns: [
@@ -2567,36 +2567,25 @@ countriesFull: [
         { date: "2026-06-30", value: 16.94849 },
         { date: "2026-07-31", value: -8.60894 },
         { date: "2026-08-31", value: -1.8367 },
+        { date: "2026-09-30", value: -1.49129 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 9.30507, morningstarId: "0P0000ASAJ" },
-      { name: "Nu Holdings Ltd Ordinary Shares Class A", weight: 6.90837, morningstarId: "0P0001NZF0" },
-      { name: "MakeMyTrip Ltd", weight: 6.31191, morningstarId: "0P0000POAR" },
-      { name: "CarTrade Tech Ltd", weight: 5.92956, morningstarId: "0P0001N4TR" },
-      { name: "Full Truck Alliance Co Ltd ADR", weight: 5.15041, morningstarId: "0P0001MPZA" },
-      { name: "Contemporary Amperex Technology Co Ltd Class A", weight: 4.80923, morningstarId: "0P0001DIGQ" },
-      { name: "Tencent Holdings Ltd", weight: 4.44374, morningstarId: "0P00009S22" },
-      { name: "Prosus NV Ordinary Shares - Class N", weight: 4.10316, morningstarId: "0P0001ICBL" },
-      { name: "Grupo Aeroportuario del Centro Norte SAB de CV Class B", weight: 4.08012, morningstarId: "0P0000CAMJ" },
-      { name: "Computer Age Management Services Ltd Ordinary Shares", weight: 4.0274, morningstarId: "0P0001KTCY" },
+      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 9.23935, morningstarId: "0P0000ASAJ" },
+      { name: "Nu Holdings Ltd Ordinary Shares Class A", weight: 6.81634, morningstarId: "0P0001NZF0" },
+      { name: "MakeMyTrip Ltd", weight: 6.25303, morningstarId: "0P0000POAR" },
+      { name: "CarTrade Tech Ltd", weight: 6.23907, morningstarId: "0P0001N4TR" },
+      { name: "Full Truck Alliance Co Ltd ADR", weight: 4.91795, morningstarId: "0P0001MPZA" },
+      { name: "Contemporary Amperex Technology Co Ltd Class A", weight: 4.43865, morningstarId: "0P0001DIGQ" },
+      { name: "Tencent Holdings Ltd", weight: 4.23246, morningstarId: "0P00009S22" },
+      { name: "Cholamandalam Investment and Finance Co Ltd", weight: 4.02335, morningstarId: "0P0000BD5D" },
+      { name: "Prosus NV Ordinary Shares - Class N", weight: 3.97039, morningstarId: "0P0001ICBL" },
+      { name: "Computer Age Management Services Ltd Ordinary Shares", weight: 3.96283, morningstarId: "0P0001KTCY" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 4.3778,
-        returnYTD: 31.4743,
-        return6M: 16.149,
-        return1Y: 31.9437,
-        return3Y: null,
-        return5Y: null,
-        stdDev3Y: null,
-        sharpe3Y: null,
-        maxDrawdown3Y: null,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 1.8464,
         returnYTD: 33.90184,
@@ -2608,7 +2597,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 0.92991,
         returnYTD: 35.14701,
@@ -2620,7 +2609,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: 1.49427,
         returnYTD: 37.16647,
@@ -2632,7 +2621,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: -3.715,
         returnYTD: -3.715,
@@ -2644,7 +2633,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -2.91554,
         returnYTD: -6.52223,
@@ -2656,7 +2645,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -6.04701,
         returnYTD: -12.17484,
@@ -2668,7 +2657,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -0.36481,
         returnYTD: -12.49523,
@@ -2680,7 +2669,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 1.51687,
         returnYTD: -11.1679,
@@ -2692,7 +2681,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.55432,
         returnYTD: -9.78716,
@@ -2704,7 +2693,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 1.25148,
         returnYTD: -8.65817,
@@ -2716,7 +2705,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 2.80608,
         returnYTD: -6.09504,
@@ -2728,7 +2717,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 1.69781,
         returnYTD: -4.50072,
@@ -2740,7 +2729,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 2.9635,
         returnYTD: -1.67059,
@@ -2752,7 +2741,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: -4.11947,
         returnYTD: -5.72125,
@@ -2764,7 +2753,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: -0.3722,
         returnYTD: -6.07215,
@@ -2776,7 +2765,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: -8.12962,
         returnYTD: -8.12962,
@@ -2788,7 +2777,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: -5.09194,
         returnYTD: -12.8076,
@@ -2800,7 +2789,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -10.32973,
         returnYTD: -21.81434,
@@ -2812,7 +2801,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 4.18614,
         returnYTD: -18.54138,
@@ -2824,7 +2813,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 2.59222,
         returnYTD: -16.4298,
@@ -2836,7 +2825,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 16.94849,
         returnYTD: -2.26591,
@@ -2848,7 +2837,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -8.609,
         returnYTD: -10.68,
@@ -2871,47 +2860,58 @@ countriesFull: [
         stdDev3Y: null,
         sharpe3Y: null,
         maxDrawdown3Y: null,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -1.49129,
+        returnYTD: -13.62788,
+        return6M: 10.47054,
+        return1Y: -15.04913,
+        return3Y: 3.74995,
+        return5Y: null,
+        stdDev3Y: 17.70733,
+        sharpe3Y: -0.01412,
+        maxDrawdown3Y: -26.56189,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 3.48871, usEquity: 2.28211, nonUsEquity: 94.2292, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 3.02079, usEquity: 2.42458, nonUsEquity: 94.55463, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
-        developedMarkets: 28.035, emergingMarkets: 71.965, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        developedMarkets: 29.244, emergingMarkets: 70.756, notAvailable: 0.0,
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
-        americas: 15.09, greaterEurope: 7.59, greaterAsia: 77.32,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        americas: 14.86, greaterEurope: 7.49, greaterAsia: 77.65,
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 26208.0247232552, benchmarkAvgMarketCap: 514090.104676021,
-        breakdown: { largeValue: 0.0, largeBlend: 8.0, largeGrowth: 53.0, midValue: 0.0, midBlend: 0.0, midGrowth: 31.0, smallValue: 1.0, smallBlend: 0.0, smallGrowth: 7.0, unclassified: 0.0 },
+        avgMarketCap: 26556.4974028124, benchmarkAvgMarketCap: 542591.134418728,
+        breakdown: { largeValue: 0.0, largeBlend: 13.0, largeGrowth: 48.0, midValue: 0.0, midBlend: 11.0, midGrowth: 20.0, smallValue: 1.0, smallBlend: 0.0, smallGrowth: 7.0, unclassified: 0.0 },
       },
       equityStatistics: {
-        portfolio: { pe: 25.75992, pb: 4.96993, pcf: 20.19386, ps: 5.67666, roe: 29.72924, roa: 13.86616, netMargin: 28.02952, debtCapital: 21.16837 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        portfolio: { pe: 24.06739, pb: 4.69947, pcf: 18.67414, ps: 5.30166, roe: 32.18717, roa: 13.54884, netMargin: 28.53639, debtCapital: 22.08328 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { basicMaterials: 0.0, communicationServices: 8.63, consumerCyclical: 23.21, consumerDefensive: 5.62, energy: 0.0, financialServices: 12.65, healthcare: 3.98, industrials: 14.07, realEstate: 0.0, technology: 31.84, utilities: 0.0 },
+        portfolio: { basicMaterials: 0.0, communicationServices: 9.17, consumerCyclical: 24.99, consumerDefensive: 5.08, energy: 0.0, financialServices: 12.61, healthcare: 4.5, industrials: 12.51, realEstate: 0.0, technology: 31.14, utilities: 0.0 },
       },
 countriesFull: [
-          { name: "India", weight: 34.0671 },
-          { name: "China", weight: 24.5336 },
-          { name: "Taiwan", weight: 13.5078 },
-          { name: "Brazil", weight: 8.5062 },
-          { name: "Netherlands", weight: 7.5918 },
-          { name: "Mexico", weight: 4.2276 },
-          { name: "Singapore", weight: 2.4254 },
-          { name: "United States", weight: 2.3646 },
-          { name: "South Korea", weight: 2.1456 },
-          { name: "Vietnam", weight: 0.6303 },
+          { name: "India", weight: 33.7947 },
+          { name: "China", weight: 23.7386 },
+          { name: "Taiwan", weight: 13.5557 },
+          { name: "Brazil", weight: 8.4613 },
+          { name: "Netherlands", weight: 7.4891 },
+          { name: "Mexico", weight: 3.9026 },
+          { name: "Singapore", weight: 3.7066 },
+          { name: "United States", weight: 2.5001 },
+          { name: "South Korea", weight: 1.9928 },
+          { name: "Vietnam", weight: 0.8585 },
         ],
-
       },
   },
 
@@ -2980,38 +2980,38 @@ countriesFull: [
     fiStyleBox: null,
     exposure: {
       sectors: [
-          { name: "Basic Materials", weight: 1.41 },
-          { name: "Communication Services", weight: 13.23 },
-          { name: "Consumer Cyclical", weight: 11.0 },
-          { name: "Consumer Defensive", weight: 8.61 },
-          { name: "Energy", weight: 1.56 },
-          { name: "Financial Services", weight: 27.06 },
-          { name: "Industrials", weight: 4.84 },
-          { name: "Real Estate", weight: 3.77 },
-          { name: "Technology", weight: 27.57 },
-          { name: "Utilities", weight: 0.95 },
+          { name: "Basic Materials", weight: 1.72 },
+          { name: "Communication Services", weight: 13.41 },
+          { name: "Consumer Cyclical", weight: 11.13 },
+          { name: "Consumer Defensive", weight: 8.82 },
+          { name: "Energy", weight: 1.8 },
+          { name: "Financial Services", weight: 27.91 },
+          { name: "Industrials", weight: 4.42 },
+          { name: "Real Estate", weight: 3.73 },
+          { name: "Technology", weight: 26.28 },
+          { name: "Utilities", weight: 0.78 },
     ],
       regions: [
-          { name: "Americas", weight: 24.66 },
-          { name: "Greater Europe", weight: 13.55 },
-          { name: "Greater Asia", weight: 61.79 },
+          { name: "Americas", weight: 25.02 },
+          { name: "Greater Europe", weight: 15.37 },
+          { name: "Greater Asia", weight: 59.61 },
     ],
       countries: [
-          { name: "South Korea", weight: 16.3204 },
-          { name: "China", weight: 15.219 },
-          { name: "Mexico", weight: 10.3496 },
-          { name: "Taiwan", weight: 10.1564 },
-          { name: "Brazil", weight: 8.5808 },
-          { name: "India", weight: 5.5652 },
-          { name: "Indonesia", weight: 5.384 },
-          { name: "United States", weight: 3.8799 },
-          { name: "Hong Kong", weight: 2.6147 },
-          { name: "Philippines", weight: 2.424 },
-          { name: "Austria", weight: 2.1544 },
-          { name: "United Kingdom", weight: 2.1439 },
-          { name: "Greece", weight: 2.0217 },
-          { name: "Singapore", weight: 1.6005 },
-          { name: "Hungary", weight: 1.5006 },
+          { name: "China", weight: 15.995 },
+          { name: "Taiwan", weight: 12.417 },
+          { name: "South Korea", weight: 11.1308 },
+          { name: "Brazil", weight: 8.9429 },
+          { name: "Mexico", weight: 8.6601 },
+          { name: "Indonesia", weight: 6.2389 },
+          { name: "India", weight: 5.1798 },
+          { name: "United States", weight: 3.6433 },
+          { name: "Hong Kong", weight: 3.348 },
+          { name: "Philippines", weight: 2.4176 },
+          { name: "United Kingdom", weight: 2.4124 },
+          { name: "Austria", weight: 2.2063 },
+          { name: "Greece", weight: 2.0419 },
+          { name: "Hungary", weight: 1.3832 },
+          { name: "Poland", weight: 1.2935 },
     ],
     },
     monthlyReturns: [
@@ -3119,36 +3119,25 @@ countriesFull: [
         { date: "2026-06-30", value: 5.35278 },
         { date: "2026-07-31", value: -3.241022779372782 },
         { date: "2026-08-31", value: -0.52327 },
+        { date: "2026-09-30", value: -0.13493 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "Samsung Electronics Co Ltd", weight: 7.35985, morningstarId: "0P0000B2XZ" },
-      { name: "SK Hynix Inc", weight: 6.18917, morningstarId: "0P0000AZ1B" },
-      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 5.41258, morningstarId: "0P0000ASAJ" },
-      { name: "Alibaba Group Holding Ltd Ordinary Shares", weight: 4.10801, morningstarId: "0P0001ITIV" },
-      { name: "HDFC Bank Ltd", weight: 2.95233, morningstarId: "0P0000C3NZ" },
-      { name: "Copa Holdings SA Class A", weight: 2.75518, morningstarId: "0P000001HG" },
-      { name: "NetEase Inc Ordinary Shares", weight: 2.67236, morningstarId: "0P0001K417" },
-      { name: "Wiwynn Corp Ordinary Shares", weight: 2.50557, morningstarId: "0P0001C5O1" },
-      { name: "Wal - Mart de Mexico SAB de CV", weight: 2.42585, morningstarId: "0P0000BXAY" },
-      { name: "PT Bank Rakyat Indonesia (Persero) Tbk Registered Shs Series -B-", weight: 2.34964, morningstarId: "0P0000C3MD" },
+      { name: "Taiwan Semiconductor Manufacturing Co Ltd", weight: 7.01538, morningstarId: "0P0000ASAJ" },
+      { name: "Samsung Electronics Co Ltd", weight: 6.28483, morningstarId: "0P0000B2XZ" },
+      { name: "Alibaba Group Holding Ltd Ordinary Shares", weight: 5.52248, morningstarId: "0P0001ITIV" },
+      { name: "Wiwynn Corp Ordinary Shares", weight: 3.3341, morningstarId: "0P0001C5O1" },
+      { name: "SK hynix Inc", weight: 3.25048, morningstarId: "0P0000AZ1B" },
+      { name: "PT Bank Rakyat Indonesia (Persero) Tbk Registered Shs Series -B-", weight: 2.82517, morningstarId: "0P0000C3MD" },
+      { name: "HDFC Bank Ltd", weight: 2.70047, morningstarId: "0P0000C3NZ" },
+      { name: "NetEase Inc Ordinary Shares", weight: 2.54526, morningstarId: "0P0001K417" },
+      { name: "Wal - Mart de Mexico SAB de CV", weight: 2.41727, morningstarId: "0P0000BXAY" },
+      { name: "Bank of the Philippine Islands", weight: 2.36481, morningstarId: "0P0000DH9Y" },
   ],
-      holdingsDate: "2026-06-30",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 7.48357,
-        returnYTD: 16.43012,
-        return6M: 6.17953,
-        return1Y: 20.35558,
-        return3Y: 11.501,
-        return5Y: 7.18649,
-        stdDev3Y: 15.91424,
-        sharpe3Y: 0.47134,
-        maxDrawdown3Y: -17.5291,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -0.62032,
         returnYTD: 15.70788,
@@ -3160,7 +3149,7 @@ countriesFull: [
         sharpe3Y: 0.59549,
         maxDrawdown3Y: -17.5291,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: -2.48022,
         returnYTD: 12.83807,
@@ -3172,7 +3161,7 @@ countriesFull: [
         sharpe3Y: 0.42104,
         maxDrawdown3Y: -17.5291,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: 2.36793,
         returnYTD: 15.50999,
@@ -3184,7 +3173,7 @@ countriesFull: [
         sharpe3Y: 0.47003,
         maxDrawdown3Y: -17.5291,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 2.11643,
         returnYTD: 2.11643,
@@ -3196,7 +3185,7 @@ countriesFull: [
         sharpe3Y: 0.50107,
         maxDrawdown3Y: -17.5291,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 1.18295,
         returnYTD: 3.32442,
@@ -3208,7 +3197,7 @@ countriesFull: [
         sharpe3Y: 0.78403,
         maxDrawdown3Y: -10.2872,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -5.32369,
         returnYTD: -2.17626,
@@ -3220,7 +3209,7 @@ countriesFull: [
         sharpe3Y: 0.75961,
         maxDrawdown3Y: -9.65377,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 1.34898,
         returnYTD: -0.85663,
@@ -3232,7 +3221,7 @@ countriesFull: [
         sharpe3Y: 0.77294,
         maxDrawdown3Y: -9.65377,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 3.99799,
         returnYTD: 3.10711,
@@ -3244,7 +3233,7 @@ countriesFull: [
         sharpe3Y: 0.78951,
         maxDrawdown3Y: -9.65377,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 5.03605,
         returnYTD: 8.29963,
@@ -3256,7 +3245,7 @@ countriesFull: [
         sharpe3Y: 0.93806,
         maxDrawdown3Y: -8.81665,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 4.51515,
         returnYTD: 13.18953,
@@ -3268,7 +3257,7 @@ countriesFull: [
         sharpe3Y: 1.19533,
         maxDrawdown3Y: -6.72833,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 0.76803,
         returnYTD: 14.05886,
@@ -3280,7 +3269,7 @@ countriesFull: [
         sharpe3Y: 1.16027,
         maxDrawdown3Y: -6.72833,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 5.1641,
         returnYTD: 19.94897,
@@ -3292,7 +3281,7 @@ countriesFull: [
         sharpe3Y: 1.3276,
         maxDrawdown3Y: -5.72396,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 5.78185,
         returnYTD: 26.88424,
@@ -3304,7 +3293,7 @@ countriesFull: [
         sharpe3Y: 1.72387,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 2.26028,
         returnYTD: 29.75218,
@@ -3316,7 +3305,7 @@ countriesFull: [
         sharpe3Y: 1.60381,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.95838,
         returnYTD: 30.9957,
@@ -3328,7 +3317,7 @@ countriesFull: [
         sharpe3Y: 1.64017,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 3.52214,
         returnYTD: 3.52214,
@@ -3340,7 +3329,7 @@ countriesFull: [
         sharpe3Y: 1.59849,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 6.63553,
         returnYTD: 10.39138,
@@ -3352,7 +3341,7 @@ countriesFull: [
         sharpe3Y: 1.88717,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -5.10185,
         returnYTD: 4.75938,
@@ -3364,7 +3353,7 @@ countriesFull: [
         sharpe3Y: 1.43222,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 3.10796,
         returnYTD: 8.01526,
@@ -3376,7 +3365,7 @@ countriesFull: [
         sharpe3Y: 1.42329,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 3.23278,
         returnYTD: 11.50716,
@@ -3388,7 +3377,7 @@ countriesFull: [
         sharpe3Y: 1.4375,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 5.35278,
         returnYTD: 17.47589,
@@ -3400,7 +3389,7 @@ countriesFull: [
         sharpe3Y: 1.5455,
         maxDrawdown3Y: -5.32369,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -3.241,
         returnYTD: 13.668,
@@ -3423,55 +3412,65 @@ countriesFull: [
         stdDev3Y: 11.75825,
         sharpe3Y: 1.33784,
         maxDrawdown3Y: -5.32369,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -0.13493,
+        returnYTD: 12.9211,
+        return6M: 7.79092,
+        return1Y: 23.3206,
+        return3Y: 20.879,
+        return5Y: 15.26157,
+        stdDev3Y: 11.4963,
+        sharpe3Y: 1.46821,
+        maxDrawdown3Y: -5.32369,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 4.96581, usEquity: 3.6872, nonUsEquity: 91.34699, bonds: 0.0, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 1.11713, usEquity: 3.77464, nonUsEquity: 94.04075, bonds: 0.0, other: 1.06746 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
-        developedMarkets: 43.271, emergingMarkets: 56.729, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        developedMarkets: 42.1095355, emergingMarkets: 57.8904645, notAvailable: 0.0,
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
-        americas: 24.66, greaterEurope: 13.55, greaterAsia: 61.79,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        americas: 25.02, greaterEurope: 15.37, greaterAsia: 59.61,
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 39812.1061641762, benchmarkAvgMarketCap: 514090.104676021,
-        breakdown: { largeValue: 26.0, largeBlend: 35.0, largeGrowth: 8.0, midValue: 21.0, midBlend: 6.0, midGrowth: 0.0, smallValue: 4.0, smallBlend: 0.0, smallGrowth: 0.0, unclassified: 0.0 },
+        avgMarketCap: 38371.2733970728, benchmarkAvgMarketCap: 542591.134418728,
+        breakdown: { largeValue: 27.0, largeBlend: 33.0, largeGrowth: 12.0, midValue: 17.0, midBlend: 6.0, midGrowth: 0.0, smallValue: 4.0, smallBlend: 1.0, smallGrowth: 0.0, unclassified: 0.0 },
       },
       equityStatistics: {
-        portfolio: { pe: 11.12842, pb: 1.725, pcf: 7.04126, ps: 1.58806, roe: 22.34461, roa: 10.40482, netMargin: 27.27271, debtCapital: 27.48775 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        portfolio: { pe: 10.99989, pb: 1.78578, pcf: 6.5028, ps: 1.61574, roe: 23.18472, roa: 10.778, netMargin: 26.99271, debtCapital: 28.99931 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { basicMaterials: 1.41, communicationServices: 13.23, consumerCyclical: 11.0, consumerDefensive: 8.61, energy: 1.56, financialServices: 27.06, healthcare: 0.0, industrials: 4.84, realEstate: 3.77, technology: 27.57, utilities: 0.95 },
+        portfolio: { basicMaterials: 1.72, communicationServices: 13.41, consumerCyclical: 11.13, consumerDefensive: 8.82, energy: 1.8, financialServices: 27.91, healthcare: 0.0, industrials: 4.42, realEstate: 3.73, technology: 26.28, utilities: 0.78 },
       },
 countriesFull: [
-          { name: "South Korea", weight: 16.3204 },
-          { name: "China", weight: 15.219 },
-          { name: "Mexico", weight: 10.3496 },
-          { name: "Taiwan", weight: 10.1564 },
-          { name: "Brazil", weight: 8.5808 },
-          { name: "India", weight: 5.5652 },
-          { name: "Indonesia", weight: 5.384 },
-          { name: "United States", weight: 3.8799 },
-          { name: "Hong Kong", weight: 2.6147 },
-          { name: "Philippines", weight: 2.424 },
-          { name: "Austria", weight: 2.1544 },
-          { name: "United Kingdom", weight: 2.1439 },
-          { name: "Greece", weight: 2.0217 },
-          { name: "Singapore", weight: 1.6005 },
-          { name: "Hungary", weight: 1.5006 },
-          { name: "Poland", weight: 1.451 },
-          { name: "South Africa", weight: 0.8585 },
-          { name: "Thailand", weight: 0.6417 },
+          { name: "China", weight: 15.995 },
+          { name: "Taiwan", weight: 12.417 },
+          { name: "South Korea", weight: 11.1308 },
+          { name: "Brazil", weight: 8.9429 },
+          { name: "Mexico", weight: 8.6601 },
+          { name: "Indonesia", weight: 6.2389 },
+          { name: "India", weight: 5.1798 },
+          { name: "United States", weight: 3.6433 },
+          { name: "Hong Kong", weight: 3.348 },
+          { name: "Philippines", weight: 2.4176 },
+          { name: "United Kingdom", weight: 2.4124 },
+          { name: "Austria", weight: 2.2063 },
+          { name: "Greece", weight: 2.0419 },
+          { name: "Hungary", weight: 1.3832 },
+          { name: "Poland", weight: 1.2935 },
+          { name: "South Africa", weight: 0.8534 },
+          { name: "Singapore", weight: 0.8014 },
         ],
-
       },
   },
 
@@ -3655,6 +3654,7 @@ countriesFull: [
         { date: "2026-06-30", value: 0.32371 },
         { date: "2026-07-31", value: -1.2397 },
         { date: "2026-08-31", value: 0.48147 },
+        { date: "2026-09-30", value: -3.58518 },
       ],
     benchmarkReturns: [
     ],
@@ -3672,19 +3672,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-06-30",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 1.07717,
-        returnYTD: 4.98649,
-        return6M: 4.15271,
-        return1Y: 9.66149,
-        return3Y: 0.00621,
-        return5Y: 1.8298,
-        stdDev3Y: 6.50163,
-        sharpe3Y: -0.61428,
-        maxDrawdown3Y: -12.14937,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -1.57097,
         returnYTD: 3.33718,
@@ -3696,7 +3684,7 @@ countriesFull: [
         sharpe3Y: -0.67448,
         maxDrawdown3Y: -12.14937,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 0.95203,
         returnYTD: 4.32098,
@@ -3708,7 +3696,7 @@ countriesFull: [
         sharpe3Y: -0.58327,
         maxDrawdown3Y: -12.14937,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.85984,
         returnYTD: 3.42399,
@@ -3720,7 +3708,7 @@ countriesFull: [
         sharpe3Y: -0.69014,
         maxDrawdown3Y: -12.14937,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 1.1937,
         returnYTD: 1.1937,
@@ -3732,7 +3720,7 @@ countriesFull: [
         sharpe3Y: -0.57444,
         maxDrawdown3Y: -11.19651,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 1.4653,
         returnYTD: 2.67649,
@@ -3744,7 +3732,7 @@ countriesFull: [
         sharpe3Y: -0.37562,
         maxDrawdown3Y: -8.88538,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: 0.10899,
         returnYTD: 2.7884,
@@ -3756,7 +3744,7 @@ countriesFull: [
         sharpe3Y: -0.32085,
         maxDrawdown3Y: -8.00672,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 0.30847,
         returnYTD: 3.10547,
@@ -3768,7 +3756,7 @@ countriesFull: [
         sharpe3Y: -0.14434,
         maxDrawdown3Y: -5.68707,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: -0.09949,
         returnYTD: 3.00289,
@@ -3780,7 +3768,7 @@ countriesFull: [
         sharpe3Y: -0.18533,
         maxDrawdown3Y: -5.68707,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.79267,
         returnYTD: 4.84939,
@@ -3792,7 +3780,7 @@ countriesFull: [
         sharpe3Y: 0.14236,
         maxDrawdown3Y: -4.98903,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: -0.10673,
         returnYTD: 4.73749,
@@ -3804,7 +3792,7 @@ countriesFull: [
         sharpe3Y: -0.05519,
         maxDrawdown3Y: -4.98903,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 1.40682,
         returnYTD: 6.21095,
@@ -3816,7 +3804,7 @@ countriesFull: [
         sharpe3Y: 0.10059,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.82536,
         returnYTD: 7.08758,
@@ -3828,7 +3816,7 @@ countriesFull: [
         sharpe3Y: 0.47685,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.74893,
         returnYTD: 7.88959,
@@ -3840,7 +3828,7 @@ countriesFull: [
         sharpe3Y: 0.48164,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.6915,
         returnYTD: 8.63564,
@@ -3852,7 +3840,7 @@ countriesFull: [
         sharpe3Y: 0.3015,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.24036,
         returnYTD: 8.89676,
@@ -3864,7 +3852,7 @@ countriesFull: [
         sharpe3Y: 0.3332,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.4967,
         returnYTD: 0.4967,
@@ -3876,7 +3864,7 @@ countriesFull: [
         sharpe3Y: 0.13554,
         maxDrawdown3Y: -4.34817,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 1.12484,
         returnYTD: 1.62713,
@@ -3888,7 +3876,7 @@ countriesFull: [
         sharpe3Y: 0.49115,
         maxDrawdown3Y: -3.13672,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -2.51117,
         returnYTD: -0.9249,
@@ -3900,7 +3888,7 @@ countriesFull: [
         sharpe3Y: 0.13576,
         maxDrawdown3Y: -3.13672,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 0.84709,
         returnYTD: -0.08565,
@@ -3912,7 +3900,7 @@ countriesFull: [
         sharpe3Y: 0.1928,
         maxDrawdown3Y: -3.13672,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.61713,
         returnYTD: 0.53095,
@@ -3924,7 +3912,7 @@ countriesFull: [
         sharpe3Y: 0.31989,
         maxDrawdown3Y: -2.82039,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.32371,
         returnYTD: 0.85638,
@@ -3936,7 +3924,7 @@ countriesFull: [
         sharpe3Y: 0.3722,
         maxDrawdown3Y: -2.82039,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -1.24,
         returnYTD: -0.394,
@@ -3959,6 +3947,18 @@ countriesFull: [
         stdDev3Y: 4.11996,
         sharpe3Y: 0.26774,
         maxDrawdown3Y: -2.51117,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -3.58518,
+        returnYTD: -3.50261,
+        return6M: -2.60177,
+        return1Y: -1.87234,
+        return3Y: 4.31758,
+        return5Y: 0.69777,
+        stdDev3Y: 4.61602,
+        sharpe3Y: 0.0688,
+        maxDrawdown3Y: -5.04761,
       }
     ],
     fi: {
@@ -3989,7 +3989,7 @@ countriesFull: [
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
         portfolio: { cash: -62.4009, usEquity: 0.06164, nonUsEquity: 0.0, bonds: 161.88614, other: 0.02735 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
         portfolio: { government: 70.82, corporate: 29.39, securitized: 55.24, municipal: 0.0, cashEquivalents: -62.21, derivative: 6.75 },
@@ -4030,7 +4030,6 @@ countriesFull: [
           { name: "Norway", weight: 0.0659 },
           { name: "China", weight: 0.0521 },
         ],
-
       },
   },
 
@@ -4185,6 +4184,7 @@ countriesFull: [
         { date: "2026-06-30", value: 0.56077 },
         { date: "2026-07-31", value: -1.22712 },
         { date: "2026-08-31", value: 0.48747 },
+        { date: "2026-09-30", value: -2.31199 },
       ],
     benchmarkReturns: [
     ],
@@ -4202,19 +4202,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 1.12467,
-        returnYTD: 4.54044,
-        return6M: 4.08207,
-        return1Y: 11.19131,
-        return3Y: -2.07266,
-        return5Y: null,
-        stdDev3Y: 7.29525,
-        sharpe3Y: -0.83241,
-        maxDrawdown3Y: -18.7963,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -1.26307,
         returnYTD: 3.22002,
@@ -4226,7 +4214,7 @@ countriesFull: [
         sharpe3Y: -0.87326,
         maxDrawdown3Y: -18.7963,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 1.22963,
         returnYTD: 4.48925,
@@ -4238,7 +4226,7 @@ countriesFull: [
         sharpe3Y: -0.8345,
         maxDrawdown3Y: -18.7963,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.90391,
         returnYTD: 3.54476,
@@ -4250,7 +4238,7 @@ countriesFull: [
         sharpe3Y: -0.87199,
         maxDrawdown3Y: -18.77298,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 0.63687,
         returnYTD: 0.63687,
@@ -4262,7 +4250,7 @@ countriesFull: [
         sharpe3Y: -0.7417,
         maxDrawdown3Y: -16.65112,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 1.40844,
         returnYTD: 2.05428,
@@ -4274,7 +4262,7 @@ countriesFull: [
         sharpe3Y: -0.55447,
         maxDrawdown3Y: -14.15818,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -0.42661,
         returnYTD: 1.61891,
@@ -4286,7 +4274,7 @@ countriesFull: [
         sharpe3Y: -0.48112,
         maxDrawdown3Y: -12.29998,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 0.96795,
         returnYTD: 2.60253,
@@ -4298,7 +4286,7 @@ countriesFull: [
         sharpe3Y: -0.22988,
         maxDrawdown3Y: -8.18415,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 0.1711,
         returnYTD: 2.77808,
@@ -4310,7 +4298,7 @@ countriesFull: [
         sharpe3Y: -0.18675,
         maxDrawdown3Y: -7.58041,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.20562,
         returnYTD: 4.01719,
@@ -4322,7 +4310,7 @@ countriesFull: [
         sharpe3Y: 0.06009,
         maxDrawdown3Y: -7.10461,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.04581,
         returnYTD: 4.06484,
@@ -4334,7 +4322,7 @@ countriesFull: [
         sharpe3Y: -0.10109,
         maxDrawdown3Y: -7.10461,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 0.66612,
         returnYTD: 4.75804,
@@ -4346,7 +4334,7 @@ countriesFull: [
         sharpe3Y: 0.10432,
         maxDrawdown3Y: -4.49859,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.8496,
         returnYTD: 5.64806,
@@ -4358,7 +4346,7 @@ countriesFull: [
         sharpe3Y: 0.49944,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.91069,
         returnYTD: 6.61019,
@@ -4370,7 +4358,7 @@ countriesFull: [
         sharpe3Y: 0.57794,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.28513,
         returnYTD: 6.91417,
@@ -4382,7 +4370,7 @@ countriesFull: [
         sharpe3Y: 0.36699,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: -0.30294,
         returnYTD: 6.59028,
@@ -4394,7 +4382,7 @@ countriesFull: [
         sharpe3Y: 0.49883,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.27615,
         returnYTD: 0.27615,
@@ -4406,7 +4394,7 @@ countriesFull: [
         sharpe3Y: 0.30655,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 1.50125,
         returnYTD: 1.78155,
@@ -4418,7 +4406,7 @@ countriesFull: [
         sharpe3Y: 0.58614,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -2.53639,
         returnYTD: -0.80003,
@@ -4430,7 +4418,7 @@ countriesFull: [
         sharpe3Y: 0.21661,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 0.63235,
         returnYTD: -0.17274,
@@ -4442,7 +4430,7 @@ countriesFull: [
         sharpe3Y: 0.23208,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.69883,
         returnYTD: 0.52488,
@@ -4454,7 +4442,7 @@ countriesFull: [
         sharpe3Y: 0.30386,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.56077,
         returnYTD: 1.0886,
@@ -4466,7 +4454,7 @@ countriesFull: [
         sharpe3Y: 0.27607,
         maxDrawdown3Y: -2.98155,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -1.227,
         returnYTD: -0.152,
@@ -4489,6 +4477,18 @@ countriesFull: [
         stdDev3Y: 4.40115,
         sharpe3Y: 0.22206,
         maxDrawdown3Y: -2.60996,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -2.31199,
+        returnYTD: -1.98488,
+        return6M: -1.19441,
+        return1Y: -1.11074,
+        return3Y: 4.78725,
+        return5Y: -0.57095,
+        stdDev3Y: 4.5017,
+        sharpe3Y: 0.17488,
+        maxDrawdown3Y: -3.7005,
       }
     ],
     fi: {
@@ -4519,20 +4519,20 @@ countriesFull: [
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 0.85096, usEquity: 0.0, nonUsEquity: 0.0, bonds: 99.17632, other: -0.02732 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 3.14593, usEquity: 0.0, nonUsEquity: 0.0, bonds: 94.6668, other: -0.00774 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
         portfolio: { government: 66.51, corporate: 27.72, securitized: 1.88, municipal: 0.0, cashEquivalents: 3.09, derivative: 0.8 },
         benchmark: { government: 0.0, corporate: 100.0, securitized: 0.0, municipal: 0.0, cashEquivalents: 0.0, derivative: 0.0 },
       },
       fiStyle: {
-        effectiveDuration: 6.44, effectiveMaturity: 8.21,
+        effectiveDuration: 6.35, effectiveMaturity: 8.1,
         breakdown: { highLimited: 0.0, highModerate: 0.0, highExtensive: 0.0, mediumLimited: 0.0, mediumModerate: 0.0, mediumExtensive: 100.0, lowLimited: 0.0, lowModerate: 0.0, lowExtensive: 0.0 },
         benchmark: { effectiveDuration: null, effectiveMaturity: null },
       },
       fiMaturity: {
-        portfolio: { y1to3: 17.89, y3to5: 24.2, y5to7: 16.24, y7to10: 14.21, y10to15: 7.25, y15to20: 13.53, y20to30: 6.45, yOver30: 0.24 },
+        portfolio: { y1to3: 19.78, y3to5: 23.65, y5to7: 15.86, y7to10: 13.88, y10to15: 7.08, y15to20: 13.22, y20to30: 6.3, yOver30: 0.23 },
         benchmark: { y1to3: 0.0, y3to5: 0.0, y5to7: 0.0, y7to10: 0.0, y10to15: 100.0, y15to20: 0.0, y20to30: 0.0, yOver30: 0.0 },
       },
 countriesFull: [
@@ -4561,7 +4561,6 @@ countriesFull: [
           { name: "Sweden", weight: 0.0834 },
           { name: "Czech Republic", weight: 0.0452 },
         ],
-
       },
   },
 
@@ -4745,36 +4744,25 @@ countriesFull: [
         { date: "2026-06-30", value: 0.27795 },
         { date: "2026-07-31", value: -1.11799 },
         { date: "2026-08-31", value: 0.06135 },
+        { date: "2026-09-30", value: -2.37313 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "2 Year Treasury Note Future Sept 26", weight: 16.46879 },
-      { name: "United States Treasury Notes 2.25%", weight: 13.06315, morningstarId: "B000369ETM" },
-      { name: "Euro Bund Future Sept 26", weight: -11.78575 },
-      { name: "5 Year Treasury Note Future Sept 26", weight: 6.55684 },
-      { name: "Euro Schatz Future Sept 26", weight: 6.20586 },
-      { name: "Euro Bobl Future Sept 26", weight: -5.94876 },
-      { name: "China (People's Republic Of) 3.27%", weight: 4.41512, morningstarId: "B100000IMR" },
-      { name: "10 Year Government of Canada Bond Future Sept 26", weight: 4.30835 },
-      { name: "Ultra US Treasury Bond Future Sept 26", weight: 3.66142 },
-      { name: "Germany (Federal Republic Of) 2.4%", weight: 3.07067, morningstarId: "B100044TD1" },
+      { name: "United States Treasury Notes 2.25%", weight: 17.23612, morningstarId: "B000369ETM" },
+      { name: "Euro Bund Future Sept 26", weight: -12.59757 },
+      { name: "2 Year Treasury Note Future Dec 26", weight: 11.88675 },
+      { name: "5 Year Treasury Note Future Dec 26", weight: 8.12982 },
+      { name: "Euro Schatz Future Sept 26", weight: 6.17934 },
+      { name: "Euro Bobl Future Sept 26", weight: -5.56024 },
+      { name: "China (People's Republic Of) 3.27%", weight: 4.38844, morningstarId: "B100000IMR" },
+      { name: "Germany (Federal Republic Of) 2.4%", weight: 3.05975, morningstarId: "B100044TD1" },
+      { name: "China (People's Republic Of) 2.62%", weight: 2.60376, morningstarId: "B10002UVTP" },
+      { name: "Federal National Mortgage Association", weight: 2.38675, morningstarId: "B00033JAMY" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 1.00302,
-        returnYTD: 4.40528,
-        return6M: 4.13843,
-        return1Y: 10.27052,
-        return3Y: -1.23127,
-        return5Y: 0.66257,
-        stdDev3Y: 6.75712,
-        sharpe3Y: -0.77419,
-        maxDrawdown3Y: -14.73518,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -1.62186,
         returnYTD: 2.71198,
@@ -4786,7 +4774,7 @@ countriesFull: [
         sharpe3Y: -0.82056,
         maxDrawdown3Y: -14.43199,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 1.20867,
         returnYTD: 3.95342,
@@ -4798,7 +4786,7 @@ countriesFull: [
         sharpe3Y: -0.74896,
         maxDrawdown3Y: -14.43199,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.804,
         returnYTD: 3.11764,
@@ -4810,7 +4798,7 @@ countriesFull: [
         sharpe3Y: -0.80501,
         maxDrawdown3Y: -14.43199,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 0.67441,
         returnYTD: 0.67441,
@@ -4822,7 +4810,7 @@ countriesFull: [
         sharpe3Y: -0.72425,
         maxDrawdown3Y: -13.54821,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 1.3328,
         returnYTD: 2.0162,
@@ -4834,7 +4822,7 @@ countriesFull: [
         sharpe3Y: -0.56575,
         maxDrawdown3Y: -11.7644,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -0.5311,
         returnYTD: 1.47439,
@@ -4846,7 +4834,7 @@ countriesFull: [
         sharpe3Y: -0.5417,
         maxDrawdown3Y: -10.82668,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 0.25009,
         returnYTD: 1.72817,
@@ -4858,7 +4846,7 @@ countriesFull: [
         sharpe3Y: -0.37962,
         maxDrawdown3Y: -7.79012,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: -0.25637,
         returnYTD: 1.46737,
@@ -4870,7 +4858,7 @@ countriesFull: [
         sharpe3Y: -0.39252,
         maxDrawdown3Y: -7.78512,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.21853,
         returnYTD: 2.70378,
@@ -4882,7 +4870,7 @@ countriesFull: [
         sharpe3Y: -0.13597,
         maxDrawdown3Y: -6.62048,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: -0.22914,
         returnYTD: 2.46844,
@@ -4894,7 +4882,7 @@ countriesFull: [
         sharpe3Y: -0.3011,
         maxDrawdown3Y: -6.62048,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 1.10207,
         returnYTD: 3.59772,
@@ -4906,7 +4894,7 @@ countriesFull: [
         sharpe3Y: -0.13659,
         maxDrawdown3Y: -4.93259,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.61623,
         returnYTD: 4.23612,
@@ -4918,7 +4906,7 @@ countriesFull: [
         sharpe3Y: 0.22972,
         maxDrawdown3Y: -4.43969,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.63942,
         returnYTD: 4.90262,
@@ -4930,7 +4918,7 @@ countriesFull: [
         sharpe3Y: 0.2812,
         maxDrawdown3Y: -4.43969,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.00419,
         returnYTD: 4.90702,
@@ -4942,7 +4930,7 @@ countriesFull: [
         sharpe3Y: 0.03497,
         maxDrawdown3Y: -4.43969,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.01339,
         returnYTD: 4.92107,
@@ -4954,7 +4942,7 @@ countriesFull: [
         sharpe3Y: 0.04666,
         maxDrawdown3Y: -4.43969,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.26782,
         returnYTD: 0.26782,
@@ -4966,7 +4954,7 @@ countriesFull: [
         sharpe3Y: -0.13099,
         maxDrawdown3Y: -4.43969,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 1.31717,
         returnYTD: 1.58852,
@@ -4978,7 +4966,7 @@ countriesFull: [
         sharpe3Y: 0.11072,
         maxDrawdown3Y: -4.30449,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -3.02439,
         returnYTD: -1.48392,
@@ -4990,7 +4978,7 @@ countriesFull: [
         sharpe3Y: -0.22542,
         maxDrawdown3Y: -4.30449,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 0.35087,
         returnYTD: -1.13825,
@@ -5002,7 +4990,7 @@ countriesFull: [
         sharpe3Y: -0.21741,
         maxDrawdown3Y: -4.30449,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.20657,
         returnYTD: -0.93403,
@@ -5014,7 +5002,7 @@ countriesFull: [
         sharpe3Y: -0.10647,
         maxDrawdown3Y: -3.54367,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.27795,
         returnYTD: -0.65868,
@@ -5026,7 +5014,7 @@ countriesFull: [
         sharpe3Y: -0.0249,
         maxDrawdown3Y: -3.54367,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -1.118,
         returnYTD: -1.769,
@@ -5049,6 +5037,18 @@ countriesFull: [
         stdDev3Y: 4.5022,
         sharpe3Y: -0.13602,
         maxDrawdown3Y: -3.30532,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -2.37313,
+        returnYTD: -4.04161,
+        return6M: -2.59622,
+        return1Y: -3.41106,
+        return3Y: 3.11896,
+        return5Y: -0.85224,
+        stdDev3Y: 4.63234,
+        sharpe3Y: -0.19019,
+        maxDrawdown3Y: -5.54209,
       }
     ],
     fi: {
@@ -5074,11 +5074,11 @@ countriesFull: [
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: -18.50677, usEquity: 0.0, nonUsEquity: 0.0, bonds: 118.50658, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: -4.94252, usEquity: 0.0, nonUsEquity: 0.0, bonds: 104.06318, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
-        portfolio: { government: 107.85, corporate: 26.85, securitized: 10.59, municipal: 0.0, cashEquivalents: -93.42, derivative: 48.13 },
+        portfolio: { government: 80.32, corporate: 25.04, securitized: 10.47, municipal: 0.0, cashEquivalents: -67.39, derivative: 51.56 },
         benchmark: { government: 0.0, corporate: 100.0, securitized: 0.0, municipal: 0.0, cashEquivalents: 0.0, derivative: 0.0 },
       },
       fiStyle: {
@@ -5087,33 +5087,31 @@ countriesFull: [
         benchmark: { effectiveDuration: null, effectiveMaturity: null },
       },
       fiMaturity: {
-        portfolio: { y1to3: 46.16, y3to5: -6.17, y5to7: 15.34, y7to10: 16.02, y10to15: 7.65, y15to20: 1.7, y20to30: 13.03, yOver30: 6.27 },
+        portfolio: { y1to3: 33.76, y3to5: -1.01, y5to7: 16.27, y7to10: 18.48, y10to15: 8.71, y15to20: 4.25, y20to30: 12.66, yOver30: 6.88 },
         benchmark: { y1to3: 0.0, y3to5: 0.0, y5to7: 0.0, y7to10: 0.0, y10to15: 100.0, y15to20: 0.0, y20to30: 0.0, yOver30: 0.0 },
       },
 countriesFull: [
-          { name: "United Kingdom", weight: 29.618 },
-          { name: "Germany", weight: 8.9536 },
-          { name: "Mexico", weight: 3.3361 },
-          { name: "France", weight: 3.0841 },
-          { name: "Canada", weight: 2.8708 },
-          { name: "Japan", weight: 2.7739 },
-          { name: "China", weight: 2.3162 },
-          { name: "Spain", weight: 1.1629 },
-          { name: "Hungary", weight: 0.9485 },
-          { name: "Switzerland", weight: 0.716 },
-          { name: "Chile", weight: 0.5465 },
-          { name: "Belgium", weight: 0.5442 },
-          { name: "Poland", weight: 0.5255 },
-          { name: "Turkey", weight: 0.5104 },
-          { name: "Netherlands", weight: 0.2862 },
-          { name: "Thailand", weight: 0.2745 },
-          { name: "Norway", weight: 0.1875 },
-          { name: "Denmark", weight: 0.0993 },
-          { name: "Slovakia", weight: 0.0796 },
-          { name: "New Zealand", weight: 0.0557 },
-          { name: "Greece", weight: 0.0528 },
+          { name: "Germany", weight: 10.7125 },
+          { name: "China", weight: 5.1451 },
+          { name: "France", weight: 3.6632 },
+          { name: "Mexico", weight: 3.2506 },
+          { name: "Japan", weight: 3.1965 },
+          { name: "United Kingdom", weight: 2.984 },
+          { name: "Spain", weight: 1.3978 },
+          { name: "Canada", weight: 1.1449 },
+          { name: "Hungary", weight: 1.1437 },
+          { name: "Switzerland", weight: 0.855 },
+          { name: "Chile", weight: 0.6613 },
+          { name: "Belgium", weight: 0.6539 },
+          { name: "Poland", weight: 0.6327 },
+          { name: "Netherlands", weight: 0.3374 },
+          { name: "Thailand", weight: 0.3315 },
+          { name: "Norway", weight: 0.2263 },
+          { name: "Denmark", weight: 0.1187 },
+          { name: "Slovakia", weight: 0.096 },
+          { name: "New Zealand", weight: 0.0671 },
+          { name: "Greece", weight: 0.0636 },
         ],
-
       },
   },
 
@@ -5295,36 +5293,25 @@ countriesFull: [
         { date: "2026-06-30", value: 0.80575 },
         { date: "2026-07-31", value: 0.48528 },
         { date: "2026-08-31", value: 0.70253 },
+        { date: "2026-09-30", value: 0.23379 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "Norske Skog Asa", weight: 2.06271, morningstarId: "B10007RQQI" },
-      { name: "Verve Group Media SE", weight: 1.99215, morningstarId: "B1000DTH24" },
-      { name: "XPartners Samhallsbyggnad AB (publ)", weight: 1.94412, morningstarId: "B1000GIE41" },
-      { name: "Norlandia Health & Care Group AS", weight: 1.77026, morningstarId: "B10007WIOF" },
-      { name: "ATTICA EXPLORATION AS", weight: 1.7041, morningstarId: "B1000NO31H" },
-      { name: "Snowball Software Group AS", weight: 1.67679, morningstarId: "B10004N5PR" },
-      { name: "Stolt-Nielsen Ltd", weight: 1.5462, morningstarId: "B1000ITGNP" },
-      { name: "Scatec ASA", weight: 1.52887, morningstarId: "B10005DFFG" },
-      { name: "JS BidCo Oyj", weight: 1.44442, morningstarId: "B1000HRAAF" },
-      { name: "Shearwater Geoservices AS", weight: 1.412, morningstarId: "B10005LG6S" },
+      { name: "Norske Skog Asa", weight: 2.03655, morningstarId: "B10007RQQI" },
+      { name: "Verve Group Media SE", weight: 1.91018, morningstarId: "B1000DTH24" },
+      { name: "XPartners Samhallsbyggnad AB (publ)", weight: 1.8818, morningstarId: "B1000GIE41" },
+      { name: "Norlandia Health & Care Group AS", weight: 1.75159, morningstarId: "B10007WIOF" },
+      { name: "Snowball Software Group AS", weight: 1.69762, morningstarId: "B10004N5PR" },
+      { name: "Stolt-Nielsen Ltd", weight: 1.5395, morningstarId: "B1000ITGNP" },
+      { name: "ATTICA EXPLORATION AS", weight: 1.53848, morningstarId: "B1000NO31H" },
+      { name: "Scatec ASA", weight: 1.47531, morningstarId: "B10005DFFG" },
+      { name: "JS BidCo Oyj", weight: 1.38833, morningstarId: "B1000HRAAF" },
+      { name: "Shearwater Geoservices AS", weight: 1.36245, morningstarId: "B10005LG6S" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 1.00179,
-        returnYTD: 7.57371,
-        return6M: 4.76953,
-        return1Y: 10.30675,
-        return3Y: 7.7663,
-        return5Y: 6.44147,
-        stdDev3Y: 2.85257,
-        sharpe3Y: 1.32032,
-        maxDrawdown3Y: -2.45207,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 0.57291,
         returnYTD: 8.19001,
@@ -5336,7 +5323,7 @@ countriesFull: [
         sharpe3Y: 1.34646,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 0.5351,
         returnYTD: 8.76894,
@@ -5348,7 +5335,7 @@ countriesFull: [
         sharpe3Y: 1.49224,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: 0.66972,
         returnYTD: 9.49739,
@@ -5360,7 +5347,7 @@ countriesFull: [
         sharpe3Y: 1.49378,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 0.74351,
         returnYTD: 0.74351,
@@ -5372,7 +5359,7 @@ countriesFull: [
         sharpe3Y: 1.56925,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 1.01666,
         returnYTD: 1.76773,
@@ -5384,7 +5371,7 @@ countriesFull: [
         sharpe3Y: 2.04714,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: 0.60339,
         returnYTD: 2.38179,
@@ -5396,7 +5383,7 @@ countriesFull: [
         sharpe3Y: 1.94729,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -0.14404,
         returnYTD: 2.23431,
@@ -5408,7 +5395,7 @@ countriesFull: [
         sharpe3Y: 1.75332,
         maxDrawdown3Y: -2.45207,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 1.27688,
         returnYTD: 3.53972,
@@ -5420,7 +5407,7 @@ countriesFull: [
         sharpe3Y: 2.05217,
         maxDrawdown3Y: -2.02453,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.07805,
         returnYTD: 4.65593,
@@ -5432,7 +5419,7 @@ countriesFull: [
         sharpe3Y: 3.35207,
         maxDrawdown3Y: -0.66425,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.78338,
         returnYTD: 5.47579,
@@ -5444,7 +5431,7 @@ countriesFull: [
         sharpe3Y: 3.3019,
         maxDrawdown3Y: -0.66425,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 1.2246,
         returnYTD: 6.76744,
@@ -5456,7 +5443,7 @@ countriesFull: [
         sharpe3Y: 3.42412,
         maxDrawdown3Y: -0.66425,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.32332,
         returnYTD: 7.11264,
@@ -5468,7 +5455,7 @@ countriesFull: [
         sharpe3Y: 4.15601,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.4179,
         returnYTD: 7.56027,
@@ -5480,7 +5467,7 @@ countriesFull: [
         sharpe3Y: 4.39186,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.41263,
         returnYTD: 8.00409,
@@ -5492,7 +5479,7 @@ countriesFull: [
         sharpe3Y: 4.233,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.61245,
         returnYTD: 8.66557,
@@ -5504,7 +5491,7 @@ countriesFull: [
         sharpe3Y: 4.14228,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.63971,
         returnYTD: 0.63971,
@@ -5516,7 +5503,7 @@ countriesFull: [
         sharpe3Y: 4.06087,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 0.74534,
         returnYTD: 1.38982,
@@ -5528,7 +5515,7 @@ countriesFull: [
         sharpe3Y: 4.0918,
         maxDrawdown3Y: -0.17337,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -0.31719,
         returnYTD: 1.06822,
@@ -5540,7 +5527,7 @@ countriesFull: [
         sharpe3Y: 3.93133,
         maxDrawdown3Y: -0.31719,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 1.36131,
         returnYTD: 2.44407,
@@ -5552,7 +5539,7 @@ countriesFull: [
         sharpe3Y: 3.91114,
         maxDrawdown3Y: -0.31719,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.91708,
         returnYTD: 3.38357,
@@ -5564,7 +5551,7 @@ countriesFull: [
         sharpe3Y: 3.92908,
         maxDrawdown3Y: -0.31719,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.80575,
         returnYTD: 4.21658,
@@ -5576,7 +5563,7 @@ countriesFull: [
         sharpe3Y: 3.99433,
         maxDrawdown3Y: -0.31719,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: 0.485,
         returnYTD: 4.722,
@@ -5599,6 +5586,18 @@ countriesFull: [
         stdDev3Y: 1.28057,
         sharpe3Y: 3.82126,
         maxDrawdown3Y: -0.31719,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 0.23379,
+        returnYTD: 5.70458,
+        return6M: 4.58735,
+        return1Y: 7.23708,
+        return3Y: 8.85001,
+        return5Y: 7.91118,
+        stdDev3Y: 1.29391,
+        sharpe3Y: 3.74832,
+        maxDrawdown3Y: -0.31719,
       }
     ],
     fi: {
@@ -5618,34 +5617,32 @@ countriesFull: [
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 12.28347, usEquity: 0.0, nonUsEquity: 0.00127, bonds: 87.71525, other: 0.0 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 14.31173, usEquity: 0.0, nonUsEquity: 0.00144, bonds: 85.68684, other: 0.0 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
-        portfolio: { government: 1.29, corporate: 86.43, securitized: 0.0, municipal: 0.0, cashEquivalents: 11.54, derivative: 0.74 },
+        portfolio: { government: 1.28, corporate: 84.41, securitized: 0.0, municipal: 0.0, cashEquivalents: 12.87, derivative: 1.44 },
         benchmark: { government: 0.0, corporate: 100.0, securitized: 0.0, municipal: 0.0, cashEquivalents: 0.0, derivative: 0.0 },
       },
       fiStyle: {
-        effectiveDuration: 0.72088, effectiveMaturity: 2.23402,
+        effectiveDuration: 0.64796, effectiveMaturity: 2.21734,
         breakdown: { highLimited: 0, highModerate: 0, highExtensive: 0, mediumLimited: 0, mediumModerate: 0, mediumExtensive: 0, lowLimited: 0, lowModerate: 0, lowExtensive: 0 },
         benchmark: { effectiveDuration: null, effectiveMaturity: null },
       },
       fiMaturity: {
-        portfolio: { y1to3: 65.07, y3to5: 28.6, y5to7: 3.51, y7to10: 1.87, y10to15: 0.0, y15to20: 0.0, y20to30: 0.76, yOver30: 0.2 },
+        portfolio: { y1to3: 64.98, y3to5: 29.67, y5to7: 3.29, y7to10: 1.12, y10to15: 0.0, y15to20: 0.0, y20to30: 0.75, yOver30: 0.19 },
         benchmark: { y1to3: 0.0, y3to5: 0.0, y5to7: 0.0, y7to10: 0.0, y10to15: 100.0, y15to20: 0.0, y20to30: 0.0, yOver30: 0.0 },
       },
 countriesFull: [
-          { name: "Norway", weight: 45.141 },
-          { name: "Sweden", weight: 21.5488 },
-          { name: "United Kingdom", weight: 7.3904 },
-          { name: "Germany", weight: 6.304 },
-          { name: "Denmark", weight: 5.8881 },
-          { name: "Greece", weight: 2.2075 },
-          { name: "Canada", weight: 0.9682 },
-          { name: "Netherlands", weight: 0.744 },
-          { name: "Poland", weight: 0.6455 },
+          { name: "Norway", weight: 47.6573 },
+          { name: "Sweden", weight: 21.2272 },
+          { name: "Germany", weight: 6.2797 },
+          { name: "United Kingdom", weight: 6.2102 },
+          { name: "Denmark", weight: 5.95 },
+          { name: "Greece", weight: 2.1598 },
+          { name: "Netherlands", weight: 0.7405 },
+          { name: "Poland", weight: 0.6317 },
         ],
-
       },
   },
 
@@ -5800,36 +5797,25 @@ countriesFull: [
         { date: "2026-06-30", value: 0.705 },
         { date: "2026-07-31", value: -0.32467 },
         { date: "2026-08-31", value: 0.59316 },
+        { date: "2026-09-30", value: -0.58874 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "DnB Bank ASA", weight: 1.58786, morningstarId: "B1000KH79A" },
-      { name: "Vasakronan AB 4.67%", weight: 1.53569, morningstarId: "B1000IXA90" },
-      { name: "Lyse AS 4.67%", weight: 1.53527, morningstarId: "B1000IZGQS" },
-      { name: "Danske Bank A/S", weight: 1.28914, morningstarId: "B1000KG203" },
-      { name: "Entra ASA", weight: 1.16406, morningstarId: "B1000DCZRH" },
-      { name: "Eviny AS", weight: 1.11885, morningstarId: "B10009OW0I" },
-      { name: "Olav Thon Eiendomsselskap ASA 4.17%", weight: 1.111, morningstarId: "B100024CPF" },
-      { name: "Olav Thon Eiendomsselskap ASA", weight: 1.04363, morningstarId: "B100014WP1" },
-      { name: "Danske Bank A/S", weight: 0.98788, morningstarId: "B10001WFYV" },
-      { name: "BN Bank ASA 4.23%", weight: 0.97231, morningstarId: "B10009D1BY" },
+      { name: "DnB Bank ASA", weight: 1.5637, morningstarId: "B1000KH79A" },
+      { name: "Lyse AS 4.67%", weight: 1.51328, morningstarId: "B1000IZGQS" },
+      { name: "Vasakronan AB 4.67%", weight: 1.51277, morningstarId: "B1000IXA90" },
+      { name: "Danske Bank A/S", weight: 1.27007, morningstarId: "B1000KG203" },
+      { name: "Entra ASA", weight: 1.14413, morningstarId: "B1000DCZRH" },
+      { name: "Eviny AS", weight: 1.10047, morningstarId: "B10009OW0I" },
+      { name: "Olav Thon Eiendomsselskap ASA 4.17%", weight: 1.09544, morningstarId: "B100024CPF" },
+      { name: "Olav Thon Eiendomsselskap ASA", weight: 1.02612, morningstarId: "B100014WP1" },
+      { name: "Danske Bank A/S", weight: 0.96971, morningstarId: "B10001WFYV" },
+      { name: "BN Bank ASA 4.23%", weight: 0.95795, morningstarId: "B10009D1BY" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 0.328,
-        returnYTD: 5.46647,
-        return6M: 4.3713,
-        return1Y: 10.7661,
-        return3Y: 2.7099,
-        return5Y: null,
-        stdDev3Y: 3.83782,
-        sharpe3Y: -0.33615,
-        maxDrawdown3Y: -6.96169,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: -0.7329,
         returnYTD: 4.69351,
@@ -5841,7 +5827,7 @@ countriesFull: [
         sharpe3Y: -0.37608,
         maxDrawdown3Y: -6.96169,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 1.44563,
         returnYTD: 6.20699,
@@ -5853,7 +5839,7 @@ countriesFull: [
         sharpe3Y: -0.30678,
         maxDrawdown3Y: -6.96169,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.77271,
         returnYTD: 5.38632,
@@ -5865,7 +5851,7 @@ countriesFull: [
         sharpe3Y: -0.32375,
         maxDrawdown3Y: -6.43374,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 1.26488,
         returnYTD: 1.26488,
@@ -5877,7 +5863,7 @@ countriesFull: [
         sharpe3Y: -0.16443,
         maxDrawdown3Y: -5.90502,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 0.51986,
         returnYTD: 1.79132,
@@ -5889,7 +5875,7 @@ countriesFull: [
         sharpe3Y: -0.04537,
         maxDrawdown3Y: -5.09932,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -0.55991,
         returnYTD: 1.22138,
@@ -5901,7 +5887,7 @@ countriesFull: [
         sharpe3Y: 0.03767,
         maxDrawdown3Y: -4.00031,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: 0.86312,
         returnYTD: 2.09504,
@@ -5913,7 +5899,7 @@ countriesFull: [
         sharpe3Y: 0.08572,
         maxDrawdown3Y: -4.00031,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 0.54316,
         returnYTD: 2.64958,
@@ -5925,7 +5911,7 @@ countriesFull: [
         sharpe3Y: 0.19813,
         maxDrawdown3Y: -3.36651,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 1.33044,
         returnYTD: 4.01527,
@@ -5937,7 +5923,7 @@ countriesFull: [
         sharpe3Y: 0.55799,
         maxDrawdown3Y: -2.32808,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.12107,
         returnYTD: 4.1412,
@@ -5949,7 +5935,7 @@ countriesFull: [
         sharpe3Y: 0.46669,
         maxDrawdown3Y: -2.32808,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 0.34887,
         returnYTD: 4.50452,
@@ -5961,7 +5947,7 @@ countriesFull: [
         sharpe3Y: 0.77711,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: -0.04866,
         returnYTD: 4.45367,
@@ -5973,7 +5959,7 @@ countriesFull: [
         sharpe3Y: 0.70919,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.8046,
         returnYTD: 5.2941,
@@ -5985,7 +5971,7 @@ countriesFull: [
         sharpe3Y: 0.92554,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.33064,
         returnYTD: 5.64224,
@@ -5997,7 +5983,7 @@ countriesFull: [
         sharpe3Y: 0.78394,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.22592,
         returnYTD: 5.88091,
@@ -6009,7 +5995,7 @@ countriesFull: [
         sharpe3Y: 0.61126,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.33532,
         returnYTD: 0.33532,
@@ -6021,7 +6007,7 @@ countriesFull: [
         sharpe3Y: 0.50803,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 0.28686,
         returnYTD: 0.62314,
@@ -6033,7 +6019,7 @@ countriesFull: [
         sharpe3Y: 0.70041,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -1.6181,
         returnYTD: -1.00504,
@@ -6045,7 +6031,7 @@ countriesFull: [
         sharpe3Y: 0.34655,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 0.43941,
         returnYTD: -0.57005,
@@ -6057,7 +6043,7 @@ countriesFull: [
         sharpe3Y: 0.35307,
         maxDrawdown3Y: -2.03252,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.85436,
         returnYTD: 0.27944,
@@ -6069,7 +6055,7 @@ countriesFull: [
         sharpe3Y: 0.50263,
         maxDrawdown3Y: -1.66472,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.705,
         returnYTD: 0.98641,
@@ -6081,7 +6067,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -0.325,
         returnYTD: 0.659,
@@ -6104,6 +6090,18 @@ countriesFull: [
         stdDev3Y: null,
         sharpe3Y: null,
         maxDrawdown3Y: null,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: -0.58874,
+        returnYTD: 0.65947,
+        return6M: 1.68141,
+        return1Y: 2.03488,
+        return3Y: 5.66139,
+        return5Y: 2.90484,
+        stdDev3Y: 2.76525,
+        sharpe3Y: 0.60081,
+        maxDrawdown3Y: -1.6181,
       }
     ],
     fi: {
@@ -6123,11 +6121,11 @@ countriesFull: [
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 3.07892, usEquity: 0.0, nonUsEquity: 0.0, bonds: 92.02214, other: 4.89894 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 3.03694, usEquity: 0.0, nonUsEquity: 0.0, bonds: 92.27527, other: 4.68779 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
-        portfolio: { government: -0.7, corporate: 97.17, securitized: 0.3, municipal: 0.0, cashEquivalents: 3.24, derivative: 0.0 },
+        portfolio: { government: 0.77, corporate: 95.75, securitized: 0.29, municipal: 0.0, cashEquivalents: 3.19, derivative: 0.0 },
         benchmark: { government: 0.0, corporate: 100.0, securitized: 0.0, municipal: 0.0, cashEquivalents: 0.0, derivative: 0.0 },
       },
       fiStyle: {
@@ -6136,15 +6134,14 @@ countriesFull: [
         benchmark: { effectiveDuration: null, effectiveMaturity: null },
       },
       fiMaturity: {
-        portfolio: { y1to3: 27.17, y3to5: 41.28, y5to7: 20.61, y7to10: 10.43, y10to15: 0.29, y15to20: 0.0, y20to30: 0.21, yOver30: 0.0 },
+        portfolio: { y1to3: 28.99, y3to5: 43.59, y5to7: 16.94, y7to10: 10.04, y10to15: 0.22, y15to20: 0.0, y20to30: 0.21, yOver30: 0.0 },
         benchmark: { y1to3: 0.0, y3to5: 0.0, y5to7: 0.0, y7to10: 0.0, y10to15: 100.0, y15to20: 0.0, y20to30: 0.0, yOver30: 0.0 },
       },
 countriesFull: [
-          { name: "Norway", weight: 82.7077 },
-          { name: "Sweden", weight: 8.8101 },
-          { name: "Denmark", weight: 6.4434 },
+          { name: "Norway", weight: 82.5557 },
+          { name: "Sweden", weight: 8.9595 },
+          { name: "Denmark", weight: 6.3854 },
         ],
-
       },
   },
 
@@ -6326,36 +6323,25 @@ countriesFull: [
         { date: "2026-06-30", value: 0.44047 },
         { date: "2026-07-31", value: 0.60217 },
         { date: "2026-08-31", value: 0.49447 },
+        { date: "2026-09-30", value: 0.16185 },
       ],
     benchmarkReturns: [
     ],
     holdings: [
-      { name: "DnB Bank ASA", weight: 3.12086, morningstarId: "B1000KH798" },
-      { name: "Olav Thon Eiendomsselskap ASA", weight: 2.5367, morningstarId: "B100014WP1" },
-      { name: "Nykredit Realkredit A/S", weight: 2.18677, morningstarId: "B1000JSXC5" },
-      { name: "Danske Bank A/S", weight: 2.06811, morningstarId: "B10004YLJP" },
-      { name: "Danske Bank A/S", weight: 1.66906, morningstarId: "B1000KG202" },
-      { name: "Eviny AS", weight: 1.6355, morningstarId: "B1000HMLOC" },
-      { name: "Danske Bank A/S", weight: 1.3041, morningstarId: "B10001WFYV" },
-      { name: "Entra ASA", weight: 1.29172, morningstarId: "B1000DCZRH" },
-      { name: "Entra ASA", weight: 1.27727, morningstarId: "B100014NJG" },
-      { name: "Sparebank 1 Ostfold Akershus", weight: 1.09017, morningstarId: "B1000HQLAM" },
+      { name: "DnB Bank ASA", weight: 3.07919, morningstarId: "B1000KH798" },
+      { name: "Olav Thon Eiendomsselskap ASA", weight: 2.46883, morningstarId: "B100014WP1" },
+      { name: "Nykredit Realkredit A/S", weight: 2.15784, morningstarId: "B1000JSXC5" },
+      { name: "Danske Bank A/S", weight: 2.00834, morningstarId: "B10004YLJP" },
+      { name: "Danske Bank A/S", weight: 1.64787, morningstarId: "B1000KG202" },
+      { name: "Eviny AS", weight: 1.59252, morningstarId: "B1000HMLOC" },
+      { name: "Entra ASA", weight: 1.27509, morningstarId: "B1000DCZRH" },
+      { name: "Danske Bank A/S", weight: 1.2673, morningstarId: "B10001WFYV" },
+      { name: "Entra ASA", weight: 1.24414, morningstarId: "B100014NJG" },
+      { name: "SpareBank 1 Ostlandet", weight: 1.0666, morningstarId: "B1000N4NTP" },
   ],
-      holdingsDate: "2026-07-31",
+      holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 0.50479,
-        returnYTD: 5.83161,
-        return6M: 3.77702,
-        return1Y: 8.60081,
-        return3Y: 4.15667,
-        return5Y: 3.28839,
-        stdDev3Y: 1.88571,
-        sharpe3Y: 0.08308,
-        maxDrawdown3Y: -2.19799,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 0.58961,
         returnYTD: 6.4556,
@@ -6367,7 +6353,7 @@ countriesFull: [
         sharpe3Y: 0.18574,
         maxDrawdown3Y: -2.19799,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 0.28222,
         returnYTD: 6.75604,
@@ -6379,7 +6365,7 @@ countriesFull: [
         sharpe3Y: 0.22342,
         maxDrawdown3Y: -2.19799,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: 0.68513,
         returnYTD: 7.48746,
@@ -6391,7 +6377,7 @@ countriesFull: [
         sharpe3Y: 0.35262,
         maxDrawdown3Y: -2.19799,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 0.78027,
         returnYTD: 0.78027,
@@ -6403,7 +6389,7 @@ countriesFull: [
         sharpe3Y: 0.46152,
         maxDrawdown3Y: -2.19799,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: 0.54141,
         returnYTD: 1.3259,
@@ -6415,7 +6401,7 @@ countriesFull: [
         sharpe3Y: 0.68516,
         maxDrawdown3Y: -1.94063,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: 0.23378,
         returnYTD: 1.56278,
@@ -6427,7 +6413,7 @@ countriesFull: [
         sharpe3Y: 0.77995,
         maxDrawdown3Y: -1.94063,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -0.17642,
         returnYTD: 1.38361,
@@ -6439,7 +6425,7 @@ countriesFull: [
         sharpe3Y: 0.64716,
         maxDrawdown3Y: -1.94063,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 1.10279,
         returnYTD: 2.50166,
@@ -6451,7 +6437,7 @@ countriesFull: [
         sharpe3Y: 1.12416,
         maxDrawdown3Y: -1.04556,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 0.7901,
         returnYTD: 3.31152,
@@ -6463,7 +6449,7 @@ countriesFull: [
         sharpe3Y: 1.66426,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 0.63129,
         returnYTD: 3.96372,
@@ -6475,7 +6461,7 @@ countriesFull: [
         sharpe3Y: 1.79158,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 0.56528,
         returnYTD: 4.5514,
@@ -6487,7 +6473,7 @@ countriesFull: [
         sharpe3Y: 1.89153,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 0.41815,
         returnYTD: 4.98858,
@@ -6499,7 +6485,7 @@ countriesFull: [
         sharpe3Y: 2.31529,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 0.61438,
         returnYTD: 5.63361,
@@ -6511,7 +6497,7 @@ countriesFull: [
         sharpe3Y: 2.63618,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.43422,
         returnYTD: 6.0923,
@@ -6523,7 +6509,7 @@ countriesFull: [
         sharpe3Y: 2.56871,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.46612,
         returnYTD: 6.58681,
@@ -6535,7 +6521,7 @@ countriesFull: [
         sharpe3Y: 2.46132,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: 0.57154,
         returnYTD: 0.57154,
@@ -6547,7 +6533,7 @@ countriesFull: [
         sharpe3Y: 2.43267,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: 0.42121,
         returnYTD: 0.99516,
@@ -6559,7 +6545,7 @@ countriesFull: [
         sharpe3Y: 2.31224,
         maxDrawdown3Y: -0.7044,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: 0.07989,
         returnYTD: 1.07584,
@@ -6571,7 +6557,7 @@ countriesFull: [
         sharpe3Y: 3.12084,
         maxDrawdown3Y: -0.17642,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 0.63864,
         returnYTD: 1.72135,
@@ -6583,7 +6569,7 @@ countriesFull: [
         sharpe3Y: 3.09283,
         maxDrawdown3Y: -0.17642,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 0.54865,
         returnYTD: 2.27945,
@@ -6595,7 +6581,7 @@ countriesFull: [
         sharpe3Y: 3.33882,
         maxDrawdown3Y: -0.17642,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 0.44047,
         returnYTD: 2.72996,
@@ -6607,7 +6593,7 @@ countriesFull: [
         sharpe3Y: 3.66507,
         maxDrawdown3Y: -0.17642,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: 0.602,
         returnYTD: 3.349,
@@ -6630,6 +6616,18 @@ countriesFull: [
         stdDev3Y: 0.85776,
         sharpe3Y: 3.56198,
         maxDrawdown3Y: -0.17642,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 0.16185,
+        returnYTD: 4.02769,
+        return6M: 2.92043,
+        return1Y: 5.61129,
+        return3Y: 6.9406,
+        return5Y: 4.93762,
+        stdDev3Y: 0.88847,
+        sharpe3Y: 3.30973,
+        maxDrawdown3Y: -0.17642,
       }
     ],
     fi: {
@@ -6648,11 +6646,11 @@ countriesFull: [
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 2.13203, usEquity: 0.0, nonUsEquity: 0.0, bonds: 93.82777, other: 4.04021 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 2.6849, usEquity: 0.0, nonUsEquity: 0.0, bonds: 93.34994, other: 3.96516 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       fiSectors: {
-        portfolio: { government: 0.0, corporate: 97.08, securitized: 0.7, municipal: 0.0, cashEquivalents: 2.22, derivative: 0.0 },
+        portfolio: { government: 0.0, corporate: 96.51, securitized: 0.69, municipal: 0.0, cashEquivalents: 2.8, derivative: 0.0 },
         benchmark: { government: 0.0, corporate: 100.0, securitized: 0.0, municipal: 0.0, cashEquivalents: 0.0, derivative: 0.0 },
       },
       fiStyle: {
@@ -6661,15 +6659,14 @@ countriesFull: [
         benchmark: { effectiveDuration: null, effectiveMaturity: null },
       },
       fiMaturity: {
-        portfolio: { y1to3: 27.72, y3to5: 46.99, y5to7: 12.35, y7to10: 12.1, y10to15: 0.18, y15to20: 0.0, y20to30: 0.65, yOver30: 0.0 },
+        portfolio: { y1to3: 29.98, y3to5: 47.97, y5to7: 10.13, y7to10: 11.21, y10to15: 0.05, y15to20: 0.0, y20to30: 0.67, yOver30: 0.0 },
         benchmark: { y1to3: 0.0, y3to5: 0.0, y5to7: 0.0, y7to10: 0.0, y10to15: 100.0, y15to20: 0.0, y20to30: 0.0, yOver30: 0.0 },
       },
 countriesFull: [
-          { name: "Norway", weight: 85.8548 },
-          { name: "Denmark", weight: 9.3327 },
-          { name: "Sweden", weight: 1.7651 },
+          { name: "Norway", weight: 85.6935 },
+          { name: "Denmark", weight: 9.2022 },
+          { name: "Sweden", weight: 1.9704 },
         ],
-
       },
   },
 
@@ -6841,6 +6838,7 @@ countriesFull: [
         { date: "2026-06-30", value: 6.31801 },
         { date: "2026-07-31", value: -3.59135 },
         { date: "2026-08-31", value: 1.16936 },
+        { date: "2026-09-30", value: 1.31935 },
       ],
     benchmarkReturns: [
     ],
@@ -6858,19 +6856,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-{
-        asOf: "2024-09-30",
-        return1M: 1.13768,
-        returnYTD: 23.20738,
-        return6M: 6.65566,
-        return1Y: 30.86902,
-        return3Y: 16.0502,
-        return5Y: null,
-        stdDev3Y: 12.04068,
-        sharpe3Y: 1.00079,
-        maxDrawdown3Y: -11.55951,
-      },
-{
+      {
         asOf: "2024-10-31",
         return1M: 2.68566,
         returnYTD: 26.51631,
@@ -6882,7 +6868,7 @@ countriesFull: [
         sharpe3Y: 1.00416,
         maxDrawdown3Y: -11.55951,
       },
-{
+      {
         asOf: "2024-11-30",
         return1M: 4.90501,
         returnYTD: 32.72195,
@@ -6894,7 +6880,7 @@ countriesFull: [
         sharpe3Y: 0.99485,
         maxDrawdown3Y: -11.55951,
       },
-{
+      {
         asOf: "2024-12-31",
         return1M: -0.01227,
         returnYTD: 32.70566,
@@ -6906,7 +6892,7 @@ countriesFull: [
         sharpe3Y: 0.96314,
         maxDrawdown3Y: -11.55951,
       },
-{
+      {
         asOf: "2025-01-31",
         return1M: 3.13493,
         returnYTD: 3.13493,
@@ -6918,7 +6904,7 @@ countriesFull: [
         sharpe3Y: 1.25844,
         maxDrawdown3Y: -7.43387,
       },
-{
+      {
         asOf: "2025-02-28",
         return1M: -1.3211,
         returnYTD: 1.77241,
@@ -6930,7 +6916,7 @@ countriesFull: [
         sharpe3Y: 1.39391,
         maxDrawdown3Y: -5.60135,
       },
-{
+      {
         asOf: "2025-03-31",
         return1M: -10.38307,
         returnYTD: -8.79469,
@@ -6942,7 +6928,7 @@ countriesFull: [
         sharpe3Y: 0.80088,
         maxDrawdown3Y: -11.567,
       },
-{
+      {
         asOf: "2025-04-30",
         return1M: -0.5912,
         returnYTD: -9.33389,
@@ -6954,7 +6940,7 @@ countriesFull: [
         sharpe3Y: 0.86774,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-05-31",
         return1M: 4.31329,
         returnYTD: -5.4232,
@@ -6966,7 +6952,7 @@ countriesFull: [
         sharpe3Y: 0.95786,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-06-30",
         return1M: 3.30643,
         returnYTD: -2.29608,
@@ -6978,7 +6964,7 @@ countriesFull: [
         sharpe3Y: 1.21006,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-07-31",
         return1M: 2.85194,
         returnYTD: 0.49037,
@@ -6990,7 +6976,7 @@ countriesFull: [
         sharpe3Y: 1.1407,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-08-31",
         return1M: 0.17612,
         returnYTD: 0.66736,
@@ -7002,7 +6988,7 @@ countriesFull: [
         sharpe3Y: 1.21551,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-09-30",
         return1M: 2.37424,
         returnYTD: 3.05744,
@@ -7014,7 +7000,7 @@ countriesFull: [
         sharpe3Y: 1.30848,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-10-31",
         return1M: 3.44319,
         returnYTD: 6.6059,
@@ -7026,7 +7012,7 @@ countriesFull: [
         sharpe3Y: 1.34617,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-11-30",
         return1M: 0.31957,
         returnYTD: 6.94658,
@@ -7038,7 +7024,7 @@ countriesFull: [
         sharpe3Y: 1.26832,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2025-12-31",
         return1M: 0.50278,
         returnYTD: 7.48429,
@@ -7050,7 +7036,7 @@ countriesFull: [
         sharpe3Y: 1.55841,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-01-31",
         return1M: -2.8106,
         returnYTD: -2.8106,
@@ -7062,7 +7048,7 @@ countriesFull: [
         sharpe3Y: 1.22416,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-02-28",
         return1M: -0.09774,
         returnYTD: -2.90559,
@@ -7074,7 +7060,7 @@ countriesFull: [
         sharpe3Y: 1.1788,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-03-31",
         return1M: -4.06167,
         returnYTD: -6.84925,
@@ -7086,7 +7072,7 @@ countriesFull: [
         sharpe3Y: 0.86821,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-04-30",
         return1M: 4.63753,
         returnYTD: -2.52935,
@@ -7098,7 +7084,7 @@ countriesFull: [
         sharpe3Y: 0.8899,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-05-31",
         return1M: 3.742,
         returnYTD: 1.118,
@@ -7110,7 +7096,7 @@ countriesFull: [
         sharpe3Y: 0.90092,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-06-30",
         return1M: 6.31801,
         returnYTD: 7.50664,
@@ -7122,7 +7108,7 @@ countriesFull: [
         sharpe3Y: 1.00292,
         maxDrawdown3Y: -12.08982,
       },
-{
+      {
         asOf: "2026-07-31",
         return1M: -3.591,
         returnYTD: 3.646,
@@ -7145,29 +7131,41 @@ countriesFull: [
         stdDev3Y: 12.12705,
         sharpe3Y: 0.90847,
         maxDrawdown3Y: -12.08982,
+      },
+      {
+        asOf: "2026-09-30",
+        return1M: 1.31935,
+        returnYTD: 6.24114,
+        return6M: 14.0529,
+        return1Y: 10.80474,
+        return3Y: 17.195,
+        return5Y: 13.96346,
+        stdDev3Y: 11.68593,
+        sharpe3Y: 1.12914,
+        maxDrawdown3Y: -12.08982,
       }
     ],
       enrichment: {
       assetAllocation: {
         asOfDate: "2026-08-31T00:00:00",
-        portfolio: { cash: 0.27151, usEquity: 71.54929, nonUsEquity: 28.13591, bonds: 0.0, other: 0.04332 },
-        benchmark: { cash: 0.0, usEquity: 99.52417, nonUsEquity: 0.47585, bonds: 0.0, other: 0.0 },
+        portfolio: { cash: 0.44108, usEquity: 71.66306, nonUsEquity: 27.85466, bonds: 0.0, other: 0.0412 },
+        benchmark: { cash: 0.0, usEquity: 99.53589, nonUsEquity: 0.4641, bonds: 0.0, other: 0.0 },
       },
       marketMaturity: {
         developedMarkets: 99.728, emergingMarkets: 0.272, notAvailable: 0.0,
-        benchmark: { developedMarkets: 99.849, emergingMarkets: 0.151 },
+        benchmark: { developedMarkets: 99.846, emergingMarkets: 0.154 },
       },
       regional: {
         americas: 75.46, greaterEurope: 15.97, greaterAsia: 8.57,
-        benchmark: { americas: 99.58, greaterEurope: 0.32, greaterAsia: 0.09 },
+        benchmark: { americas: 99.6, greaterEurope: 0.31, greaterAsia: 0.09 },
       },
       equityStyle: {
-        avgMarketCap: 287905.718729579, benchmarkAvgMarketCap: 514090.104676021,
+        avgMarketCap: 280766.1456666, benchmarkAvgMarketCap: 542591.134418728,
         breakdown: { largeValue: 24.0, largeBlend: 36.0, largeGrowth: 21.0, midValue: 6.0, midBlend: 8.0, midGrowth: 5.0, smallValue: 0.0, smallBlend: 0.0, smallGrowth: 0.0, unclassified: 0.0 },
       },
       equityStatistics: {
         portfolio: { pe: 22.79982, pb: 3.88939, pcf: 16.52346, ps: 2.9107, roe: 31.37034, roa: 15.81598, netMargin: 24.23014, debtCapital: 34.98991 },
-        benchmark: { pe: 24.78929, pb: 5.2815, pcf: 19.01141, ps: 3.65845, roe: 37.66648, roa: 19.93358, netMargin: 27.14769, debtCapital: 33.73651 },
+        benchmark: { pe: 24.20136, pb: 5.25403, pcf: 18.77934, ps: 3.64179, roe: 38.0984, roa: 20.5344, netMargin: 27.49061, debtCapital: 32.90649 },
       },
       equitySectors: {
         asOfDate: "2026-08-31T00:00:00",
@@ -7202,7 +7200,6 @@ countriesFull: [
           { name: "Malaysia", weight: 0.0084 },
           { name: "Poland", weight: 0.0032 },
         ],
-
       },
   },
 

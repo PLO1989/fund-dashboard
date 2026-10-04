@@ -32,7 +32,9 @@ test("release importer supports dry runs, atomic merges, revision approval, audi
     run(input, "--allow-revisions");
     assert.equal(JSON.parse(readFileSync(target, "utf8")).series[0].levels.at(-1).level, 106);
     assert.equal(readdirSync(join(dir, "benchmark-audit")).length, 3);
-    writeFileSync(input, csv("2026-09-30", 110));
+    // A continuous series that runs one month past the fund reporting date must be rejected.
+    const row = (date: string, level: number) => `QA_ONLY,Test Fixture,TEST_ONLY,NOK,TR,NA,${date},${level},`;
+    writeFileSync(input, `${CSV_HEADER}\n${row("2026-09-30", 108)}\n${row("2026-10-31", 110)}\n`);
     assert.throws(() => run(input), /exceeds fund reporting date/);
     const pkg = JSON.parse(readFileSync(target, "utf8"));
     const json = join(dir, "package.json");

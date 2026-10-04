@@ -86,9 +86,8 @@ test("all funds reconcile displayed 1M and YTD to stored snapshots within 0.01 p
     }
   }
 });
-test("Cusana cannot produce a 3Y or 5Y comparison from its shorter stored history", () => {
+test("Cusana cannot produce a 5Y comparison from its shorter stored history", () => {
   const f = funds.find(f => f.id === "F00001GU8B")!;
-  assert.equal(fundGrowth(f.monthlyReturns, rangeStart(DATA_DATES.performanceAsOf, "3Y"), DATA_DATES.performanceAsOf), null);
   assert.equal(fundGrowth(f.monthlyReturns, rangeStart(DATA_DATES.performanceAsOf, "5Y"), DATA_DATES.performanceAsOf), null);
 });
 

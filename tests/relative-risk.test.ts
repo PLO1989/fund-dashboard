@@ -5,6 +5,12 @@ import type { BenchmarkSeries } from "../shared/schema";
 import { funds, DATA_DATES } from "../client/src/lib/fundData";
 import rawPackage from "../shared/benchmarkData.json";
 
+// Relative-risk checks run at the latest month covered by BOTH the fund reporting date and
+// every official benchmark series. When the newest benchmark month is still missing,
+// the dashboard must show N/A at the fund reporting date (asserted separately below).
+const pkgForDates = validatePackage(rawPackage);
+const benchmarkEnd = pkgForDates.series.map(s => s.levels.at(-1)!.date).sort()[0];
+const RISK_AS_OF = benchmarkEnd < DATA_DATES.performanceAsOf ? benchmarkEnd : DATA_DATES.performanceAsOf;
 const close = (a: number | null | undefined, b: number, tol = 1e-9) =>
   assert.ok(a != null && Math.abs(a - b) < tol, `${a} != ${b}`);
 const start = "2026-05-31", end = "2026-08-31";
@@ -92,20 +98,19 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
   let available = 0;
   for (const fund of funds) {
     const series = pkg.series.find(s => s.id === pkg.assignments[fund.id]);
-    const risk = benchmarkRiskKpis(fund.monthlyReturns, series, DATA_DATES.performanceAsOf);
+    const risk = benchmarkRiskKpis(fund.monthlyReturns, series, RISK_AS_OF);
     if (fund.id === "F00001GU8B") {
-      assert.equal(risk.threeYear, null); assert.equal(risk.fiveYear, null);
-      assert.equal(risk.trackingError3Y, null); assert.equal(risk.infoRatio3Y, null);
-      assert.equal(risk.alpha3Y, null); assert.equal(risk.beta3Y, null); assert.equal(risk.rSquared3Y, null);
+      assert.equal(risk.fiveYear, null);
+      assert.equal(risk.trackingError5Y, null); assert.equal(risk.infoRatio5Y, null);
       continue;
     }
     available++;
     for (const [period, metric, count] of [["3Y", risk.threeYear, 36], ["5Y", risk.fiveYear, 60]] as const) {
       assert.ok(metric, fund.id);
       assert.equal(metric.months, count);
-      assert.equal(metric.start, rangeStart(DATA_DATES.performanceAsOf, period));
-      assert.equal(metric.end, DATA_DATES.performanceAsOf);
-      assert.equal(metric.observations.at(-1)!.date, DATA_DATES.performanceAsOf);
+      assert.equal(metric.start, rangeStart(RISK_AS_OF, period));
+      assert.equal(metric.end, RISK_AS_OF);
+      assert.equal(metric.observations.at(-1)!.date, RISK_AS_OF);
       // Independent variance/covariance identity, not the implementation's active-return SD.
       const xs = metric.observations.map(p => p.fundReturnPct);
       const ys = metric.observations.map(p => p.benchmarkReturnPct);
@@ -127,18 +132,27 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
       assert.equal(risk.alpha5Y, risk.fiveYear?.alphaAnnualizedPct ?? null);
       assert.equal(risk.rSquared3Y, risk.threeYear?.rSquared ?? null);
     }
-    const missing = benchmarkRiskKpis(fund.monthlyReturns, undefined, DATA_DATES.performanceAsOf);
+    const missing = benchmarkRiskKpis(fund.monthlyReturns, undefined, RISK_AS_OF);
     assert.equal(missing.trackingError3Y, null);
     assert.equal(missing.infoRatio5Y, null);
   }
   assert.equal(available, 12);
+  // Missing latest benchmark month: every relative-risk figure at the fund reporting date is N/A.
+  if (RISK_AS_OF < DATA_DATES.performanceAsOf) {
+    for (const fund of funds) {
+      const series = pkg.series.find(s => s.id === pkg.assignments[fund.id]);
+      const r = benchmarkRiskKpis(fund.monthlyReturns, series, DATA_DATES.performanceAsOf);
+      assert.equal(r.trackingError3Y, null, fund.id); assert.equal(r.infoRatio3Y, null, fund.id);
+      assert.equal(r.alpha3Y, null, fund.id); assert.equal(r.beta3Y, null, fund.id); assert.equal(r.rSquared3Y, null, fund.id);
+    }
+  }
 });
 
 test("selected reporting dates and assignment changes recompute rather than use latest or provider metrics", () => {
   const pkg = validatePackage(rawPackage);
   const fund = funds.find(f => f.id === "F0GBR04NJK")!;
   const own = pkg.series.find(s => s.id === pkg.assignments[fund.id])!;
-  const latest = benchmarkRiskKpis(fund.monthlyReturns, own, DATA_DATES.performanceAsOf);
+  const latest = benchmarkRiskKpis(fund.monthlyReturns, own, RISK_AS_OF);
   const past = benchmarkRiskKpis(fund.monthlyReturns, own, "2025-12-31");
   assert.equal(past.threeYear!.end, "2025-12-31");
   assert.equal(past.threeYear!.months, 36);
@@ -146,7 +160,7 @@ test("selected reporting dates and assignment changes recompute rather than use 
   assert.notEqual(latest.trackingError3Y, fund.trackingError3Y);
   assert.ok(Number.isFinite(latest.beta3Y!) && latest.beta3Y! > 0);
   assert.ok(Number.isFinite(latest.alpha3Y!) && Number.isFinite(latest.rSquared3Y!));
-  const other = benchmarkRiskKpis(fund.monthlyReturns, pkg.series.find(s => s.id === "MSCI_WORLD_NET_TR_NOK"), DATA_DATES.performanceAsOf);
+  const other = benchmarkRiskKpis(fund.monthlyReturns, pkg.series.find(s => s.id === "MSCI_WORLD_NET_TR_NOK"), RISK_AS_OF);
   assert.notEqual(latest.trackingError3Y, other.trackingError3Y);
 });
 

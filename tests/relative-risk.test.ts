@@ -137,13 +137,20 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
     assert.equal(missing.infoRatio5Y, null);
   }
   assert.equal(available, 12);
-  // Missing latest benchmark month: every relative-risk figure at the fund reporting date is N/A.
+  // A fund is N/A at the reporting date only when its own benchmark lacks that month.
+  // Other series may already include it.
   if (RISK_AS_OF < DATA_DATES.performanceAsOf) {
     for (const fund of funds) {
       const series = pkg.series.find(s => s.id === pkg.assignments[fund.id]);
+      const covered = series?.levels.at(-1)?.date != null && series.levels.at(-1)!.date >= DATA_DATES.performanceAsOf;
       const r = benchmarkRiskKpis(fund.monthlyReturns, series, DATA_DATES.performanceAsOf);
-      assert.equal(r.trackingError3Y, null, fund.id); assert.equal(r.infoRatio3Y, null, fund.id);
-      assert.equal(r.alpha3Y, null, fund.id); assert.equal(r.beta3Y, null, fund.id); assert.equal(r.rSquared3Y, null, fund.id);
+      if (!covered) {
+        assert.equal(r.trackingError3Y, null, fund.id); assert.equal(r.infoRatio3Y, null, fund.id);
+        assert.equal(r.alpha3Y, null, fund.id); assert.equal(r.beta3Y, null, fund.id); assert.equal(r.rSquared3Y, null, fund.id);
+      } else if (fund.id !== "F00001GU8B") {
+        assert.equal(r.threeYear?.end, DATA_DATES.performanceAsOf, fund.id);
+        assert.equal(r.threeYear?.months, 36, fund.id);
+      }
     }
   }
 });

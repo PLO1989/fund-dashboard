@@ -7296,9 +7296,31 @@ countriesFull: [
     cashReturn: null,
     fiStyleBox: null,
     exposure: {
-      sectors: [],
-      regions: [],
-      countries: [],
+      sectors: [
+        { name: "Communication Services", weight: 7.71 },
+        { name: "Consumer Cyclical", weight: 1.55 },
+        { name: "Financial Services", weight: 0.48 },
+        { name: "Industrials", weight: 4.42 },
+        { name: "Technology", weight: 85.84 },
+      ],
+      regions: [
+        { name: "Americas", weight: 74.84 },
+        { name: "Greater Europe", weight: 3.31 },
+        { name: "Greater Asia", weight: 21.85 },
+      ],
+      countries: [
+        { name: "United States", weight: 72.75757 },
+        { name: "Taiwan", weight: 13.00476 },
+        { name: "South Korea", weight: 4.05129 },
+        { name: "Japan", weight: 3.46888 },
+        { name: "Canada", weight: 1.60909 },
+        { name: "Netherlands", weight: 1.60789 },
+        { name: "China", weight: 1.3247 },
+        { name: "Israel", weight: 0.73943 },
+        { name: "Germany", weight: 0.51132 },
+        { name: "Mexico", weight: 0.47614 },
+        { name: "Italy", weight: 0.44891 },
+      ],
     },
     monthlyReturns: [
         { date: "2020-07-31", value: 1.20543 },
@@ -7682,6 +7704,29 @@ countriesFull: [
         maxDrawdown3Y: -26.65912,
       },
     ],
+    enrichment: {
+      equitySectors: {
+        asOfDate: "2026-09-30T00:00:00",
+        portfolio: { basicMaterials: 0, communicationServices: 7.71, consumerCyclical: 1.55, consumerDefensive: 0, energy: 0, financialServices: 0.48, healthcare: 0, industrials: 4.42, realEstate: 0, technology: 85.84, utilities: 0 },
+      },
+      regional: {
+        americas: 74.84, greaterEurope: 3.31, greaterAsia: 21.85,
+        benchmark: { americas: 99.57, greaterEurope: 0.33, greaterAsia: 0.09 },
+      },
+      countriesFull: [
+        { name: "United States", weight: 72.75757 },
+        { name: "Taiwan", weight: 13.00476 },
+        { name: "South Korea", weight: 4.05129 },
+        { name: "Japan", weight: 3.46888 },
+        { name: "Canada", weight: 1.60909 },
+        { name: "Netherlands", weight: 1.60789 },
+        { name: "China", weight: 1.3247 },
+        { name: "Israel", weight: 0.73943 },
+        { name: "Germany", weight: 0.51132 },
+        { name: "Mexico", weight: 0.47614 },
+        { name: "Italy", weight: 0.44891 },
+      ],
+    },
   },
 
 
@@ -7748,9 +7793,26 @@ countriesFull: [
     cashReturn: null,
     fiStyleBox: null,
     exposure: {
-      sectors: [],
-      regions: [],
-      countries: [],
+      sectors: [
+        { name: "Healthcare", weight: 100 },
+      ],
+      regions: [
+        { name: "Americas", weight: 82.54 },
+        { name: "Greater Europe", weight: 15.84 },
+        { name: "Greater Asia", weight: 1.62 },
+      ],
+      countries: [
+        { name: "United States", weight: 81.86911 },
+        { name: "United Kingdom", weight: 6.10449 },
+        { name: "Switzerland", weight: 3.19532 },
+        { name: "Belgium", weight: 2.29141 },
+        { name: "Japan", weight: 1.61559 },
+        { name: "Denmark", weight: 1.30505 },
+        { name: "Israel", weight: 1.27603 },
+        { name: "France", weight: 0.98346 },
+        { name: "Netherlands", weight: 0.68648 },
+        { name: "Canada", weight: 0.67306 },
+      ],
     },
     monthlyReturns: [
         { date: "2016-01-31", value: -13.8711 },
@@ -8188,6 +8250,28 @@ countriesFull: [
         maxDrawdown3Y: -18.67288,
       },
     ],
+    enrichment: {
+      equitySectors: {
+        asOfDate: "2026-09-30T00:00:00",
+        portfolio: { basicMaterials: 0, communicationServices: 0, consumerCyclical: 0, consumerDefensive: 0, energy: 0, financialServices: 0, healthcare: 100, industrials: 0, realEstate: 0, technology: 0, utilities: 0 },
+      },
+      regional: {
+        americas: 82.54, greaterEurope: 15.84, greaterAsia: 1.62,
+        benchmark: { americas: 99.57, greaterEurope: 0.33, greaterAsia: 0.09 },
+      },
+      countriesFull: [
+        { name: "United States", weight: 81.86911 },
+        { name: "United Kingdom", weight: 6.10449 },
+        { name: "Switzerland", weight: 3.19532 },
+        { name: "Belgium", weight: 2.29141 },
+        { name: "Japan", weight: 1.61559 },
+        { name: "Denmark", weight: 1.30505 },
+        { name: "Israel", weight: 1.27603 },
+        { name: "France", weight: 0.98346 },
+        { name: "Netherlands", weight: 0.68648 },
+        { name: "Canada", weight: 0.67306 },
+      ],
+    },
   },
 
 
@@ -8254,9 +8338,30 @@ countriesFull: [
     cashReturn: null,
     fiStyleBox: null,
     exposure: {
-      sectors: [],
-      regions: [],
-      countries: [],
+      sectors: [
+        { name: "Basic Materials", weight: 4.7 },
+        { name: "Consumer Cyclical", weight: 0.61 },
+        { name: "Industrials", weight: 50.2 },
+        { name: "Technology", weight: 26.44 },
+        { name: "Utilities", weight: 18.05 },
+      ],
+      regions: [
+        { name: "Americas", weight: 49.71 },
+        { name: "Greater Europe", weight: 41.53 },
+        { name: "Greater Asia", weight: 8.76 },
+      ],
+      countries: [
+        { name: "United States", weight: 49.71203 },
+        { name: "France", weight: 12.27555 },
+        { name: "Germany", weight: 8.03299 },
+        { name: "China", weight: 6.85062 },
+        { name: "United Kingdom", weight: 6.84957 },
+        { name: "Spain", weight: 4.82975 },
+        { name: "Italy", weight: 3.57431 },
+        { name: "Sweden", weight: 3.24861 },
+        { name: "Denmark", weight: 2.72087 },
+        { name: "South Korea", weight: 1.90569 },
+      ],
     },
     monthlyReturns: [
         { date: "2016-01-31", value: -14.21664 },
@@ -8694,6 +8799,28 @@ countriesFull: [
         maxDrawdown3Y: -20.88936,
       },
     ],
+    enrichment: {
+      equitySectors: {
+        asOfDate: "2026-09-30T00:00:00",
+        portfolio: { basicMaterials: 4.7, communicationServices: 0, consumerCyclical: 0.61, consumerDefensive: 0, energy: 0, financialServices: 0, healthcare: 0, industrials: 50.2, realEstate: 0, technology: 26.44, utilities: 18.05 },
+      },
+      regional: {
+        americas: 49.71, greaterEurope: 41.53, greaterAsia: 8.76,
+        benchmark: { americas: 99.57, greaterEurope: 0.33, greaterAsia: 0.09 },
+      },
+      countriesFull: [
+        { name: "United States", weight: 49.71203 },
+        { name: "France", weight: 12.27555 },
+        { name: "Germany", weight: 8.03299 },
+        { name: "China", weight: 6.85062 },
+        { name: "United Kingdom", weight: 6.84957 },
+        { name: "Spain", weight: 4.82975 },
+        { name: "Italy", weight: 3.57431 },
+        { name: "Sweden", weight: 3.24861 },
+        { name: "Denmark", weight: 2.72087 },
+        { name: "South Korea", weight: 1.90569 },
+      ],
+    },
   },
 
 
@@ -8760,9 +8887,28 @@ countriesFull: [
     cashReturn: null,
     fiStyleBox: null,
     exposure: {
-      sectors: [],
-      regions: [],
-      countries: [],
+      sectors: [
+        { name: "Communication Services", weight: 7.2 },
+        { name: "Consumer Cyclical", weight: 0.89 },
+        { name: "Healthcare", weight: 3.88 },
+        { name: "Industrials", weight: 14.84 },
+        { name: "Technology", weight: 73.19 },
+      ],
+      regions: [
+        { name: "Americas", weight: 70.11 },
+        { name: "Greater Europe", weight: 12.54 },
+        { name: "Greater Asia", weight: 17.35 },
+      ],
+      countries: [
+        { name: "United States", weight: 70.10204 },
+        { name: "Japan", weight: 8.74313 },
+        { name: "Taiwan", weight: 5.73871 },
+        { name: "Germany", weight: 5.07499 },
+        { name: "Netherlands", weight: 4.66294 },
+        { name: "France", weight: 2.80598 },
+        { name: "South Korea", weight: 1.98615 },
+        { name: "China", weight: 0.88607 },
+      ],
     },
     monthlyReturns: [
         { date: "2017-07-31", value: -0.7021 },
@@ -9182,6 +9328,26 @@ countriesFull: [
         maxDrawdown3Y: -20.4532,
       },
     ],
+    enrichment: {
+      equitySectors: {
+        asOfDate: "2026-04-30T00:00:00",
+        portfolio: { basicMaterials: 0, communicationServices: 7.2, consumerCyclical: 0.89, consumerDefensive: 0, energy: 0, financialServices: 0, healthcare: 3.88, industrials: 14.84, realEstate: 0, technology: 73.19, utilities: 0 },
+      },
+      regional: {
+        americas: 70.11, greaterEurope: 12.54, greaterAsia: 17.35,
+        benchmark: { americas: 99.57, greaterEurope: 0.33, greaterAsia: 0.09 },
+      },
+      countriesFull: [
+        { name: "United States", weight: 70.10204 },
+        { name: "Japan", weight: 8.74313 },
+        { name: "Taiwan", weight: 5.73871 },
+        { name: "Germany", weight: 5.07499 },
+        { name: "Netherlands", weight: 4.66294 },
+        { name: "France", weight: 2.80598 },
+        { name: "South Korea", weight: 1.98615 },
+        { name: "China", weight: 0.88607 },
+      ],
+    },
   },
 
 ];

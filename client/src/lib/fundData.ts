@@ -284,7 +284,7 @@ export function getFundById(id: string): Fund | undefined {
 }
 
 export const DATA_DATES = {
-  performanceAsOf: "2026-09-30",
+  performanceAsOf: "2026-10-31",
   holdingsAsOf: "2026-08-31",
 };
 
@@ -477,6 +477,7 @@ export const funds: Fund[] = [
         { date: "2026-07-31", value: 5.41354 },
         { date: "2026-08-31", value: 4.59189 },
         { date: "2026-09-30", value: -0.08082 },
+        { date: "2026-10-31", value: -0.1329 },
       ],
     benchmarkReturns: [
     ],
@@ -494,19 +495,7 @@ export const funds: Fund[] = [
   ],
       holdingsDate: "2026-09-30",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 0.8299,
-        returnYTD: 13.88411,
-        return6M: 3.66102,
-        return1Y: 17.06978,
-        return3Y: 10.05804,
-        return5Y: 12.55059,
-        stdDev3Y: 14.72777,
-        sharpe3Y: 0.41133,
-        maxDrawdown3Y: -18.76352,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 0.35041,
         returnYTD: 14.28317,
@@ -518,7 +507,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.50562,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: 0.40914,
         returnYTD: 14.75075,
@@ -530,7 +519,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.38233,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 6.62576,
         returnYTD: 6.62576,
@@ -542,7 +531,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.50817,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -3.46896,
         returnYTD: 2.92696,
@@ -554,7 +543,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.35095,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -0.59485,
         returnYTD: 2.31469,
@@ -566,7 +555,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.25045,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -1.28963,
         returnYTD: 0.99521,
@@ -578,7 +567,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.16776,
         maxDrawdown3Y: -18.76352,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 5.32959,
         returnYTD: 6.37784,
@@ -590,7 +579,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.28885,
         maxDrawdown3Y: -18.7596,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 4.30334,
         returnYTD: 10.95564,
@@ -602,7 +591,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.7247,
         maxDrawdown3Y: -15.46233,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 1.57462,
         returnYTD: 12.70277,
@@ -614,7 +603,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.5996,
         maxDrawdown3Y: -15.46233,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 1.62784,
         returnYTD: 14.53739,
@@ -626,7 +615,7 @@ export const funds: Fund[] = [
         sharpe3Y: 0.71699,
         maxDrawdown3Y: -13.53592,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: -0.3993,
         returnYTD: 14.08005,
@@ -638,7 +627,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.512,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.25183,
         returnYTD: 14.36733,
@@ -650,7 +639,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.32001,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 2.00364,
         returnYTD: 16.65884,
@@ -662,7 +651,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.24584,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 6.68224,
         returnYTD: 24.45427,
@@ -674,7 +663,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.34333,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.24509,
         returnYTD: 0.24509,
@@ -686,7 +675,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.23104,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 6.64921,
         returnYTD: 6.9106,
@@ -698,7 +687,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.25339,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: 2.78974,
         returnYTD: 9.89312,
@@ -710,7 +699,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.60711,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: -0.52773,
         returnYTD: 9.31319,
@@ -722,7 +711,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.437,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: -1.89059,
         returnYTD: 7.24652,
@@ -734,7 +723,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.62903,
         maxDrawdown3Y: -5.28066,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: -3.00853,
         returnYTD: 4.01998,
@@ -746,7 +735,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.36999,
         maxDrawdown3Y: -5.34442,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: 5.414,
         returnYTD: 9.651,
@@ -758,7 +747,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.522,
         maxDrawdown3Y: -5.344,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 4.59189,
         returnYTD: 14.6862,
@@ -770,7 +759,7 @@ export const funds: Fund[] = [
         sharpe3Y: 1.66378,
         maxDrawdown3Y: -5.34442,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -0.08082,
         returnYTD: 14.59351,
@@ -780,6 +769,18 @@ export const funds: Fund[] = [
         return5Y: 14.53194,
         stdDev3Y: 9.55441,
         sharpe3Y: 1.56155,
+        maxDrawdown3Y: -5.34442,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -0.1329,
+        returnYTD: 14.44122,
+        return6M: 4.69114,
+        return1Y: 24.53467,
+        return3Y: 18.88028,
+        return5Y: 13.85444,
+        stdDev3Y: 9.56001,
+        sharpe3Y: 1.55651,
         maxDrawdown3Y: -5.34442,
       }
     ],
@@ -1004,6 +1005,7 @@ countriesFull: [
         { date: "2026-07-31", value: -1.49695 },
         { date: "2026-08-31", value: -1.6434 },
         { date: "2026-09-30", value: 3.05426 },
+        { date: "2026-10-31", value: -12.78766 },
       ],
     benchmarkReturns: [
     ],
@@ -1021,19 +1023,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 2.85486,
-        returnYTD: 31.51833,
-        return6M: 5.83395,
-        return1Y: 34.51964,
-        return3Y: 21.0065,
-        return5Y: 18.917,
-        stdDev3Y: 12.54974,
-        sharpe3Y: 1.35513,
-        maxDrawdown3Y: -5.28648,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 4.58716,
         returnYTD: 37.55129,
@@ -1045,7 +1035,7 @@ countriesFull: [
         sharpe3Y: 1.37243,
         maxDrawdown3Y: -5.28648,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.81772,
         returnYTD: 36.42651,
@@ -1057,7 +1047,7 @@ countriesFull: [
         sharpe3Y: 1.35027,
         maxDrawdown3Y: -5.28648,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 4.36216,
         returnYTD: 4.36216,
@@ -1069,7 +1059,7 @@ countriesFull: [
         sharpe3Y: 1.44901,
         maxDrawdown3Y: -5.28648,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -1.77392,
         returnYTD: 2.51086,
@@ -1081,7 +1071,7 @@ countriesFull: [
         sharpe3Y: 1.45334,
         maxDrawdown3Y: -5.28648,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -10.75528,
         returnYTD: -8.51447,
@@ -1093,7 +1083,7 @@ countriesFull: [
         sharpe3Y: 0.88717,
         maxDrawdown3Y: -12.33841,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -3.94888,
         returnYTD: -12.12712,
@@ -1105,7 +1095,7 @@ countriesFull: [
         sharpe3Y: 0.70058,
         maxDrawdown3Y: -15.80006,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: -1.1259,
         returnYTD: -13.11649,
@@ -1117,7 +1107,7 @@ countriesFull: [
         sharpe3Y: 0.55782,
         maxDrawdown3Y: -16.74807,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 0.05176,
         returnYTD: -13.07151,
@@ -1129,7 +1119,7 @@ countriesFull: [
         sharpe3Y: 0.66154,
         maxDrawdown3Y: -16.74807,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: -1.24159,
         returnYTD: -14.15081,
@@ -1141,7 +1131,7 @@ countriesFull: [
         sharpe3Y: 0.62002,
         maxDrawdown3Y: -17.73916,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: -0.99529,
         returnYTD: -15.00526,
@@ -1153,7 +1143,7 @@ countriesFull: [
         sharpe3Y: 0.64524,
         maxDrawdown3Y: -18.55789,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: -0.77601,
         returnYTD: -15.66483,
@@ -1165,7 +1155,7 @@ countriesFull: [
         sharpe3Y: 0.62905,
         maxDrawdown3Y: -19.18989,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: -1.5375,
         returnYTD: -16.96148,
@@ -1177,7 +1167,7 @@ countriesFull: [
         sharpe3Y: 0.46349,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 3.84511,
         returnYTD: -13.76856,
@@ -1189,7 +1179,7 @@ countriesFull: [
         sharpe3Y: 0.58133,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: -1.37332,
         returnYTD: -14.95279,
@@ -1201,7 +1191,7 @@ countriesFull: [
         sharpe3Y: 0.63235,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: -1.99172,
         returnYTD: -1.99172,
@@ -1213,7 +1203,7 @@ countriesFull: [
         sharpe3Y: 0.4812,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 6.66307,
         returnYTD: 4.53864,
@@ -1225,7 +1215,7 @@ countriesFull: [
         sharpe3Y: 0.66337,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -0.93576,
         returnYTD: 3.56041,
@@ -1237,7 +1227,7 @@ countriesFull: [
         sharpe3Y: 0.58101,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: -4.53578,
         returnYTD: -1.13686,
@@ -1249,7 +1239,7 @@ countriesFull: [
         sharpe3Y: 0.31089,
         maxDrawdown3Y: -20.43235,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: -1.81851,
         returnYTD: -2.9347,
@@ -1261,7 +1251,7 @@ countriesFull: [
         sharpe3Y: 0.12378,
         maxDrawdown3Y: -20.89917,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 4.32177,
         returnYTD: 1.26024,
@@ -1273,7 +1263,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -1.497,
         returnYTD: -0.256,
@@ -1285,7 +1275,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: -1.6434,
         returnYTD: -1.89477,
@@ -1297,7 +1287,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 3.05426,
         returnYTD: 1.10161,
@@ -1308,6 +1298,18 @@ countriesFull: [
         stdDev3Y: 14.22774,
         sharpe3Y: 0.25122,
         maxDrawdown3Y: -20.89917,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -12.78766,
+        returnYTD: -11.82692,
+        return6M: -10.81298,
+        return1Y: -9.69402,
+        return3Y: 1.52307,
+        return5Y: 6.62693,
+        stdDev3Y: 16.09026,
+        sharpe3Y: -0.15394,
+        maxDrawdown3Y: -28.14565,
       }
     ],
       enrichment: {
@@ -1542,6 +1544,7 @@ countriesFull: [
         { date: "2026-07-31", value: -1.70696957579054 },
         { date: "2026-08-31", value: 0.64678 },
         { date: "2026-09-30", value: 2.31092 },
+        { date: "2026-10-31", value: -2.45241 },
       ],
     benchmarkReturns: [
     ],
@@ -1559,19 +1562,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-09-30",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -0.18495,
-        returnYTD: 22.30805,
-        return6M: 8.16429,
-        return1Y: 28.09505,
-        return3Y: 17.4671,
-        return5Y: 16.92486,
-        stdDev3Y: 11.35815,
-        sharpe3Y: 1.18568,
-        maxDrawdown3Y: -7.22412,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 4.35048,
         returnYTD: 27.62904,
@@ -1583,7 +1574,7 @@ countriesFull: [
         sharpe3Y: 1.18559,
         maxDrawdown3Y: -7.22412,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.96629,
         returnYTD: 26.39577,
@@ -1595,7 +1586,7 @@ countriesFull: [
         sharpe3Y: 1.02029,
         maxDrawdown3Y: -7.22412,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 3.08721,
         returnYTD: 3.08721,
@@ -1607,7 +1598,7 @@ countriesFull: [
         sharpe3Y: 1.1715,
         maxDrawdown3Y: -7.22412,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -1.37469,
         returnYTD: 1.67008,
@@ -1619,7 +1610,7 @@ countriesFull: [
         sharpe3Y: 1.35388,
         maxDrawdown3Y: -7.22412,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -10.36706,
         returnYTD: -8.87012,
@@ -1631,7 +1622,7 @@ countriesFull: [
         sharpe3Y: 0.81779,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 0.48902,
         returnYTD: -8.42447,
@@ -1643,7 +1634,7 @@ countriesFull: [
         sharpe3Y: 0.83708,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 3.95855,
         returnYTD: -4.79941,
@@ -1655,7 +1646,7 @@ countriesFull: [
         sharpe3Y: 0.85131,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.25762,
         returnYTD: -3.60215,
@@ -1667,7 +1658,7 @@ countriesFull: [
         sharpe3Y: 0.9955,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.49094,
         returnYTD: -3.12889,
@@ -1679,7 +1670,7 @@ countriesFull: [
         sharpe3Y: 0.89624,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: -0.55493,
         returnYTD: -3.66646,
@@ -1691,7 +1682,7 @@ countriesFull: [
         sharpe3Y: 0.99154,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.44483,
         returnYTD: -3.23794,
@@ -1703,7 +1694,7 @@ countriesFull: [
         sharpe3Y: 1.00664,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.45036,
         returnYTD: -2.80216,
@@ -1715,7 +1706,7 @@ countriesFull: [
         sharpe3Y: 0.96851,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 1.30013,
         returnYTD: -1.53846,
@@ -1727,7 +1718,7 @@ countriesFull: [
         sharpe3Y: 0.87575,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.95954,
         returnYTD: -0.59369,
@@ -1739,7 +1730,7 @@ countriesFull: [
         sharpe3Y: 0.97252,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: -1.94846,
         returnYTD: -1.94846,
@@ -1751,7 +1742,7 @@ countriesFull: [
         sharpe3Y: 0.68468,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 0.01552,
         returnYTD: -1.93324,
@@ -1763,7 +1754,7 @@ countriesFull: [
         sharpe3Y: 0.69096,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -5.78871,
         returnYTD: -7.61004,
@@ -1775,7 +1766,7 @@ countriesFull: [
         sharpe3Y: 0.33967,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 4.43437,
         returnYTD: -3.51313,
@@ -1787,7 +1778,7 @@ countriesFull: [
         sharpe3Y: 0.34331,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 4.07848,
         returnYTD: 0.42207,
@@ -1799,7 +1790,7 @@ countriesFull: [
         sharpe3Y: 0.39682,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 10.87035,
         returnYTD: 11.3383,
@@ -1811,7 +1802,7 @@ countriesFull: [
         sharpe3Y: 0.60443,
         maxDrawdown3Y: -11.59924,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -1.707,
         returnYTD: 9.438,
@@ -1823,7 +1814,7 @@ countriesFull: [
         sharpe3Y: 0.699,
         maxDrawdown3Y: -11.599,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.64678,
         returnYTD: 10.14561,
@@ -1835,7 +1826,7 @@ countriesFull: [
         sharpe3Y: 0.64331,
         maxDrawdown3Y: -11.59923,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 2.31092,
         returnYTD: 12.69099,
@@ -1845,6 +1836,18 @@ countriesFull: [
         return5Y: 13.45002,
         stdDev3Y: 12.28038,
         sharpe3Y: 0.91689,
+        maxDrawdown3Y: -11.59924,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -2.45241,
+        returnYTD: 9.92734,
+        return6M: 13.92984,
+        return1Y: 12.42505,
+        return3Y: 13.09494,
+        return5Y: 12.85198,
+        stdDev3Y: 12.40254,
+        sharpe3Y: 0.73331,
         maxDrawdown3Y: -11.59924,
       }
     ],
@@ -2090,6 +2093,7 @@ countriesFull: [
         { date: "2026-07-31", value: -10.53630291960067 },
         { date: "2026-08-31", value: 0.27116 },
         { date: "2026-09-30", value: 0.16709 },
+        { date: "2026-10-31", value: -2.90549 },
       ],
     benchmarkReturns: [
     ],
@@ -2107,19 +2111,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-09-30",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 3.3125,
-        returnYTD: 20.99034,
-        return6M: 8.47894,
-        return1Y: 30.11471,
-        return3Y: 6.1707,
-        return5Y: 14.51243,
-        stdDev3Y: 15.4922,
-        sharpe3Y: 0.14012,
-        maxDrawdown3Y: -23.91288,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 8.99189,
         returnYTD: 31.86966,
@@ -2131,7 +2123,7 @@ countriesFull: [
         sharpe3Y: 0.23301,
         maxDrawdown3Y: -23.91288,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -1.488,
         returnYTD: 29.90744,
@@ -2143,7 +2135,7 @@ countriesFull: [
         sharpe3Y: 0.23215,
         maxDrawdown3Y: -22.79249,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 7.09156,
         returnYTD: 7.09156,
@@ -2155,7 +2147,7 @@ countriesFull: [
         sharpe3Y: 0.67091,
         maxDrawdown3Y: -14.16519,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -4.06622,
         returnYTD: 2.73698,
@@ -2167,7 +2159,7 @@ countriesFull: [
         sharpe3Y: 0.64925,
         maxDrawdown3Y: -11.17959,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -12.87642,
         returnYTD: -10.49186,
@@ -2179,7 +2171,7 @@ countriesFull: [
         sharpe3Y: 0.31444,
         maxDrawdown3Y: -16.41906,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -0.21486,
         returnYTD: -10.68418,
@@ -2191,7 +2183,7 @@ countriesFull: [
         sharpe3Y: 0.46321,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 2.8909,
         returnYTD: -8.10215,
@@ -2203,7 +2195,7 @@ countriesFull: [
         sharpe3Y: 0.54732,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 3.45294,
         returnYTD: -4.92897,
@@ -2215,7 +2207,7 @@ countriesFull: [
         sharpe3Y: 0.68432,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.41079,
         returnYTD: -4.53843,
@@ -2227,7 +2219,7 @@ countriesFull: [
         sharpe3Y: 0.55197,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 1.51214,
         returnYTD: -3.09492,
@@ -2239,7 +2231,7 @@ countriesFull: [
         sharpe3Y: 0.61308,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.01314,
         returnYTD: -3.08218,
@@ -2251,7 +2243,7 @@ countriesFull: [
         sharpe3Y: 0.67845,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 2.85261,
         returnYTD: -0.3175,
@@ -2263,7 +2255,7 @@ countriesFull: [
         sharpe3Y: 0.73201,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 2.07631,
         returnYTD: 1.75222,
@@ -2275,7 +2267,7 @@ countriesFull: [
         sharpe3Y: 0.74015,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: -2.06031,
         returnYTD: -0.34419,
@@ -2287,7 +2279,7 @@ countriesFull: [
         sharpe3Y: 0.84476,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: -3.58374,
         returnYTD: -3.58374,
@@ -2299,7 +2291,7 @@ countriesFull: [
         sharpe3Y: 0.52827,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 0.48106,
         returnYTD: -3.11992,
@@ -2311,7 +2303,7 @@ countriesFull: [
         sharpe3Y: 0.48883,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -5.65968,
         returnYTD: -8.60302,
@@ -2323,7 +2315,7 @@ countriesFull: [
         sharpe3Y: 0.23479,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 2.6871,
         returnYTD: -6.14709,
@@ -2335,7 +2327,7 @@ countriesFull: [
         sharpe3Y: 0.33877,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 1.88889,
         returnYTD: -4.37432,
@@ -2347,7 +2339,7 @@ countriesFull: [
         sharpe3Y: 0.26187,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 14.51064,
         returnYTD: 9.50158,
@@ -2359,7 +2351,7 @@ countriesFull: [
         sharpe3Y: 0.50036,
         maxDrawdown3Y: -16.59864,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -10.536,
         returnYTD: -2.036,
@@ -2371,7 +2363,7 @@ countriesFull: [
         sharpe3Y: 0.303,
         maxDrawdown3Y: -16.599,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.27116,
         returnYTD: -1.77018,
@@ -2383,7 +2375,7 @@ countriesFull: [
         sharpe3Y: 0.22317,
         maxDrawdown3Y: -16.59863,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 0.16709,
         returnYTD: -1.60606,
@@ -2393,6 +2385,18 @@ countriesFull: [
         return5Y: 4.75867,
         stdDev3Y: 17.53857,
         sharpe3Y: 0.36186,
+        maxDrawdown3Y: -16.59864,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -2.90549,
+        returnYTD: -4.46489,
+        return6M: 1.79238,
+        return1Y: -4.49047,
+        return3Y: 9.97445,
+        return5Y: 4.11483,
+        stdDev3Y: 17.60313,
+        sharpe3Y: 0.3394,
         maxDrawdown3Y: -16.59864,
       }
     ],
@@ -2565,6 +2569,7 @@ countriesFull: [
         { date: "2026-07-31", value: -8.60894 },
         { date: "2026-08-31", value: -1.8367 },
         { date: "2026-09-30", value: -1.49129 },
+        { date: "2026-10-31", value: -11.87588 },
       ],
     benchmarkReturns: [
     ],
@@ -2582,19 +2587,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 1.8464,
-        returnYTD: 33.90184,
-        return6M: 13.59964,
-        return1Y: 37.61694,
-        return3Y: null,
-        return5Y: null,
-        stdDev3Y: null,
-        sharpe3Y: null,
-        maxDrawdown3Y: null,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 0.92991,
         returnYTD: 35.14701,
@@ -2606,7 +2599,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: 1.49427,
         returnYTD: 37.16647,
@@ -2618,7 +2611,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: -3.715,
         returnYTD: -3.715,
@@ -2630,7 +2623,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -2.91554,
         returnYTD: -6.52223,
@@ -2642,7 +2635,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -6.04701,
         returnYTD: -12.17484,
@@ -2654,7 +2647,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -0.36481,
         returnYTD: -12.49523,
@@ -2666,7 +2659,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 1.51687,
         returnYTD: -11.1679,
@@ -2678,7 +2671,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.55432,
         returnYTD: -9.78716,
@@ -2690,7 +2683,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 1.25148,
         returnYTD: -8.65817,
@@ -2702,7 +2695,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 2.80608,
         returnYTD: -6.09504,
@@ -2714,7 +2707,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 1.69781,
         returnYTD: -4.50072,
@@ -2726,7 +2719,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 2.9635,
         returnYTD: -1.67059,
@@ -2738,7 +2731,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: -4.11947,
         returnYTD: -5.72125,
@@ -2750,7 +2743,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: -0.3722,
         returnYTD: -6.07215,
@@ -2762,7 +2755,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: -8.12962,
         returnYTD: -8.12962,
@@ -2774,7 +2767,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: -5.09194,
         returnYTD: -12.8076,
@@ -2786,7 +2779,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -10.32973,
         returnYTD: -21.81434,
@@ -2798,7 +2791,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 4.18614,
         returnYTD: -18.54138,
@@ -2810,7 +2803,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 2.59222,
         returnYTD: -16.4298,
@@ -2822,7 +2815,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 16.94849,
         returnYTD: -2.26591,
@@ -2834,7 +2827,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -8.609,
         returnYTD: -10.68,
@@ -2846,7 +2839,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: -1.8367,
         returnYTD: -12.32032,
@@ -2858,7 +2851,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -1.49129,
         returnYTD: -13.62788,
@@ -2869,6 +2862,18 @@ countriesFull: [
         stdDev3Y: 17.70733,
         sharpe3Y: -0.01412,
         maxDrawdown3Y: -26.56189,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -11.87588,
+        returnYTD: -23.88533,
+        return6M: -6.56032,
+        return1Y: -27.29248,
+        return3Y: 0.261,
+        return5Y: null,
+        stdDev3Y: 19.02545,
+        sharpe3Y: -0.19653,
+        maxDrawdown3Y: -28.50713,
       }
     ],
       enrichment: {
@@ -3117,6 +3122,7 @@ countriesFull: [
         { date: "2026-07-31", value: -3.241022779372782 },
         { date: "2026-08-31", value: -0.52327 },
         { date: "2026-09-30", value: -0.13493 },
+        { date: "2026-10-31", value: -8.20125 },
       ],
     benchmarkReturns: [
     ],
@@ -3134,19 +3140,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-09-30",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -0.62032,
-        returnYTD: 15.70788,
-        return6M: 4.4447,
-        return1Y: 17.30193,
-        return3Y: 13.24463,
-        return5Y: 6.41785,
-        stdDev3Y: 15.5244,
-        sharpe3Y: 0.59549,
-        maxDrawdown3Y: -17.5291,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: -2.48022,
         returnYTD: 12.83807,
@@ -3158,7 +3152,7 @@ countriesFull: [
         sharpe3Y: 0.42104,
         maxDrawdown3Y: -17.5291,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: 2.36793,
         returnYTD: 15.50999,
@@ -3170,7 +3164,7 @@ countriesFull: [
         sharpe3Y: 0.47003,
         maxDrawdown3Y: -17.5291,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 2.11643,
         returnYTD: 2.11643,
@@ -3182,7 +3176,7 @@ countriesFull: [
         sharpe3Y: 0.50107,
         maxDrawdown3Y: -17.5291,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 1.18295,
         returnYTD: 3.32442,
@@ -3194,7 +3188,7 @@ countriesFull: [
         sharpe3Y: 0.78403,
         maxDrawdown3Y: -10.2872,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -5.32369,
         returnYTD: -2.17626,
@@ -3206,7 +3200,7 @@ countriesFull: [
         sharpe3Y: 0.75961,
         maxDrawdown3Y: -9.65377,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 1.34898,
         returnYTD: -0.85663,
@@ -3218,7 +3212,7 @@ countriesFull: [
         sharpe3Y: 0.77294,
         maxDrawdown3Y: -9.65377,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 3.99799,
         returnYTD: 3.10711,
@@ -3230,7 +3224,7 @@ countriesFull: [
         sharpe3Y: 0.78951,
         maxDrawdown3Y: -9.65377,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 5.03605,
         returnYTD: 8.29963,
@@ -3242,7 +3236,7 @@ countriesFull: [
         sharpe3Y: 0.93806,
         maxDrawdown3Y: -8.81665,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 4.51515,
         returnYTD: 13.18953,
@@ -3254,7 +3248,7 @@ countriesFull: [
         sharpe3Y: 1.19533,
         maxDrawdown3Y: -6.72833,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 0.76803,
         returnYTD: 14.05886,
@@ -3266,7 +3260,7 @@ countriesFull: [
         sharpe3Y: 1.16027,
         maxDrawdown3Y: -6.72833,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 5.1641,
         returnYTD: 19.94897,
@@ -3278,7 +3272,7 @@ countriesFull: [
         sharpe3Y: 1.3276,
         maxDrawdown3Y: -5.72396,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 5.78185,
         returnYTD: 26.88424,
@@ -3290,7 +3284,7 @@ countriesFull: [
         sharpe3Y: 1.72387,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 2.26028,
         returnYTD: 29.75218,
@@ -3302,7 +3296,7 @@ countriesFull: [
         sharpe3Y: 1.60381,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.95838,
         returnYTD: 30.9957,
@@ -3314,7 +3308,7 @@ countriesFull: [
         sharpe3Y: 1.64017,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 3.52214,
         returnYTD: 3.52214,
@@ -3326,7 +3320,7 @@ countriesFull: [
         sharpe3Y: 1.59849,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 6.63553,
         returnYTD: 10.39138,
@@ -3338,7 +3332,7 @@ countriesFull: [
         sharpe3Y: 1.88717,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -5.10185,
         returnYTD: 4.75938,
@@ -3350,7 +3344,7 @@ countriesFull: [
         sharpe3Y: 1.43222,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 3.10796,
         returnYTD: 8.01526,
@@ -3362,7 +3356,7 @@ countriesFull: [
         sharpe3Y: 1.42329,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 3.23278,
         returnYTD: 11.50716,
@@ -3374,7 +3368,7 @@ countriesFull: [
         sharpe3Y: 1.4375,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 5.35278,
         returnYTD: 17.47589,
@@ -3386,7 +3380,7 @@ countriesFull: [
         sharpe3Y: 1.5455,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -3.241,
         returnYTD: 13.668,
@@ -3398,7 +3392,7 @@ countriesFull: [
         sharpe3Y: 1.369,
         maxDrawdown3Y: -5.324,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: -0.52327,
         returnYTD: 13.07369,
@@ -3410,7 +3404,7 @@ countriesFull: [
         sharpe3Y: 1.33784,
         maxDrawdown3Y: -5.32369,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -0.13493,
         returnYTD: 12.9211,
@@ -3421,6 +3415,18 @@ countriesFull: [
         stdDev3Y: 11.4963,
         sharpe3Y: 1.46821,
         maxDrawdown3Y: -5.32369,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -8.20125,
+        returnYTD: 3.66016,
+        return6M: -4.03193,
+        return1Y: 7.01909,
+        return3Y: 16.71954,
+        return5Y: 14.50796,
+        stdDev3Y: 12.82145,
+        sharpe3Y: 0.99205,
+        maxDrawdown3Y: -11.76048,
       }
     ],
       enrichment: {
@@ -3652,6 +3658,7 @@ countriesFull: [
         { date: "2026-07-31", value: -1.2397 },
         { date: "2026-08-31", value: 0.48147 },
         { date: "2026-09-30", value: -3.58518 },
+        { date: "2026-10-31", value: 2.16542 },
       ],
     benchmarkReturns: [
     ],
@@ -3669,19 +3676,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-06-30",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -1.57097,
-        returnYTD: 3.33718,
-        return6M: 4.20151,
-        return1Y: 9.10386,
-        return3Y: -0.42754,
-        return5Y: 1.39358,
-        stdDev3Y: 6.56433,
-        sharpe3Y: -0.67448,
-        maxDrawdown3Y: -12.14937,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 0.95203,
         returnYTD: 4.32098,
@@ -3693,7 +3688,7 @@ countriesFull: [
         sharpe3Y: -0.58327,
         maxDrawdown3Y: -12.14937,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.85984,
         returnYTD: 3.42399,
@@ -3705,7 +3700,7 @@ countriesFull: [
         sharpe3Y: -0.69014,
         maxDrawdown3Y: -12.14937,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 1.1937,
         returnYTD: 1.1937,
@@ -3717,7 +3712,7 @@ countriesFull: [
         sharpe3Y: -0.57444,
         maxDrawdown3Y: -11.19651,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 1.4653,
         returnYTD: 2.67649,
@@ -3729,7 +3724,7 @@ countriesFull: [
         sharpe3Y: -0.37562,
         maxDrawdown3Y: -8.88538,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: 0.10899,
         returnYTD: 2.7884,
@@ -3741,7 +3736,7 @@ countriesFull: [
         sharpe3Y: -0.32085,
         maxDrawdown3Y: -8.00672,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 0.30847,
         returnYTD: 3.10547,
@@ -3753,7 +3748,7 @@ countriesFull: [
         sharpe3Y: -0.14434,
         maxDrawdown3Y: -5.68707,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: -0.09949,
         returnYTD: 3.00289,
@@ -3765,7 +3760,7 @@ countriesFull: [
         sharpe3Y: -0.18533,
         maxDrawdown3Y: -5.68707,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.79267,
         returnYTD: 4.84939,
@@ -3777,7 +3772,7 @@ countriesFull: [
         sharpe3Y: 0.14236,
         maxDrawdown3Y: -4.98903,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: -0.10673,
         returnYTD: 4.73749,
@@ -3789,7 +3784,7 @@ countriesFull: [
         sharpe3Y: -0.05519,
         maxDrawdown3Y: -4.98903,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 1.40682,
         returnYTD: 6.21095,
@@ -3801,7 +3796,7 @@ countriesFull: [
         sharpe3Y: 0.10059,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.82536,
         returnYTD: 7.08758,
@@ -3813,7 +3808,7 @@ countriesFull: [
         sharpe3Y: 0.47685,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.74893,
         returnYTD: 7.88959,
@@ -3825,7 +3820,7 @@ countriesFull: [
         sharpe3Y: 0.48164,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.6915,
         returnYTD: 8.63564,
@@ -3837,7 +3832,7 @@ countriesFull: [
         sharpe3Y: 0.3015,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.24036,
         returnYTD: 8.89676,
@@ -3849,7 +3844,7 @@ countriesFull: [
         sharpe3Y: 0.3332,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.4967,
         returnYTD: 0.4967,
@@ -3861,7 +3856,7 @@ countriesFull: [
         sharpe3Y: 0.13554,
         maxDrawdown3Y: -4.34817,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 1.12484,
         returnYTD: 1.62713,
@@ -3873,7 +3868,7 @@ countriesFull: [
         sharpe3Y: 0.49115,
         maxDrawdown3Y: -3.13672,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -2.51117,
         returnYTD: -0.9249,
@@ -3885,7 +3880,7 @@ countriesFull: [
         sharpe3Y: 0.13576,
         maxDrawdown3Y: -3.13672,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 0.84709,
         returnYTD: -0.08565,
@@ -3897,7 +3892,7 @@ countriesFull: [
         sharpe3Y: 0.1928,
         maxDrawdown3Y: -3.13672,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.61713,
         returnYTD: 0.53095,
@@ -3909,7 +3904,7 @@ countriesFull: [
         sharpe3Y: 0.31989,
         maxDrawdown3Y: -2.82039,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.32371,
         returnYTD: 0.85638,
@@ -3921,7 +3916,7 @@ countriesFull: [
         sharpe3Y: 0.3722,
         maxDrawdown3Y: -2.82039,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -1.24,
         returnYTD: -0.394,
@@ -3933,7 +3928,7 @@ countriesFull: [
         sharpe3Y: 0.193,
         maxDrawdown3Y: -2.82,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.48147,
         returnYTD: 0.08564,
@@ -3945,7 +3940,7 @@ countriesFull: [
         sharpe3Y: 0.26774,
         maxDrawdown3Y: -2.51117,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -3.58518,
         returnYTD: -3.50261,
@@ -3955,6 +3950,18 @@ countriesFull: [
         return5Y: 0.69777,
         stdDev3Y: 4.61602,
         sharpe3Y: 0.0688,
+        maxDrawdown3Y: -5.04761,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 2.16542,
+        returnYTD: -1.41304,
+        return6M: -1.32853,
+        return1Y: -0.49271,
+        return3Y: 5.44187,
+        return5Y: 1.18668,
+        stdDev3Y: 4.65007,
+        sharpe3Y: 0.31007,
         maxDrawdown3Y: -5.04761,
       }
     ],
@@ -4182,6 +4189,7 @@ countriesFull: [
         { date: "2026-07-31", value: -1.22712 },
         { date: "2026-08-31", value: 0.48747 },
         { date: "2026-09-30", value: -2.31199 },
+        { date: "2026-10-31", value: 1.876 },
       ],
     benchmarkReturns: [
     ],
@@ -4199,19 +4207,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -1.26307,
-        returnYTD: 3.22002,
-        return6M: 4.35437,
-        return1Y: 10.72307,
-        return3Y: -2.39501,
-        return5Y: null,
-        stdDev3Y: 7.32315,
-        sharpe3Y: -0.87326,
-        maxDrawdown3Y: -18.7963,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 1.22963,
         returnYTD: 4.48925,
@@ -4223,7 +4219,7 @@ countriesFull: [
         sharpe3Y: -0.8345,
         maxDrawdown3Y: -18.7963,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.90391,
         returnYTD: 3.54476,
@@ -4235,7 +4231,7 @@ countriesFull: [
         sharpe3Y: -0.87199,
         maxDrawdown3Y: -18.77298,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 0.63687,
         returnYTD: 0.63687,
@@ -4247,7 +4243,7 @@ countriesFull: [
         sharpe3Y: -0.7417,
         maxDrawdown3Y: -16.65112,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 1.40844,
         returnYTD: 2.05428,
@@ -4259,7 +4255,7 @@ countriesFull: [
         sharpe3Y: -0.55447,
         maxDrawdown3Y: -14.15818,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -0.42661,
         returnYTD: 1.61891,
@@ -4271,7 +4267,7 @@ countriesFull: [
         sharpe3Y: -0.48112,
         maxDrawdown3Y: -12.29998,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 0.96795,
         returnYTD: 2.60253,
@@ -4283,7 +4279,7 @@ countriesFull: [
         sharpe3Y: -0.22988,
         maxDrawdown3Y: -8.18415,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 0.1711,
         returnYTD: 2.77808,
@@ -4295,7 +4291,7 @@ countriesFull: [
         sharpe3Y: -0.18675,
         maxDrawdown3Y: -7.58041,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.20562,
         returnYTD: 4.01719,
@@ -4307,7 +4303,7 @@ countriesFull: [
         sharpe3Y: 0.06009,
         maxDrawdown3Y: -7.10461,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.04581,
         returnYTD: 4.06484,
@@ -4319,7 +4315,7 @@ countriesFull: [
         sharpe3Y: -0.10109,
         maxDrawdown3Y: -7.10461,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 0.66612,
         returnYTD: 4.75804,
@@ -4331,7 +4327,7 @@ countriesFull: [
         sharpe3Y: 0.10432,
         maxDrawdown3Y: -4.49859,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.8496,
         returnYTD: 5.64806,
@@ -4343,7 +4339,7 @@ countriesFull: [
         sharpe3Y: 0.49944,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.91069,
         returnYTD: 6.61019,
@@ -4355,7 +4351,7 @@ countriesFull: [
         sharpe3Y: 0.57794,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.28513,
         returnYTD: 6.91417,
@@ -4367,7 +4363,7 @@ countriesFull: [
         sharpe3Y: 0.36699,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: -0.30294,
         returnYTD: 6.59028,
@@ -4379,7 +4375,7 @@ countriesFull: [
         sharpe3Y: 0.49883,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.27615,
         returnYTD: 0.27615,
@@ -4391,7 +4387,7 @@ countriesFull: [
         sharpe3Y: 0.30655,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 1.50125,
         returnYTD: 1.78155,
@@ -4403,7 +4399,7 @@ countriesFull: [
         sharpe3Y: 0.58614,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -2.53639,
         returnYTD: -0.80003,
@@ -4415,7 +4411,7 @@ countriesFull: [
         sharpe3Y: 0.21661,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 0.63235,
         returnYTD: -0.17274,
@@ -4427,7 +4423,7 @@ countriesFull: [
         sharpe3Y: 0.23208,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.69883,
         returnYTD: 0.52488,
@@ -4439,7 +4435,7 @@ countriesFull: [
         sharpe3Y: 0.30386,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.56077,
         returnYTD: 1.0886,
@@ -4451,7 +4447,7 @@ countriesFull: [
         sharpe3Y: 0.27607,
         maxDrawdown3Y: -2.98155,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -1.227,
         returnYTD: -0.152,
@@ -4463,7 +4459,7 @@ countriesFull: [
         sharpe3Y: 0.152,
         maxDrawdown3Y: -2.982,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.48747,
         returnYTD: 0.33485,
@@ -4475,7 +4471,7 @@ countriesFull: [
         sharpe3Y: 0.22206,
         maxDrawdown3Y: -2.60996,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -2.31199,
         returnYTD: -1.98488,
@@ -4485,6 +4481,18 @@ countriesFull: [
         return5Y: -0.57095,
         stdDev3Y: 4.5017,
         sharpe3Y: 0.17488,
+        maxDrawdown3Y: -3.7005,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 1.876,
+        returnYTD: -0.14612,
+        return6M: 0.02667,
+        return1Y: -0.16477,
+        return3Y: 5.73732,
+        return5Y: -0.14437,
+        stdDev3Y: 4.51801,
+        sharpe3Y: 0.38453,
         maxDrawdown3Y: -3.7005,
       }
     ],
@@ -4748,6 +4756,7 @@ countriesFull: [
         { date: "2026-07-31", value: -1.11799 },
         { date: "2026-08-31", value: 0.06135 },
         { date: "2026-09-30", value: -2.37313 },
+        { date: "2026-10-31", value: 1.60659 },
       ],
     benchmarkReturns: [
     ],
@@ -4765,19 +4774,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -1.62186,
-        returnYTD: 2.71198,
-        return6M: 4.22197,
-        return1Y: 9.60688,
-        return3Y: -1.58854,
-        return5Y: 0.29384,
-        stdDev3Y: 6.81063,
-        sharpe3Y: -0.82056,
-        maxDrawdown3Y: -14.43199,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 1.20867,
         returnYTD: 3.95342,
@@ -4789,7 +4786,7 @@ countriesFull: [
         sharpe3Y: -0.74896,
         maxDrawdown3Y: -14.43199,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.804,
         returnYTD: 3.11764,
@@ -4801,7 +4798,7 @@ countriesFull: [
         sharpe3Y: -0.80501,
         maxDrawdown3Y: -14.43199,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 0.67441,
         returnYTD: 0.67441,
@@ -4813,7 +4810,7 @@ countriesFull: [
         sharpe3Y: -0.72425,
         maxDrawdown3Y: -13.54821,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 1.3328,
         returnYTD: 2.0162,
@@ -4825,7 +4822,7 @@ countriesFull: [
         sharpe3Y: -0.56575,
         maxDrawdown3Y: -11.7644,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -0.5311,
         returnYTD: 1.47439,
@@ -4837,7 +4834,7 @@ countriesFull: [
         sharpe3Y: -0.5417,
         maxDrawdown3Y: -10.82668,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 0.25009,
         returnYTD: 1.72817,
@@ -4849,7 +4846,7 @@ countriesFull: [
         sharpe3Y: -0.37962,
         maxDrawdown3Y: -7.79012,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: -0.25637,
         returnYTD: 1.46737,
@@ -4861,7 +4858,7 @@ countriesFull: [
         sharpe3Y: -0.39252,
         maxDrawdown3Y: -7.78512,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.21853,
         returnYTD: 2.70378,
@@ -4873,7 +4870,7 @@ countriesFull: [
         sharpe3Y: -0.13597,
         maxDrawdown3Y: -6.62048,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: -0.22914,
         returnYTD: 2.46844,
@@ -4885,7 +4882,7 @@ countriesFull: [
         sharpe3Y: -0.3011,
         maxDrawdown3Y: -6.62048,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 1.10207,
         returnYTD: 3.59772,
@@ -4897,7 +4894,7 @@ countriesFull: [
         sharpe3Y: -0.13659,
         maxDrawdown3Y: -4.93259,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.61623,
         returnYTD: 4.23612,
@@ -4909,7 +4906,7 @@ countriesFull: [
         sharpe3Y: 0.22972,
         maxDrawdown3Y: -4.43969,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.63942,
         returnYTD: 4.90262,
@@ -4921,7 +4918,7 @@ countriesFull: [
         sharpe3Y: 0.2812,
         maxDrawdown3Y: -4.43969,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.00419,
         returnYTD: 4.90702,
@@ -4933,7 +4930,7 @@ countriesFull: [
         sharpe3Y: 0.03497,
         maxDrawdown3Y: -4.43969,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.01339,
         returnYTD: 4.92107,
@@ -4945,7 +4942,7 @@ countriesFull: [
         sharpe3Y: 0.04666,
         maxDrawdown3Y: -4.43969,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.26782,
         returnYTD: 0.26782,
@@ -4957,7 +4954,7 @@ countriesFull: [
         sharpe3Y: -0.13099,
         maxDrawdown3Y: -4.43969,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 1.31717,
         returnYTD: 1.58852,
@@ -4969,7 +4966,7 @@ countriesFull: [
         sharpe3Y: 0.11072,
         maxDrawdown3Y: -4.30449,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -3.02439,
         returnYTD: -1.48392,
@@ -4981,7 +4978,7 @@ countriesFull: [
         sharpe3Y: -0.22542,
         maxDrawdown3Y: -4.30449,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 0.35087,
         returnYTD: -1.13825,
@@ -4993,7 +4990,7 @@ countriesFull: [
         sharpe3Y: -0.21741,
         maxDrawdown3Y: -4.30449,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.20657,
         returnYTD: -0.93403,
@@ -5005,7 +5002,7 @@ countriesFull: [
         sharpe3Y: -0.10647,
         maxDrawdown3Y: -3.54367,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.27795,
         returnYTD: -0.65868,
@@ -5017,7 +5014,7 @@ countriesFull: [
         sharpe3Y: -0.0249,
         maxDrawdown3Y: -3.54367,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -1.118,
         returnYTD: -1.769,
@@ -5029,7 +5026,7 @@ countriesFull: [
         sharpe3Y: -0.211,
         maxDrawdown3Y: -3.544,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.06135,
         returnYTD: -1.70904,
@@ -5041,7 +5038,7 @@ countriesFull: [
         sharpe3Y: -0.13602,
         maxDrawdown3Y: -3.30532,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -2.37313,
         returnYTD: -4.04161,
@@ -5051,6 +5048,18 @@ countriesFull: [
         return5Y: -0.85224,
         stdDev3Y: 4.63234,
         sharpe3Y: -0.19019,
+        maxDrawdown3Y: -5.54209,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 1.60659,
+        returnYTD: -2.49996,
+        return6M: -1.37738,
+        return1Y: -2.48281,
+        return3Y: 4.02532,
+        return5Y: -0.42661,
+        stdDev3Y: 4.63014,
+        sharpe3Y: 0.00547,
         maxDrawdown3Y: -5.54209,
       }
     ],
@@ -5303,6 +5312,7 @@ countriesFull: [
         { date: "2026-07-31", value: 0.48528 },
         { date: "2026-08-31", value: 0.70253 },
         { date: "2026-09-30", value: 0.23379 },
+        { date: "2026-10-31", value: 0.22168 },
       ],
     benchmarkReturns: [
     ],
@@ -5320,19 +5330,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 0.57291,
-        returnYTD: 8.19001,
-        return6M: 4.30173,
-        return1Y: 10.08652,
-        return3Y: 7.83596,
-        return5Y: 6.38653,
-        stdDev3Y: 2.84892,
-        sharpe3Y: 1.34646,
-        maxDrawdown3Y: -2.45207,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 0.5351,
         returnYTD: 8.76894,
@@ -5344,7 +5342,7 @@ countriesFull: [
         sharpe3Y: 1.49224,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: 0.66972,
         returnYTD: 9.49739,
@@ -5356,7 +5354,7 @@ countriesFull: [
         sharpe3Y: 1.49378,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 0.74351,
         returnYTD: 0.74351,
@@ -5368,7 +5366,7 @@ countriesFull: [
         sharpe3Y: 1.56925,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 1.01666,
         returnYTD: 1.76773,
@@ -5380,7 +5378,7 @@ countriesFull: [
         sharpe3Y: 2.04714,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: 0.60339,
         returnYTD: 2.38179,
@@ -5392,7 +5390,7 @@ countriesFull: [
         sharpe3Y: 1.94729,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -0.14404,
         returnYTD: 2.23431,
@@ -5404,7 +5402,7 @@ countriesFull: [
         sharpe3Y: 1.75332,
         maxDrawdown3Y: -2.45207,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 1.27688,
         returnYTD: 3.53972,
@@ -5416,7 +5414,7 @@ countriesFull: [
         sharpe3Y: 2.05217,
         maxDrawdown3Y: -2.02453,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.07805,
         returnYTD: 4.65593,
@@ -5428,7 +5426,7 @@ countriesFull: [
         sharpe3Y: 3.35207,
         maxDrawdown3Y: -0.66425,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.78338,
         returnYTD: 5.47579,
@@ -5440,7 +5438,7 @@ countriesFull: [
         sharpe3Y: 3.3019,
         maxDrawdown3Y: -0.66425,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 1.2246,
         returnYTD: 6.76744,
@@ -5452,7 +5450,7 @@ countriesFull: [
         sharpe3Y: 3.42412,
         maxDrawdown3Y: -0.66425,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.32332,
         returnYTD: 7.11264,
@@ -5464,7 +5462,7 @@ countriesFull: [
         sharpe3Y: 4.15601,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.4179,
         returnYTD: 7.56027,
@@ -5476,7 +5474,7 @@ countriesFull: [
         sharpe3Y: 4.39186,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.41263,
         returnYTD: 8.00409,
@@ -5488,7 +5486,7 @@ countriesFull: [
         sharpe3Y: 4.233,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.61245,
         returnYTD: 8.66557,
@@ -5500,7 +5498,7 @@ countriesFull: [
         sharpe3Y: 4.14228,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.63971,
         returnYTD: 0.63971,
@@ -5512,7 +5510,7 @@ countriesFull: [
         sharpe3Y: 4.06087,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 0.74534,
         returnYTD: 1.38982,
@@ -5524,7 +5522,7 @@ countriesFull: [
         sharpe3Y: 4.0918,
         maxDrawdown3Y: -0.17337,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -0.31719,
         returnYTD: 1.06822,
@@ -5536,7 +5534,7 @@ countriesFull: [
         sharpe3Y: 3.93133,
         maxDrawdown3Y: -0.31719,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 1.36131,
         returnYTD: 2.44407,
@@ -5548,7 +5546,7 @@ countriesFull: [
         sharpe3Y: 3.91114,
         maxDrawdown3Y: -0.31719,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.91708,
         returnYTD: 3.38357,
@@ -5560,7 +5558,7 @@ countriesFull: [
         sharpe3Y: 3.92908,
         maxDrawdown3Y: -0.31719,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.80575,
         returnYTD: 4.21658,
@@ -5572,7 +5570,7 @@ countriesFull: [
         sharpe3Y: 3.99433,
         maxDrawdown3Y: -0.31719,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: 0.485,
         returnYTD: 4.722,
@@ -5584,7 +5582,7 @@ countriesFull: [
         sharpe3Y: 3.874,
         maxDrawdown3Y: -0.317,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.70253,
         returnYTD: 5.45803,
@@ -5596,7 +5594,7 @@ countriesFull: [
         sharpe3Y: 3.82126,
         maxDrawdown3Y: -0.31719,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 0.23379,
         returnYTD: 5.70458,
@@ -5606,6 +5604,18 @@ countriesFull: [
         return5Y: 7.91118,
         stdDev3Y: 1.29391,
         sharpe3Y: 3.74832,
+        maxDrawdown3Y: -0.31719,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 0.22168,
+        returnYTD: 5.9389,
+        return6M: 3.41145,
+        return1Y: 7.02754,
+        return3Y: 8.65074,
+        return5Y: 7.87752,
+        stdDev3Y: 1.32348,
+        sharpe3Y: 3.51403,
         maxDrawdown3Y: -0.31719,
       }
     ],
@@ -5811,6 +5821,7 @@ countriesFull: [
         { date: "2026-07-31", value: -0.32467 },
         { date: "2026-08-31", value: 0.59316 },
         { date: "2026-09-30", value: -0.58874 },
+        { date: "2026-10-31", value: 0.39975 },
       ],
     benchmarkReturns: [
     ],
@@ -5828,19 +5839,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: -0.7329,
-        returnYTD: 4.69351,
-        return6M: 3.78806,
-        return1Y: 9.15291,
-        return3Y: 2.54521,
-        return5Y: null,
-        stdDev3Y: 3.86833,
-        sharpe3Y: -0.37608,
-        maxDrawdown3Y: -6.96169,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 1.44563,
         returnYTD: 6.20699,
@@ -5852,7 +5851,7 @@ countriesFull: [
         sharpe3Y: -0.30678,
         maxDrawdown3Y: -6.96169,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.77271,
         returnYTD: 5.38632,
@@ -5864,7 +5863,7 @@ countriesFull: [
         sharpe3Y: -0.32375,
         maxDrawdown3Y: -6.43374,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 1.26488,
         returnYTD: 1.26488,
@@ -5876,7 +5875,7 @@ countriesFull: [
         sharpe3Y: -0.16443,
         maxDrawdown3Y: -5.90502,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 0.51986,
         returnYTD: 1.79132,
@@ -5888,7 +5887,7 @@ countriesFull: [
         sharpe3Y: -0.04537,
         maxDrawdown3Y: -5.09932,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -0.55991,
         returnYTD: 1.22138,
@@ -5900,7 +5899,7 @@ countriesFull: [
         sharpe3Y: 0.03767,
         maxDrawdown3Y: -4.00031,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: 0.86312,
         returnYTD: 2.09504,
@@ -5912,7 +5911,7 @@ countriesFull: [
         sharpe3Y: 0.08572,
         maxDrawdown3Y: -4.00031,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 0.54316,
         returnYTD: 2.64958,
@@ -5924,7 +5923,7 @@ countriesFull: [
         sharpe3Y: 0.19813,
         maxDrawdown3Y: -3.36651,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 1.33044,
         returnYTD: 4.01527,
@@ -5936,7 +5935,7 @@ countriesFull: [
         sharpe3Y: 0.55799,
         maxDrawdown3Y: -2.32808,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.12107,
         returnYTD: 4.1412,
@@ -5948,7 +5947,7 @@ countriesFull: [
         sharpe3Y: 0.46669,
         maxDrawdown3Y: -2.32808,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 0.34887,
         returnYTD: 4.50452,
@@ -5960,7 +5959,7 @@ countriesFull: [
         sharpe3Y: 0.77711,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: -0.04866,
         returnYTD: 4.45367,
@@ -5972,7 +5971,7 @@ countriesFull: [
         sharpe3Y: 0.70919,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.8046,
         returnYTD: 5.2941,
@@ -5984,7 +5983,7 @@ countriesFull: [
         sharpe3Y: 0.92554,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.33064,
         returnYTD: 5.64224,
@@ -5996,7 +5995,7 @@ countriesFull: [
         sharpe3Y: 0.78394,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.22592,
         returnYTD: 5.88091,
@@ -6008,7 +6007,7 @@ countriesFull: [
         sharpe3Y: 0.61126,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.33532,
         returnYTD: 0.33532,
@@ -6020,7 +6019,7 @@ countriesFull: [
         sharpe3Y: 0.50803,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 0.28686,
         returnYTD: 0.62314,
@@ -6032,7 +6031,7 @@ countriesFull: [
         sharpe3Y: 0.70041,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -1.6181,
         returnYTD: -1.00504,
@@ -6044,7 +6043,7 @@ countriesFull: [
         sharpe3Y: 0.34655,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 0.43941,
         returnYTD: -0.57005,
@@ -6056,7 +6055,7 @@ countriesFull: [
         sharpe3Y: 0.35307,
         maxDrawdown3Y: -2.03252,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.85436,
         returnYTD: 0.27944,
@@ -6068,7 +6067,7 @@ countriesFull: [
         sharpe3Y: 0.50263,
         maxDrawdown3Y: -1.66472,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.705,
         returnYTD: 0.98641,
@@ -6080,7 +6079,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -0.325,
         returnYTD: 0.659,
@@ -6092,7 +6091,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.59316,
         returnYTD: 1.25561,
@@ -6104,7 +6103,7 @@ countriesFull: [
         sharpe3Y: null,
         maxDrawdown3Y: null,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: -0.58874,
         returnYTD: 0.65947,
@@ -6114,6 +6113,18 @@ countriesFull: [
         return5Y: 2.90484,
         stdDev3Y: 2.76525,
         sharpe3Y: 0.60081,
+        maxDrawdown3Y: -1.6181,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 0.39975,
+        returnYTD: 1.06186,
+        return6M: 1.64126,
+        return1Y: 1.62508,
+        return3Y: 5.54433,
+        return5Y: 3.03935,
+        stdDev3Y: 2.76074,
+        sharpe3Y: 0.55939,
         maxDrawdown3Y: -1.6181,
       }
     ],
@@ -6339,6 +6350,7 @@ countriesFull: [
         { date: "2026-07-31", value: 0.60217 },
         { date: "2026-08-31", value: 0.49447 },
         { date: "2026-09-30", value: 0.16185 },
+        { date: "2026-10-31", value: 0.23269 },
       ],
     benchmarkReturns: [
     ],
@@ -6356,19 +6368,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 0.58961,
-        returnYTD: 6.4556,
-        return6M: 3.55966,
-        return1Y: 8.58874,
-        return3Y: 4.34954,
-        return5Y: 3.35866,
-        stdDev3Y: 1.88187,
-        sharpe3Y: 0.18574,
-        maxDrawdown3Y: -2.19799,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 0.28222,
         returnYTD: 6.75604,
@@ -6380,7 +6380,7 @@ countriesFull: [
         sharpe3Y: 0.22342,
         maxDrawdown3Y: -2.19799,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: 0.68513,
         returnYTD: 7.48746,
@@ -6392,7 +6392,7 @@ countriesFull: [
         sharpe3Y: 0.35262,
         maxDrawdown3Y: -2.19799,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 0.78027,
         returnYTD: 0.78027,
@@ -6404,7 +6404,7 @@ countriesFull: [
         sharpe3Y: 0.46152,
         maxDrawdown3Y: -2.19799,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: 0.54141,
         returnYTD: 1.3259,
@@ -6416,7 +6416,7 @@ countriesFull: [
         sharpe3Y: 0.68516,
         maxDrawdown3Y: -1.94063,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: 0.23378,
         returnYTD: 1.56278,
@@ -6428,7 +6428,7 @@ countriesFull: [
         sharpe3Y: 0.77995,
         maxDrawdown3Y: -1.94063,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -0.17642,
         returnYTD: 1.38361,
@@ -6440,7 +6440,7 @@ countriesFull: [
         sharpe3Y: 0.64716,
         maxDrawdown3Y: -1.94063,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 1.10279,
         returnYTD: 2.50166,
@@ -6452,7 +6452,7 @@ countriesFull: [
         sharpe3Y: 1.12416,
         maxDrawdown3Y: -1.04556,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 0.7901,
         returnYTD: 3.31152,
@@ -6464,7 +6464,7 @@ countriesFull: [
         sharpe3Y: 1.66426,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 0.63129,
         returnYTD: 3.96372,
@@ -6476,7 +6476,7 @@ countriesFull: [
         sharpe3Y: 1.79158,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 0.56528,
         returnYTD: 4.5514,
@@ -6488,7 +6488,7 @@ countriesFull: [
         sharpe3Y: 1.89153,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 0.41815,
         returnYTD: 4.98858,
@@ -6500,7 +6500,7 @@ countriesFull: [
         sharpe3Y: 2.31529,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 0.61438,
         returnYTD: 5.63361,
@@ -6512,7 +6512,7 @@ countriesFull: [
         sharpe3Y: 2.63618,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.43422,
         returnYTD: 6.0923,
@@ -6524,7 +6524,7 @@ countriesFull: [
         sharpe3Y: 2.56871,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.46612,
         returnYTD: 6.58681,
@@ -6536,7 +6536,7 @@ countriesFull: [
         sharpe3Y: 2.46132,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: 0.57154,
         returnYTD: 0.57154,
@@ -6548,7 +6548,7 @@ countriesFull: [
         sharpe3Y: 2.43267,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: 0.42121,
         returnYTD: 0.99516,
@@ -6560,7 +6560,7 @@ countriesFull: [
         sharpe3Y: 2.31224,
         maxDrawdown3Y: -0.7044,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: 0.07989,
         returnYTD: 1.07584,
@@ -6572,7 +6572,7 @@ countriesFull: [
         sharpe3Y: 3.12084,
         maxDrawdown3Y: -0.17642,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 0.63864,
         returnYTD: 1.72135,
@@ -6584,7 +6584,7 @@ countriesFull: [
         sharpe3Y: 3.09283,
         maxDrawdown3Y: -0.17642,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 0.54865,
         returnYTD: 2.27945,
@@ -6596,7 +6596,7 @@ countriesFull: [
         sharpe3Y: 3.33882,
         maxDrawdown3Y: -0.17642,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 0.44047,
         returnYTD: 2.72996,
@@ -6608,7 +6608,7 @@ countriesFull: [
         sharpe3Y: 3.66507,
         maxDrawdown3Y: -0.17642,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: 0.602,
         returnYTD: 3.349,
@@ -6620,7 +6620,7 @@ countriesFull: [
         sharpe3Y: 3.63,
         maxDrawdown3Y: -0.176,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 0.49447,
         returnYTD: 3.85959,
@@ -6632,7 +6632,7 @@ countriesFull: [
         sharpe3Y: 3.56198,
         maxDrawdown3Y: -0.17642,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 0.16185,
         returnYTD: 4.02769,
@@ -6642,6 +6642,18 @@ countriesFull: [
         return5Y: 4.93762,
         stdDev3Y: 0.88847,
         sharpe3Y: 3.30973,
+        maxDrawdown3Y: -0.17642,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: 0.23269,
+        returnYTD: 4.26975,
+        return6M: 2.50528,
+        return1Y: 5.21065,
+        return3Y: 6.81001,
+        return5Y: 4.97951,
+        stdDev3Y: 0.90803,
+        sharpe3Y: 3.09461,
         maxDrawdown3Y: -0.17642,
       }
     ],
@@ -6855,6 +6867,7 @@ countriesFull: [
         { date: "2026-07-31", value: -3.59135 },
         { date: "2026-08-31", value: 1.16936 },
         { date: "2026-09-30", value: 1.31935 },
+        { date: "2026-10-31", value: -4.65378 },
       ],
     benchmarkReturns: [
     ],
@@ -6872,19 +6885,7 @@ countriesFull: [
   ],
       holdingsDate: "2026-08-31",
     kpiHistory: [
-      {
-        asOf: "2024-10-31",
-        return1M: 2.68566,
-        returnYTD: 26.51631,
-        return6M: 10.61246,
-        return1Y: 31.96024,
-        return3Y: 16.09529,
-        return5Y: null,
-        stdDev3Y: 12.04517,
-        sharpe3Y: 1.00416,
-        maxDrawdown3Y: -11.55951,
-      },
-      {
+{
         asOf: "2024-11-30",
         return1M: 4.90501,
         returnYTD: 32.72195,
@@ -6896,7 +6897,7 @@ countriesFull: [
         sharpe3Y: 0.99485,
         maxDrawdown3Y: -11.55951,
       },
-      {
+{
         asOf: "2024-12-31",
         return1M: -0.01227,
         returnYTD: 32.70566,
@@ -6908,7 +6909,7 @@ countriesFull: [
         sharpe3Y: 0.96314,
         maxDrawdown3Y: -11.55951,
       },
-      {
+{
         asOf: "2025-01-31",
         return1M: 3.13493,
         returnYTD: 3.13493,
@@ -6920,7 +6921,7 @@ countriesFull: [
         sharpe3Y: 1.25844,
         maxDrawdown3Y: -7.43387,
       },
-      {
+{
         asOf: "2025-02-28",
         return1M: -1.3211,
         returnYTD: 1.77241,
@@ -6932,7 +6933,7 @@ countriesFull: [
         sharpe3Y: 1.39391,
         maxDrawdown3Y: -5.60135,
       },
-      {
+{
         asOf: "2025-03-31",
         return1M: -10.38307,
         returnYTD: -8.79469,
@@ -6944,7 +6945,7 @@ countriesFull: [
         sharpe3Y: 0.80088,
         maxDrawdown3Y: -11.567,
       },
-      {
+{
         asOf: "2025-04-30",
         return1M: -0.5912,
         returnYTD: -9.33389,
@@ -6956,7 +6957,7 @@ countriesFull: [
         sharpe3Y: 0.86774,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-05-31",
         return1M: 4.31329,
         returnYTD: -5.4232,
@@ -6968,7 +6969,7 @@ countriesFull: [
         sharpe3Y: 0.95786,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-06-30",
         return1M: 3.30643,
         returnYTD: -2.29608,
@@ -6980,7 +6981,7 @@ countriesFull: [
         sharpe3Y: 1.21006,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-07-31",
         return1M: 2.85194,
         returnYTD: 0.49037,
@@ -6992,7 +6993,7 @@ countriesFull: [
         sharpe3Y: 1.1407,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-08-31",
         return1M: 0.17612,
         returnYTD: 0.66736,
@@ -7004,7 +7005,7 @@ countriesFull: [
         sharpe3Y: 1.21551,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-09-30",
         return1M: 2.37424,
         returnYTD: 3.05744,
@@ -7016,7 +7017,7 @@ countriesFull: [
         sharpe3Y: 1.30848,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-10-31",
         return1M: 3.44319,
         returnYTD: 6.6059,
@@ -7028,7 +7029,7 @@ countriesFull: [
         sharpe3Y: 1.34617,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-11-30",
         return1M: 0.31957,
         returnYTD: 6.94658,
@@ -7040,7 +7041,7 @@ countriesFull: [
         sharpe3Y: 1.26832,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2025-12-31",
         return1M: 0.50278,
         returnYTD: 7.48429,
@@ -7052,7 +7053,7 @@ countriesFull: [
         sharpe3Y: 1.55841,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-01-31",
         return1M: -2.8106,
         returnYTD: -2.8106,
@@ -7064,7 +7065,7 @@ countriesFull: [
         sharpe3Y: 1.22416,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-02-28",
         return1M: -0.09774,
         returnYTD: -2.90559,
@@ -7076,7 +7077,7 @@ countriesFull: [
         sharpe3Y: 1.1788,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-03-31",
         return1M: -4.06167,
         returnYTD: -6.84925,
@@ -7088,7 +7089,7 @@ countriesFull: [
         sharpe3Y: 0.86821,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-04-30",
         return1M: 4.63753,
         returnYTD: -2.52935,
@@ -7100,7 +7101,7 @@ countriesFull: [
         sharpe3Y: 0.8899,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-05-31",
         return1M: 3.742,
         returnYTD: 1.118,
@@ -7112,7 +7113,7 @@ countriesFull: [
         sharpe3Y: 0.90092,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-06-30",
         return1M: 6.31801,
         returnYTD: 7.50664,
@@ -7124,7 +7125,7 @@ countriesFull: [
         sharpe3Y: 1.00292,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-07-31",
         return1M: -3.591,
         returnYTD: 3.646,
@@ -7136,7 +7137,7 @@ countriesFull: [
         sharpe3Y: 0.952,
         maxDrawdown3Y: -12.09,
       },
-      {
+{
         asOf: "2026-08-31",
         return1M: 1.16936,
         returnYTD: 4.8577,
@@ -7148,7 +7149,7 @@ countriesFull: [
         sharpe3Y: 0.90847,
         maxDrawdown3Y: -12.08982,
       },
-      {
+{
         asOf: "2026-09-30",
         return1M: 1.31935,
         returnYTD: 6.24114,
@@ -7158,6 +7159,18 @@ countriesFull: [
         return5Y: 13.96346,
         stdDev3Y: 11.68593,
         sharpe3Y: 1.12914,
+        maxDrawdown3Y: -12.08982,
+      },
+{
+        asOf: "2026-10-31",
+        return1M: -4.65378,
+        returnYTD: 1.29691,
+        return6M: 3.92555,
+        return1Y: 2.13155,
+        return3Y: 14.65044,
+        return5Y: 12.31185,
+        stdDev3Y: 12.19026,
+        sharpe3Y: 0.87368,
         maxDrawdown3Y: -12.08982,
       }
     ],

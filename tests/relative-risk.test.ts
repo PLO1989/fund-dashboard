@@ -136,7 +136,7 @@ test("all official mappings have exact 36/60-month windows except Cusana, withou
     assert.equal(missing.trackingError3Y, null);
     assert.equal(missing.infoRatio5Y, null);
   }
-  assert.equal(available, 12);
+  assert.equal(available, funds.filter(f => f.id !== "F00001GU8B").length);
   // A fund is N/A at the reporting date only when its own benchmark lacks that month.
   // Other series may already include it.
   if (RISK_AS_OF < DATA_DATES.performanceAsOf) {

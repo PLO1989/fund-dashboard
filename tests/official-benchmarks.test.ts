@@ -25,9 +25,13 @@ const assignments = {
   F00000LKIE: "NBP_NOHYNH",
   F00001SEG2: "NBP_NORM123D3",
   F00000QLFG: "NBP_NORMFRN",
+  F000015JBX: "MSCI_ACWI_NET_TR_NOK",
+  F00000PXH9: "MSCI_ACWI_NET_TR_NOK",
+  F00000287K: "MSCI_ACWI_NET_TR_NOK",
+  F00000Z7DE: "MSCI_ACWI_NET_TR_NOK",
 };
 
-test("all 13 reporting benchmarks match the user's explicit assignments", () => {
+test("all reporting benchmarks match the user's explicit assignments", () => {
   assert.deepEqual(data.assignments, assignments);
   assert.equal(funds.length, Object.keys(assignments).length);
   assert.equal(data.series.length, 8);

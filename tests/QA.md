@@ -108,3 +108,110 @@ Exposure data was refreshed from the Morningstar MCP on 2026-09-21: X-Ray portfo
 The user's request extended the TE/IR release to alpha, beta and R² and a Morningstar exposure refresh. Commit `42d853f` passed all 29 tests, TypeScript checking and production build; the independent security review reported PASS with no BLOCK or WARN findings (one low-severity development-only esbuild advisory, outside the deployed runtime).
 
 The release was published to `https://sb1-fond-dashboard.pplx.app`, retaining site ID `851ee6d2-6e43-45ef-881e-25464487997e`. Live verification matched Pareto's recalculated Relative tab (alpha 3Y +4.33% / 5Y +3.70%, beta 0.75/0.89, R² 0.73/0.79), Cusana's N/A and PIMCO's refreshed effective duration 6.35; sector and relative-tab screenshots were inspected and no runtime page exceptions were observed.
+
+## Resumed four-fund exposure release (2026-11-06)
+
+The unanswered approval covered publication of the sector, country and region
+data already committed in `df5f1dc`. Financial data, calculations and browser UI
+are unchanged during this resumption. Portfolio sources remain 2026-09-30 for
+Polar, BNP and Guinness, and 2026-04-30 for Candriam. Fund returns remain
+2026-10-31; saved index histories end 2026-09-30.
+
+### Verification
+
+- `npm test`: 33/33 pass, including two four-fund aggregate exposure tests and a
+  guard against reintroducing global request-body parsers.
+- `npm run check` and `npm run build`: pass. Existing non-blocking
+  large-bundle/PostCSS warnings remain.
+- All 17 fund pages: reporting benchmark, Returns, Risk, Risk-Adjusted, Relative
+  and applicable Style tabs checked through the rendered UI.
+- All 12 new exposure panels: populated, correct labels, inspected after chart
+  animations finish on both 1440px desktop and 375px mobile.
+- Equity/fixed-income/all filters: 11/6/17 rows. All sort controls and
+  September/October reporting-date selectors exercised.
+- Comparison: six selected funds, add/remove/re-add, date switching, benchmark
+  labels and October N/A behavior verified.
+- Returns: seven presets, custom dates, reversed-range rejection, benchmark
+  visibility, growth/period/relative-risk CSV downloads verified.
+- Benchmark page: eight series and 17 assignments; template/package downloads,
+  temporary assignment changes, discard, malformed-file rejection and saved
+  data after reload verified.
+- Fixed-income regression: PIMCO sector, credit, maturity, region and country
+  tabs exercised.
+- No document-level horizontal overflow on 375px detail, comparison or benchmark
+  pages. Return to desktop and subsequent chart interaction work.
+- Local and hosted-preview checks produced no browser page errors.
+- Screenshot evidence was retained outside the public deployment directory in
+  the task's `fund-qa` folder, including desktop/mobile exposure matrices.
+
+### Preserved frontend build
+
+The approved exposure build and the hardened backend build have byte-identical
+frontend output. Only these three files belong in the public static directory;
+no source, environment file, local upload, test output or repository metadata
+is included.
+
+| File | SHA-256 |
+|---|---|
+| `index.html` | `f6534cf39ba1f75cc9f302397088ee2b90b0ce3b78730582615a47a68ba70761` |
+| `assets/index-CGw4moRl.css` | `a3ccbaa6d12933857db96a228e4294b5204b37306519ccf5459e4dca7d7fa4ac` |
+| `assets/index-DG6OSDi_.js` | `8b061a24c5ee59e040bd2cbf7be37917fd3cbbf613d92d83faea7ad139d646df` |
+
+### Legacy backend hardening
+
+The existing site retains a backend binding, so publication must supply its
+backend configuration. The original server enabled unused JSON and URL-encoded
+body parsers. Its installed body-parser version is affected by a remotely
+reachable compressed-request denial of service when this middleware uses
+default options ([GitHub security advisory](https://github.com/advisories/GHSA-27r3-jxmh-p828)).
+
+The revised release removes both parser registrations and the unused `rawBody`
+augmentation. Routes, public file directory, error handler, port selection and
+financial frontend remain unchanged. The dependency remains bundled through
+Express, but the application no longer registers its parsing/decompression path.
+
+The security reviewer independently inspected the rebuilt bootstrap and tested
+it locally. Index/assets returned the expected bytes. Malformed JSON, a gzip
+frame with trailing bytes and invalid compressed form data did not trigger
+parsing or crash the process; subsequent GETs remained healthy. Requests for
+`server/index.ts`, `package.json`, `.env` and `.git/config` returned the HTML
+fallback, not file contents. These are bounded regression checks, not exhaustive
+penetration testing.
+
+No publication blocker was identified in the patched configuration. Residual
+dependency warnings remain: body-parser has no registered parser middleware;
+proxy-addr uses default disabled trust proxy and no IP access controls; Zod
+validates visitor-selected local files capped at 2,000,000 bytes before reading;
+Vite/source-map-js findings concern development/build tooling. Zod collection
+bounds are validation limits, not a guarantee against resource exhaustion.
+These are configuration-specific mitigations, not dependency upgrades. Adding
+APIs, body parsers or trusted-proxy handling requires another review.
+
+The reviewed production configuration is
+`PORT=5000 NODE_ENV=production node dist/index.cjs`, with production dependencies
+installed using `npm ci --omit=dev`. The server's static root is `dist/public`;
+both `dist/index.cjs` and `dist/public` must accompany the backend deployment.
+
+### Publication status
+
+The user explicitly approved publication of the exposure update together with
+the limited security change and an update of the private GitHub repository's
+master branch. Publication completed on 2026-11-06 at the existing
+[SB1 Fond Dashboard](https://sb1-fond-dashboard.pplx.app) address, preserving
+site ID `851ee6d2-6e43-45ef-881e-25464487997e` and Public visibility. The publication
+receipt identifies app asset `9da74ef4-d402-487a-b023-3d0cb6778700`; the selected
+existing preview asset is `a82171d2-7246-4567-922c-7ee7e623ad5e`.
+
+A fresh browser context verified all 12 exposure panels on the public site at
+both 1440px and 375px. Expected chart counts matched: Polar 5/3/11, BNP 1/3/10,
+Guinness 5/3/10 and Candriam 5/3/8 for sectors/regions/countries. No mobile
+document overflow or runtime page errors were observed. The live benchmark page
+still lists eight saved series and 17 fund assignments. The comparison page
+correctly returns October N/A and available September results.
+
+The published HTML and CSS hashes exactly match the build manifest above.
+Publication performs two documented backend-placeholder substitutions in the
+JavaScript, replacing `__PORT_5000__` with `port/5000`. After those substitutions,
+the local bundle equals the delivered bundle byte-for-byte; no financial data
+or application code difference remains. The delivered JavaScript SHA-256 is
+`cd2c18be16438d3c54c0142039bcf65a234519307fefbe748b75a69e9d695fbc`.
